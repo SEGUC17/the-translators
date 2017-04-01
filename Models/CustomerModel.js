@@ -1,22 +1,19 @@
 var mongoose = require('mongoose');
 
-var CustomerSchema = mongoose.Schema(
+var ReviewandRateSchema = mongoose.Schema(
   {
-    id : {type:String},
-    gymname : {type:String , unique:true},
-    gymdescription : {type:String , unique:true},
-    gymreview :{type:String},
-    gymimgage:{ data: Buffer, contentType: String },
-    gymschedule:{ data: Buffer, contentType: String },
-    gymproduct : {type:String , unique: true},
-    gymrating: [ RatingSchema ]
+    GymName : {type:String , unique:true},
+    BusinessUserName {type : String , unique :true},
+    GymProduct : {type:String}
+    GymReview :{type:Array },
+    GymRating: [ RatingSchema ]
   });
 
-  CustomerSchema.findOne(id).populate('ratings._item').exec(function(err, user) {
+  ReviewandRateSchema.findOne(BusinessUserName).populate('ratings._item').exec(function(err, user) {
     if (err || !user)
     return next(new Error('User not found'));
-    console.log(user.gymrating);
+    console.log(user.GymRating);
   });
 
-  var user = mongoose.model ('Customer', CustomerSchema);
+  var user = mongoose.model ('Business', ReviewandRateSchema);
   module.exports = user;

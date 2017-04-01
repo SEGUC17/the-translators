@@ -11,21 +11,16 @@ router.get('/CustomerView', function(request, response){
 
 
 router.post('/CustomerView', function(request, response){
-  var id = request.body.id;
-	var gymname = request.body.gymname;
-	var gymdescription = request.body.gymdescription;
-	var gymproduct = request.body.gymproduct;
-  var gymrating = request.body.gymrating;
-  var gymimgage = request.body.gymimgage;
-  var gymschedule = request.body.gymschedule;
-  var gymreview = request.body.gymreview;
-	db_collection.find({Gymname:gymname}).toArray(function(err,result){
+  //res.send("hello visitor");
+	var GymName = request.body.GymName;
+  var username = request.body.BusinessUserName ;
+	db_collection.find({userame : BusinessUserName}).toArray(function(err,result){
 	 if(err){
 		 throw err;
 	 }
 	 else if(result.length)
 	 {
-		 response.render('CustomerView'); // selected gym page (gympage?)
+		 response.render('CustomerView'); // selected page
 }else {
 	console.log("no document found");
 	response.render('GeneralView'); // homepage
@@ -34,13 +29,33 @@ router.post('/CustomerView', function(request, response){
 
 }); // selected gym page
 
-router.get('/user/:id', function(request , response)
+
+router.get('/user/BusinessUserName', function(request , response)
 {
-  User.findOne({id: req.params.id}, function(err, user){ // not sure of re.param.id yet w momken username
-    res.json(user);
+  User.findOne({BusinessUserName: request.params.BusinessUserName}, function(err, user){
+    response.json(user);
   });
 }); //to retrieve name from database
 
+
+
+router.post('/CustomerView', function(request, res) {
+	console.log(request.body.BusinessUserName);
+	var username = request.body.BusinessUserName;
+	var GymName = request.body.GymName;
+	var GymProduct = request.body.GymProduct;
+  var GymReview = request.body.GymReview;
+  var GymRating = request.body.GymRating;
+	var document = { gymReview : GymReview, gymRating: GymRating};
+	db_collection.insert({review :GymReview , rate : GymRating });
+	res.render('CustomerView');
+
+}); // review and rate page
+
+
+router.get('/CustomerView', function(request, response){
+  response.render('CustomerView'); // review and rate page
+});
 
 
 

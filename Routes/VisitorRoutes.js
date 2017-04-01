@@ -5,12 +5,6 @@ var router = express.Router();
 router.get('/', function(req, res){
   res.console('this page');
 });
-app.post(‘/api/photo’,function(req,res){
- var newItem = new VisitorSchema();
- newItem.img.data = fs.readFileSync(req.files.userPhoto.path)
- newItem.img.contentType = ‘image/png’;
- newItem.save();
-});
 
 router.get('/VisitorView', function(request, response){
 	response.render('VisitorView');
@@ -18,20 +12,16 @@ router.get('/VisitorView', function(request, response){
 
 
 router.post('/VisitorView', function(request, response){
-	var gymname = request.body.gymname;
-	var gymdescription = request.body.gymdescription;
-	var gymproduct = request.body.gymproduct;
-  var gymrating = request.body.gymrating;
-  var gymimgage = request.body.gymimgage;
-  var gymschedule = request.body.gymschedule;
-  var gymreview = request.body.gymreview;
-	db_collection.find({Gymname:gymname}).toArray(function(err,result){
+  res.send("hello visitor");
+	var GymName = request.body.GymName;
+  var username = request.body.BusinessUserName ;
+	db_collection.find({userame : BusinessUserName}).toArray(function(err,result){
 	 if(err){
 		 throw err;
 	 }
 	 else if(result.length)
 	 {
-		 response.render('VisitorView'); // selected page
+		 response.render('CustomerView'); // selected page
 }else {
 	console.log("no document found");
 	response.render('GeneralView'); // homepage
