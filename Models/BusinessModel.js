@@ -1,19 +1,18 @@
 var mongoose = require('mongoose');
 
-var businessSchema = mongoose.Schema({
-	username:{
-		type:String,
-		required:true,
-		unique:true,
-		index: true
-	},
-	password:{
-		type:String,
-		required:true,
-		minlength:8
-	},
-});
+var BusinessSchema = mongoose.Schema({
+  GymName-location: {type: String, required: true, unique: true},
+  Address: {type: String, required: true},
+  Email: {type: String, required: true, unique: true},
+  BusinessUsername: {type: String, required: true, unique: true},
+  Password: {type: String, required: true},
+  Description: String,
+  PhoneNumber: {type: Number, required: true},
+  BankName: {type: String, required: true},
+  AccountNumber: {type: String, required: true},
+  Schedules: File,
+  Description: {type: String, required: ture}
+})
 
-var Business = mongoose.model('Business', businessSchema);
-
-module.exports = Business;
+var Gym = mongoose.model("Business", BusinessSchema);
+module.exports = Gym;
