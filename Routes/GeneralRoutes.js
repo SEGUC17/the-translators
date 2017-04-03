@@ -11,7 +11,7 @@ router.get('/', function(req, res){
 		res.send('didnt enter');
 		//gi is a flag (global ignor) to ignore upper or lower cases
        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-		Business.find({productname:regex} || {schedule:regex}, function(err, allBuiness){
+		Business.find({productname:regex} || {schedule:regex} || {gymname: regex}, function(err, allBuiness){
 			if(err){
 				console.log(err);
 			}else{
