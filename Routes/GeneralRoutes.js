@@ -11,25 +11,25 @@ router.get('/', function(req, res){
 		res.send('didnt enter');
 		//gi is a flag (global ignor) to ignore upper or lower cases
        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-		Business.find({productname:regex} || {schedule:regex} || {gymname: regex}, function(err, allBuiness){
+		Business.find({productname:regex} || {schedule:regex} || {gymname: regex}, function(err, businessController){
 			if(err){
 				console.log(err);
 			}else{
-				if(allBuiness.length < 1)
+				if(businessController.postproducts().length < 1)
 				{
 					var noMatch = 'No match for this query';
 				}
-				res.render('the route to the business product and service', {business:allBuiness});
+				res.render('the route to the business product and service', {Business: businessController.postproducts()});
 			}
 		})
 	}else{ //show all gym options if there is no search enteries
 		res.send('entered');
-		 Business.find({}, function(err, allBuiness){
+		 Business.find({}, function(err, businessController){
 			if(err){
 				console.log(err);
 			}else{
 				//res.send('print me');
-				res.send('the route to the business product and service', {business:allBuiness});
+				res.send('the route to the business product and service', {Business: businessController.postproducts()});
 			}
 		})
 	}
