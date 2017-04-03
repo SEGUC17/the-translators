@@ -9,7 +9,7 @@ let CustomerController = {
       var username = req.body.username;
       var gender = req.body.gender;
       var age = req.body.age;
-      var e-mail = req.body.email;
+      var email = req.body.email;
 
         Customer.find({username : username }).toArray (function(err,result)
         {

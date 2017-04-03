@@ -25,6 +25,7 @@ let BusinessController = {
                   }
                   else
                   {
+
                     res.status(404).send('Not found');
 
                   }
