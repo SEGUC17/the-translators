@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var CustomerController = require('./Controllers/CustomerController');
+var CustomerController = require('../Controllers/CustomerController.js');
 
-router.get('/', function(req, res){
+router.get('/checkout', function(req, res){
   res.render('this page');
 });
-router.get('/', CustomerController.viewCart);
+router.get('/viewcart', CustomerController.viewCart);
 
 module.exports = router;
