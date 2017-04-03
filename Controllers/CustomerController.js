@@ -22,8 +22,8 @@ CustomerViewGymPage: function(request, response){
 
 RetrieveUsername: function(request ,response)
 {
-  Gym.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
-    response.json(user)});
+  Business.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
+    response.json(Gym)});
 },
  //to retrieve name from database
 
