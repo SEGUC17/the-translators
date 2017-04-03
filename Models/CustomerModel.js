@@ -50,6 +50,9 @@ var visitorregistrationformSchema = mongoose.Schema({
     type:Boolean,
     required:true
 },
+shoppingcart:{
+  type:Array
+}
 
  })
 

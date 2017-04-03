@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var VisitorController = require('./controllers/VisitorController');
+var VisitorController = require('../controllers/VisitorController');
 
 router.get('/', function(req, res){
   res.console('this page');

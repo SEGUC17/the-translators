@@ -1,13 +1,13 @@
-let business = require ('../models/businessmodel');
+let business = require ('../Models/BusinessModel');
 let businesscontroller = {
 
 
 //function to upload products
 createproduct:function(req,res){
-  let uploadproducts = new Uploadproducts(req.body);
+  let uploadproducts = new Uploadproducts(req.body),
 
-  postproducts:function(){
-    let products = new Products (req.body);
+  postproducts:function(req,res){
+    let products = new Products(req.body);
     var products = new Array();
     products.post(function(err, products){
 
@@ -20,7 +20,7 @@ createproduct:function(req,res){
         res.render('businesshomepage');
       }
 
-    })
+    });
     uploadproducts.save(function(err, products){
 
       if(err){
@@ -35,4 +35,5 @@ createproduct:function(req,res){
 
   }
 
+}
 },

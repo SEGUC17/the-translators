@@ -1,29 +1,44 @@
 var mongoose = require('mongoose');
 
-
-
+//creating schema for uploading products 
 var ProductSchema = mongoose.Schema({
 
-  businessUserName:{type: String, required: true},//take input from login session
+  businessUserName:{
+    type: String,
+    required: true,
+    unique: true
+  },//take input from login session
 
-  prodname:String,
+  prodname: {
+    type: String
+  },
 
-  prodID:{type: String, required: true, unique: true},
+  prodID:{
+    type: String,
+    required: true,
+    unique: true
+  },
 
-  price: Number,
+  price: {
+    type:Number
+  },
 
-  image:{type: File},
+  image:{
+    type: File
+  },
 
-  ProductDescription: String,
+  ProductDescription: {
+    type: String
+  },
 
-  Category: {type: String, required: true}
+  Category: {
+    type: String,
+    required: true
+  }
 
-  //TotalPrice for hanna's checkout funx
 
 })
 
-var PlaceOrder = mongoose.model("Product", ProductSchema);
+var UploadProducts = mongoose.model("uploadproducts", ProductSchema);
 
-
-
-module.exports = PlaceOrder;
+module.exports = UploadProducts;

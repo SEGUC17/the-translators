@@ -1,5 +1,5 @@
 let visitor = require ('../models/visitormodel');
-let VisitorController = {
+let VisitorController =  {
 
 //function to make a visitor register to the website
 createregister:function(req, res){
