@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+//schema for business
 var BusinessSchema = mongoose.Schema({
   GymName-location: {type: String, required: true, unique: true},
   Address: {type: String, required: true},
@@ -14,5 +15,8 @@ var BusinessSchema = mongoose.Schema({
   Description: {type: String, required: ture}
 })
 
+//create the model
 var Gym = mongoose.model("Business", BusinessSchema);
+
+//export the model
 module.exports = Gym;

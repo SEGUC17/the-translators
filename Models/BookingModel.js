@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+//schema for booking classes
 var BookingSchema = mongoose.Schema({
   CustomerUsername:{type: String, required: true, unique: true},
   GymName: {type: String, required: true, unique: true},
@@ -10,6 +11,9 @@ var BookingSchema = mongoose.Schema({
   CustomerMobile: Number,
   Confirmation:{type: }
 })
+
+//create the model
 var Book = mongoose.model("Booking", BookingSchema);
 
+//export the model
 module.exports = Book;
