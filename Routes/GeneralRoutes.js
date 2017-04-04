@@ -8,7 +8,7 @@ var Business = require('../Models/BusinessModel'); //take router that has the pr
 
 router.get('/', function(req, res){
 	if(req.query.search){
-		res.send('didnt enter');
+		return res.send('didnt enter');
 		//gi is a flag (global ignor) to ignore upper or lower cases
        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 		Business.find({productname:regex} || {schedule:regex} || {gymname: regex}, function(err, businessController){
@@ -19,17 +19,17 @@ router.get('/', function(req, res){
 				{
 					var noMatch = 'No match for this query';
 				}
-				res.render('the route to the business product and service', {Business: businessController.postproducts()});
+				res.jason('the route to the business product and service')//, {Business: businessController});
 			}
 		})
 	}else{ //show all gym options if there is no search enteries
-		res.send('entered');
+		return res.send('entered');
 		 Business.find({}, function(err, businessController){
 			if(err){
-				console.log(err);
+				 console.log(err);
 			}else{
 				//res.send('print me');
-				res.send('the route to the business product and service', {Business: businessController.postproducts()});
+				res.jason('the route to the business product and service', {Business: businessController});
 			}
 		})
 	}

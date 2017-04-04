@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 //schema for business
 var BusinessSchema = mongoose.Schema({
-  GymName-location: {type: String, required: true, unique: true},
+  GymNamelocation: {type: String, required: true, unique: true},
   Address: {type: String, required: true},
   Email: {type: String, required: true, unique: true},
   BusinessUsername: {type: String, required: true, unique: true},
@@ -11,8 +11,8 @@ var BusinessSchema = mongoose.Schema({
   PhoneNumber: {type: Number, required: true},
   BankName: {type: String, required: true},
   AccountNumber: {type: String, required: true},
-  Schedules: File,
-  Description: {type: String, required: ture}
+  //Schedules: file, (eh da?)
+  Description: {type: String, required: true}
 })
 
 //create the model
