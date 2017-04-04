@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var purchaseSchema = mongoose.Schema({
+  //this schema is used now until we use stripe the payment module in sprint 2
     First Name: {//get from the profile of the user
       type:String,
       required:true,
