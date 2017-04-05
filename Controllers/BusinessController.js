@@ -1,5 +1,5 @@
-let Gym = require ('../Model/gym');
-let subscribecontroller={
+let Gym = require ('../Model/BusinessModel');
+let BusinessController={
 //     getsubscribebygym_name: function (gym_name,callback){
 //         var query= {'gym_name',gym_name};
 //         subscribe.find(query,callback);
@@ -13,18 +13,26 @@ let subscribecontroller={
 //         var query={'Email',}
 //     }
 // }
+        gymSubscribtion: function(req, res){
+            var gymSubscribe = new gym(req.body);
+            gymSubscribe.save(function(err)){
+                if(err)
+                    res.send(err.message);
+                else{
+                    res.send('Subscribtion successful');
+                    res.redirect('/'); //redirect to business owner home page
+                }
+            }
+        }
 
-        registerGym: function(req, res){
-            Gym.findOne({username: req.body.username}, function(err, foundGym){
-                if(err) throw err;
-                if(foundGym){
-                    res.json(success: false, message: "username not available");
-                } else {
-                    Gym.create({
-
-                    }, function(err, createdGym){
-
-                    })
+        uploadGymSchedule: function(req, res){
+            gym.findOne({username: req.user.username},
+                function (err){
+                    if(err)
+                    res.send(err.message);
+                    else{
+                        gym.save(req.file.schedules);
+                    }
                 }
             })
         }
