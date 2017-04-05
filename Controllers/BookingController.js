@@ -1,17 +1,36 @@
-var mongoose = require('mongoose');
-var DB_URI = 'monogdb://localhost:27017/GymPlatform';
+let Book = require('../Models/BookingModel');
 
-var BookingSchema = mongoose.Schema({
-    CustomerUsername: {type: String, required: true},
-    GymName: {type: String, required: true},
-    selectedClass:{type:String, required: true},
-    selectedTime: {type:Number, required: true},
-    selectedDate: {type:Date, required:true},
-    CustomerEmail: {type: String, required: true},
-    CustomerMobile: {type: Number, required:true},
-    ConfirmationStatus: {type: String, default: "Not Yet Confirmed"}
-});
+let BookingController =
+{
+    createBooking : function(req,res){
+         var CurrentUser = req.user.username;
+        var clientBooking = new Booking (req.body);
+        clientBooking._creator= CurrentUser._id; //check  this part
+        clientBooking.save(function(err){
+            if(err)
+                res.send(err.message);
+            else{
+                res.send('Booking request submitted succesfully!');
+                res.redirect('/');
+                }
+        })
+    },
+//     // This method is for business owners so that they can view their bookings
+//     getAllClientBookings : function (req, res){
 
-var Booking = mongooes.model('Bookings', BookingSchema);
+       
+//  },
+//     // This method is for customers to view their bookings 
+//     ViewMyBookings : function(req, res){
+//         Booking.findOne({username: req.user.username}).populate ('_creator').exec(function(err, bookings){
+//             if (err)return handleError(err);
+//         })
+       
+//     }
 
-module.exports = Booking;
+    //i need one method for the business owner so that he/she can change the confirmation status, based one
+    // which button was clicked or which item was selected from a dropdown list
+    
+}
+module.exports = BookingController;
+
