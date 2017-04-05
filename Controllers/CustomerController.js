@@ -3,46 +3,29 @@ let booking = require('../Models/BookingModel.js');
 let cust = require('../Models/CustomerModel.js');
 
 let CustomerController = {
-  // var shoppingCart = new customer.shoppingcart();
-  var orderedProduct = new Product();
+  var orderedProduct = req.body.uploadproducts;
   var qty = 0;
-  var currCustomer = new customer();
+  var currCustomer = req.body.customer;
   viewCart: function(req, res){
-    currCustomer.find({username: request.params.username}, function(err, currCustomer){
+    currCustomer.find({username: req.params.username}, function(err, currCustomer){
       if (err){
-        res.send(err.message);
-      }
-      else
-        res.json(currCustomer.shoppingcart);
-    })
-    // orderedProduct.find({}, function(err, Customer.shoppingcart){
-        // if(err){
-        //   res.send(err.message);
-        // }
-        // else{
-        //   res.render('/', {shoppingcart});
-        // }
-      })
+        res.send(err.message);}
+      else{
+        res.json(currCustomer.shoppingcart);}
+    }
   },
   addToCart:function(req, res){
-      shoppingcart.unshift(orderedProduct);
+      currCustomer.shoppingcart.unshift(req.body.orderedProduct);
       qty++;
       res.json(qty);
   },
   removeFromCart:function(req, res){
-    if(orderedProduct.shoppingcart.length > 0){
-      var index = shoppingCart.find({}, doc.getElementById("orderedProduct")){
-      shoppingCart.splice(index);
-      }
-    }
-    else{
-      res.json("shopping cart is empty!");
-    }
-  },
-  createBooking: function(req, res){
-    var bookingReq = new Booking();
-    // bookingReq.find({}, doc.getElementById("bookingReq.CustomerUsername"));
+      var index = currCustomer.shoppingcart.find({}, doc.getElementById("req.body.orderedProduct"))
+      res.splice(index);
   }
+  // createBooking: function(req, res){
+  //   var bookingReq = new Booking();
+  // }
 }
 
 module.exports = CustomerController;
