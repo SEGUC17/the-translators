@@ -2,6 +2,7 @@ let Book = require('../Models/BookingModel');
 
 let BookingController =
 {
+    //This method creates and saves Customers' booking request for Gym classes
     createBooking : function(req,res){
          var CurrentUser = req.user.username;
         var clientBooking = new Booking (req.body);
@@ -22,7 +23,7 @@ let BookingController =
                 res.send(err.message);
             }
             else{
-                res.render('MyBookings', {Bookings});
+                //res.render('MyBookings', {Bookings}); //need to create MyBooking page first
             }
         }
 
