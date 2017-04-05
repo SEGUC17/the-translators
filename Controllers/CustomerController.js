@@ -1,8 +1,9 @@
 let Gym = require ('../Models/BusinessModel.js');
 
+
 let CustomerController = {
 CustomerViewGymPage: function(request, response){
-  //res.send("hello visitor");
+response.send("hello visitor");
 	var GymName = request.body.GymName_location;
   var username = request.body.BusinessUsername ;
 	Gym.find({userame : BusinessUsername}).toArray(function(err,result){
@@ -22,14 +23,14 @@ CustomerViewGymPage: function(request, response){
 
 RetrieveUsername: function(request ,response)
 {
-  Business.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
+	//response.send('hello mariam');
+  Gym.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
     response.json(Gym)});
 },
  //to retrieve name from database
 
 
 ReviewandRatePage: function(request, res) {
-
 
 	console.log(request.body.BusinessUsername);
 	var username = request.body.BusinessUsername;
@@ -38,7 +39,7 @@ ReviewandRatePage: function(request, res) {
   var GymReview = request.body.GymReview;
   var GymRating = request.body.GymRating;
 	var document = { gymReview : GymReview, gymRating: GymRating};
-	Business.insert({review :GymReview , rate : GymRating });
+	Gym.insert({review :GymReview , rate : GymRating });
 	res.render('CustomerView');
 
 } // review and rate page
