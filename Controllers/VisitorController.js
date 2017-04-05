@@ -1,4 +1,4 @@
-let visitor = require ('../models/visitormodel');
+let visitor = require ('../Models/VisitorModel');
 let VisitorController =  {
 
 //function to make a visitor register to the website
@@ -11,7 +11,7 @@ return done(err);
 
 var password = req.body.pwd[0];
 var password2 = req.body.pwd[1];
-req.checkBody('pwd[0]','password donot match').equals(password2);
+req.checkBody('pwd[0]','passwords donot match').equals(password2);
 
 let visitor = new Visitor(req.body);
 
@@ -21,9 +21,12 @@ if (err){
   console.log(err);
 }
 else {
-  console.log(visitor);
+  //console.log(visitor);
 // get a page not url
   res.render('clientprofile');
 }
 })
-},
+})
+}
+}
+module.exports = VisitorController;
