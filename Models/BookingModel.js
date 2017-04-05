@@ -15,4 +15,3 @@ var BookingSchema = mongoose.Schema({
 var Booking = mongooes.model('Bookings', BookingSchema);
 
 module.exports = Booking;
-let Book = require('../Models/BookingModel');

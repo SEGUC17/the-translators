@@ -15,12 +15,24 @@ let BookingController =
                 }
         })
     },
+     // This method is for customers to view their bookings 
+    ViewMyBookings : function(req,res){
+        Booking.find({ username:req.user.username},function(err){
+            if (err){
+                res.send(err.message);
+            }
+            else{
+                res.render('MyBookings', {Bookings});
+            }
+        }
+
+        )
+    }
 //     // This method is for business owners so that they can view their bookings
 //     getAllClientBookings : function (req, res){
 
        
 //  },
-//     // This method is for customers to view their bookings 
 //     ViewMyBookings : function(req, res){
 //         Booking.findOne({username: req.user.username}).populate ('_creator').exec(function(err, bookings){
 //             if (err)return handleError(err);
