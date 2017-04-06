@@ -1,46 +1,54 @@
 var mongoose = require('mongoose');
 
-var purchaseSchema = mongoose.Schema({
-  //this schema is used now until we use stripe the payment module in sprint 2
+//creating schema for visitor registration form
+var visitorregistrationformSchema = mongoose.Schema({
 
-    FirstName: {//get from the profile of the user
-      type:String,
-      required:true,
-    },
-    LastName: {//get from the profile of the user
-      type:String,
-      required:true,
-    },
-    email:{// get from the profile of the user
-      type: String,
-      required: true,
-    },
-    mobileNum: {
-      type: String,
-      required: true,
-    },
-    Prices: {// total price
-        type:Number,
-        required: true,
-    },
-    CreditcardHolderName: {
-      type: String,
-      required: true,
-    },
-    CreditCardNum: {
-      type:Number,
-      required:true,
+  firstname:{
+    type:String,
+    required:true
+  },
 
-    },
-    CreditcardExpirationdate: {
-      type: Date,
-      required: true,
-    },
-    BillingAddress: {
-      type:String,
-      required:true,
-    }
+  lastname:{
+    type:String,
+    required:true
+  },
+
+  age:{
+    type:Number,
+    required:true
+  },
+
+  username:{
+    type:String,
+    required:true,
+    unique:true
+},
+
+  email:{
+    type: String,
+    required:true,
+    unique:true
+},
+
+  password:{
+    type:String,
+    required:true,
+    minlength:8
+},
+
+  mobilenumber:{
+    type:Number,
+    required:true
+},
+  gender:{
+    type:Boolean,
+    required:true
+},
+shoppingcart:{
+  type:Array
 }
-)
 
-module.exports = purchaseSchema;
+ })
+
+var Customer = mongoose.model("customer",visitorregistrationformSchema);
+module.exports = Customer;
