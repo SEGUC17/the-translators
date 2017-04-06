@@ -5,7 +5,7 @@ var ProductSchema = mongoose.Schema({
   prodname: {type:String},
   prodID: {type: String, required: true, unique: true},
   price: {type:Number},
-  image: {type:File},
+  // image: {type:File},
   ProductDescription: {type:String},
   Category: {type: String, required: true},
 })
