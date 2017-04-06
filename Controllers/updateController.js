@@ -6,7 +6,7 @@ let updateController = {
     updateProfile:function(businessToUpdate,res){
         var BusinessEmail = businessToUpdate.email;
         //First, find this businessToUpdate in the database.
-        BusinessDB.findOne({email:BusinessEmail},function(err,businessInDB){
+        BusinessDB.findOne({BusinessUsername:username},function(err,businessInDB){
             if(err)
             {//Internal Error
                 console.log('error in updateProfile');
@@ -26,9 +26,9 @@ let updateController = {
                     {
                         businessInDB.Email = businessToUpdate.Email;
                     }
-                    if(businessToUpdate.BusinessUsername)
-                    {
-                        businessInDB.BusinessUsername = businessToUpdate.BusinessUsername;
+                    // if(businessToUpdate.BusinessUsername)
+                    // {
+                    //     businessInDB.BusinessUsername = businessToUpdate.BusinessUsername;
                     }
                     if(businessToUpdate.Password)
                     {
@@ -68,7 +68,7 @@ let updateController = {
                     businessInDB.save(function(err,updatedBusiness){  // SAVING FUNCTION
                         if(err)
                         {
-                            res.status(500).json('CANNOT SAV UPDATED OBJECT IN BUSINESS DB');
+                            res.status(500).json('CANNOT SAVE UPDATED OBJECT IN BUSINESS DB');
                         }else{
                             res.status(200).json(updatedBusiness);
                         }

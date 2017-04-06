@@ -18,8 +18,3 @@ app.use(Grouter);
 app.use(Brouter);
 app.use(Crouter);
 app.use(Vrouter);
-
-app.listen(8080, function()
-{
-  console.log('Server started in 8080');
-});

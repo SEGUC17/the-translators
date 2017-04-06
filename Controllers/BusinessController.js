@@ -1,10 +1,10 @@
 
 //MulterDepndencies
 
-var multer = require('multer');
-var workData = multer({dest:'views/uploads'});
-var type = workData.single('upload');
-var fileStream = require('fs');
+// var multer = require('multer');
+// var workData = multer({dest:'views/uploads'});
+// var type = workData.single('upload');
+// var fileStream = require('fs');
 
 let Business = require('../Models/BusinessModel');
 
@@ -23,7 +23,7 @@ let BusinessController = {
                 Email:req.decoded._doc.email,
                 GymName_location:req.body.GymName_location,
                 Address:req.body.Address,
-                BusinessUsername:req.body.BusinessUsername,
+              //  BusinessUsername:req.body.BusinessUsername,
                 Password:req.body.Password,
                 Description:req.body.Description,
                 PhoneNumber:req.body.PhoneNumber,

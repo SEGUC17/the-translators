@@ -4,10 +4,10 @@ var router = express.Router();
 
 var BusinessController = require('../Controllers/BusinessController');
 
-var multer = require('multer');
-var workData = multer({dest:'views/uploads'});
-var type = workData.single('upload');
-var fileStream = require('fs');
+// var multer = require('multer');
+// var workData = multer({dest:'views/uploads'});
+// var type = workData.single('upload');
+// var fileStream = require('fs');
 
 
 
