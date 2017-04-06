@@ -6,7 +6,7 @@ var businessController = require('../Controllers/BusinessController');
 
 var Business = require('../Models/BusinessModel'); //take router that has the productname and schedule schema
 
-//search function 
+//search function
 router.get('/', function(req, res){
 	if(req.query.search){
 		return res.send('didnt enter');
