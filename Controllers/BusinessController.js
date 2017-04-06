@@ -2,7 +2,8 @@
 let business = require ('../Models/BusinessModel.js');
 let p = require ('../Models/ProductModel.js');
 
-let BusinessController = {//function to upload products
+//function to upload products
+let BusinessController = {
 createproduct:function(req,res){
  let prod = new uploadproducts();
 },
