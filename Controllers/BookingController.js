@@ -22,27 +22,14 @@ let BookingController =
             if (err){
                 res.send(err.message);
             }
-            else{
-                //res.render('MyBookings', {Bookings}); //need to create MyBooking page first
-            }
+          
         }
 
         )
     }
-//     // This method is for business owners so that they can view their bookings
-//     getAllClientBookings : function (req, res){
 
-       
-//  },
-//     ViewMyBookings : function(req, res){
-//         Booking.findOne({username: req.user.username}).populate ('_creator').exec(function(err, bookings){
-//             if (err)return handleError(err);
-//         })
-       
-//     }
 
-    //i need one method for the business owner so that he/she can change the confirmation status, based one
-    // which button was clicked or which item was selected from a dropdown list
+  
     
 }
 module.exports = BookingController;
