@@ -1,10 +1,10 @@
 //identifying dependencies
 var express = require('express');
-
 var router = express.Router();
+var BusinessController = require('../Controllers/BusinessController.js');
 
-var businessController = require('../Controllers/BusinessController');
-
+router.get('/business', function(req, res){
+  res.send('this business page');
 //initialize user
 var Business = require('../Models/BusinessModel');
 
@@ -14,6 +14,9 @@ router.get('/businesslogin', function(req, res){
 
 // route to business profile page
 router.get('/profile', BusinessController.getBusiness);
+
+router.post('/businessownersubscription', BusinessController.gymsubscription);
+router.post('/updatedgymschedule', BusinessController.uploadGymSchedule);
 
 //initialize passport and passport-local
 var passport = require('passport');
@@ -54,6 +57,8 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+
+
 //local cause we are using a local database. this helps to authorize users for login
 router.post('/businesslogin', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/businesslogin', failureFlash: true}), function(req, res) {  
   });
@@ -66,5 +71,9 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/businesslogin');
 });
+
+router.get('/uploadproducts', BusinessController.createproduct);
+router.post('/products', BusinessController.createproduct);
+
 
 module.exports = router;

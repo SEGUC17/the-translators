@@ -1,6 +1,7 @@
 var bcrypt = require('bcryptjs');
 
 let Customer = require('../Models/CustomerModel');
+let Gym = require ('../Models/BusinessModel.js');
 
 let customerController = {
 
@@ -21,7 +22,7 @@ let customerController = {
 		    if(err) throw err;
 		    callback(null, isMatch);
 		});
-	}
+	},
 
 	getCustomer:function(req, res){
 
@@ -47,6 +48,52 @@ let customerController = {
 
       })
     }
+
+	},
+	
+CustomerViewGymPage: function(request, response){
+response.send("hello visitor");
+	var GymName = request.body.GymName_location;
+  var username = request.body.BusinessUsername ;
+	Gym.find({userame : BusinessUsername}).toArray(function(err,result){
+	 if(err){
+		 throw err;
+	 }
+	 else if(result.length)
+	 {
+		 response.render('CustomerView'); // selected page
+}else {
+	console.log("no document found");
+	response.render('GeneralView'); // homepage
+>>>>>>> b0d5e2337d7cab5b04c187d5cda4b110593420d4
 }
+})
+}, // selected gym page
+
+
+RetrieveUsername: function(request ,response)
+{
+	//response.send('hello mariam');
+  Gym.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
+    response.json(Gym)});
+},
+ //to retrieve name from database
+
+
+ReviewandRatePage: function(request, res) {
+
+	console.log(request.body.BusinessUsername);
+	var username = request.body.BusinessUsername;
+	var GymName = request.body.GymName_location;
+	var GymProduct = request.body.ProdList;
+  var GymReview = request.body.GymReview;
+  var GymRating = request.body.GymRating;
+	var document = { gymReview : GymReview, gymRating: GymRating};
+	Gym.insert({review :GymReview , rate : GymRating });
+	res.render('CustomerView');
+
+} // review and rate page
+
+};
 
 module.exports = customerController;

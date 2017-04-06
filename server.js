@@ -9,8 +9,8 @@ var Grouter = require('./Routes/GeneralRoutes.js');
 var Brouter = require('./Routes/BusinessRoutes.js');
 var Crouter = require('./Routes/CustomerRoutes.js');
 var DB_URI = "mongodb://localhost:27017/GymPlatform";
-
 var app = express();
+//var multer = require('multer');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
@@ -39,6 +39,7 @@ app.use(function(req, res, next){
   res.locals.user = req.user || null;
 	next();
 });
+
 
 mongoose.connect(DB_URI);
 app.use(Grouter);
