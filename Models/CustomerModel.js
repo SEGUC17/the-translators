@@ -2,11 +2,12 @@ var mongoose = require('mongoose');
 
 var purchaseSchema = mongoose.Schema({
   //this schema is used now until we use stripe the payment module in sprint 2
-    First Name: {//get from the profile of the user
+
+    FirstName: {//get from the profile of the user
       type:String,
       required:true,
     },
-    Last Name: {//get from the profile of the user
+    LastName: {//get from the profile of the user
       type:String,
       required:true,
     },
@@ -14,7 +15,7 @@ var purchaseSchema = mongoose.Schema({
       type: String,
       required: true,
     },
-    mobile Num: {
+    mobileNum: {
       type: String,
       required: true,
     },
@@ -22,24 +23,24 @@ var purchaseSchema = mongoose.Schema({
         type:Number,
         required: true,
     },
-    Credit-card Holder Name: {
+    CreditcardHolderName: {
       type: String,
       required: true,
     },
-    Credit Card Num: {
+    CreditCardNum: {
       type:Number,
       required:true,
 
     },
-    Credit-card Expiration date: {
+    CreditcardExpirationdate: {
       type: Date,
       required: true,
     },
-    Billing Address: {
+    BillingAddress: {
       type:String,
       required:true,
     }
 }
 )
 
-module.exports = CustomerModel;
+module.exports = purchaseSchema;

@@ -1,11 +1,12 @@
 var mongoose = require('mongoose');
 
-var ProductSchema = mongoose.Schema({
+var Schema = mongoose.Schema;
+var ProductSchema = new Schema({
   businessUserName:{type: String, required: true, unique:true},//take input from login session
   prodname:{type: String},
   prodID:{type: String, required: true, unique: true},
   price: {type: Number, required:true},
-  image:{type: File},
+  image:{type: Schema.Types.Mixed},
   ProductDescription: {type: String, required: true},
   Category: {type: String, required: true},
 })
