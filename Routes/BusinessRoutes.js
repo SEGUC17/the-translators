@@ -5,6 +5,8 @@ var BusinessController = require('../Controllers/BusinessController');
 
 router.get('/editproducts', BusinessController.editproducts);
 
+router.get('/editproducts', BusinessController.editproducts);
+
 router.get('/business', function(req, res){
   res.send('this business page');
 //initialize user
@@ -13,7 +15,6 @@ var Business = require('../Models/BusinessModel');
 router.get('/businesslogin', function(req, res){
   res.send('this is business login page');
 });
-
 // route to business profile page
 router.get('/profile', BusinessController.getBusiness);
 
@@ -39,6 +40,8 @@ passport.use(new localStrategy(
       Business.comparePassword(password, business.password, function(err, isMatch){
       if(err) throw err;
 
+//update profile and followed by a redirect
+router.post('/BusinessProfile/edit',BusinessController.updateProfile);
       //check for the match
       if(isMatch){
         return done(null, business);

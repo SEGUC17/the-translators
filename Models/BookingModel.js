@@ -4,46 +4,48 @@ var DB_URI = 'monogdb://localhost:27017/GymPlatform';
 
 var BookingSchema = mongoose.Schema({
 
+
     CustomerUsername: {
-    	type: String, 
+    	type: String,
     	required: true
     },
-    
+
     GymNameLocation: {
-    	type: String, 
+    	type: String,
     	required: true
     },
-    
+
     selectedClass:{
-    	type:String, 
+    	type:String,
     	required: true
     },
-    
+
     selectedTime: {
-    	type:Number, 
+    	type:Number,
     	required: true
     },
-    
+
     selectedDate: {
-    	type:Date, 
+    	type:Date,
     	required:true
     },
-    
+
     CustomerEmail: {
-    	type: String, 
+    	type: String,
     	required: true
     },
-    
+
     CustomerMobile: {
-    	type: Number, 
+    	type: Number,
     	required:true
     },
-    
+
     ConfirmationStatus: {
-    	type: String, 
-    	enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'], 
+    	type: String,
+    	enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'],
     	default: "Not Yet Confirmed"
     }
+>>>>>>> 4f02fd8983bbcb036112c8796e660ce15320d4d8
 });
 
 var Booking = mongoose.model('Bookings', BookingSchema);

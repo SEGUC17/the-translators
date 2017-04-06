@@ -1,58 +1,43 @@
+var mongoose = require('mongoose');
 
-var mongoose= require ('mongoose');
 var Schema = mongoose.Schema;
-var gymSchema =  new Schema({
-    
-    GymNameLocation:{
-        type: String, 
-        required: true, 
-        unique:true
-    },
 
-    address:{
-        type: String, 
-        required:true
-    },
-    
-    Email:{
-        type: String, 
-        required:true,
-        unique:true
-    },
-    
-    username:{
-        type:String,
-        required:true,
-        unique:true
-    },
-    
-    password:{
-        type: String, 
-        required:true
-    },
+var gymSchema = mongoose.Schema({
 
-    description:{
-        type:String
-    },
-    
-    phoneNumber:{
-        type:Number,
-        required:true
-    },
-    
-    BankName:{
-        type:String,
-        required:true
-    },
-    
-    AccountNumber:{
-        type:String,
-        required:true
-    },
-    
-    schedules:{
-        type:Schema.Types.Mixed
-    },
+  GymName_location: {type: String, required: true, unique: true},
+
+  Address: {type: String, required: true},
+
+  Email: {type: String, required: true, unique: true},
+
+  BusinessUsername: {type: String, required: true, unique: true},
+
+  Password: {type: String, required: true},
+
+  Description: String,
+
+  PhoneNumber: {type: Number, required: true},
+
+  BankName: {type: String, required: true},
+
+  AccountNumber: {type: String, required: true},
+
+  Schedules: [String],
+
+  Description: {type: String, required: true},
+
+  ProdList: Array,
+  
+  GymReview: Array,
+        
+  GymRating: [RatingSchema]
+
+})
+
+var Rating = BusinessSchema.find(BusinessUsername).populate('ratings._item').exec(function(err, user){
+  if(err || !user)
+  return next(new Error('User not found!'));
+  console.log(user.GymRating);
 });
 
 var Rating = BusinessSchema.find(BusinessUsername).populate('ratings._item').exec(function(err, user){
@@ -61,6 +46,6 @@ var Rating = BusinessSchema.find(BusinessUsername).populate('ratings._item').exe
   console.log(user.GymRating);
 });
 
+var Gym = mongoose.model("Gym", gymSchema);
 
-var gym =  mongoose.model("Gym", gymSchema);
-module.exports= gym;
+module.exports = Gym;

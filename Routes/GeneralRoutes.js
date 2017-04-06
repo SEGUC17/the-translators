@@ -1,6 +1,8 @@
 var express = require('express');
 
 var router = express.Router();
+var GeneralController = require('/home/norhan/Desktop/the-translators/Controllers/GeneralController.js');
+
 
 var GeneralController = require('/home/norhan/Desktop/the-translators/Controllers/GeneralController.js');
 
@@ -38,6 +40,8 @@ router.get('/', function(req, res){
 		})
 	}
 });
+router.get('/Filter', GeneralController.Filter);
+router.post('/Filter', GeneralController.Filter);
 
 router.get('/Filter', GeneralController.Filter);
 router.post('/Filter', GeneralController.Filter);

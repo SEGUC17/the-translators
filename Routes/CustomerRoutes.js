@@ -1,14 +1,18 @@
 var express = require('express');
-
 var router = express.Router();
+var CustomerController = require('../Controllers/CustomerController');
 
 router.get('/checkout', function(req, res){
   res.render('this page');
-});
+
+router.post('/CustomerProfile/edit',CustomerController.updateProfile); //update profile and followed by a redirect
+module.exports =router;
 
 router.get('/', function(req, res){
   res.send('this home page');
+
 });
+router.get('/viewcart', CustomerController.viewCart);
 
  var CustomerController = require('../Controllers/CustomerController');
  var BookingController = require('../Controllers/BookingController');
@@ -64,6 +68,7 @@ passport.deserializeUser(function(id, done) {
     done(err, customer);
   });
 });
+//router.get('/viewcart', CustomerController.viewCart);
 
 //local cause we are using a local database. this helps to authorize users for login
 router.post('/customerlogin', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/customerlogin', failureFlash: true}), function(req, res) {
@@ -80,7 +85,6 @@ router.get('/logout', function(req, res){
 
  router.post("/BookingRequest", BookingController.createBooking);
 
-router.get('/CustomerView',CustomerController.CustomerViewGymPage);
 
 
 

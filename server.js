@@ -1,11 +1,16 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+
+var eventsCache = require('eventcache');
+
+
 var flash = require('connect-flash');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var session = require('express-session');
-var eventsCache = require('eventcache');
+
+
 var DB_URI = "mongodb://localhost:27017/GymPlatform";
 var app = express();
 
@@ -39,6 +44,7 @@ app.use(function(req, res, next){
 
 
 mongoose.connect(DB_URI);
+
 app.use(require('./Routes/GeneralRoutes.js'));
 app.use(require('./Routes/BusinessRoutes.js'));
 app.use(require('./Routes/CustomerRoutes.js'));

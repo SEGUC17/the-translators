@@ -1,11 +1,13 @@
+let uploadproducts = require ('../Models/ProductModel');
 let Business = require('../Models/BusinessModels');
 let uploadproducts = require ('../Models/ProductModel.js');
 
 var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
+var updateController = require("./updateController");
 
 //function to upload products
-let BusinessController = 
+let BusinessController =
 {
 
   createproduct:function(req,res){
@@ -16,7 +18,7 @@ let BusinessController =
     let products = new Products(req.body);
 
     //var products = new Array();
-    products.post(function(err, products){      
+    products.post(function(err, products){
         if(err){
           res.send(err.message);
           console.log(err.message);
@@ -24,9 +26,9 @@ let BusinessController =
        else{
          console.log( document.getElementById().innerHTML = products );
          res.render('businesshomepage');
-       }    
+       }
      });
-     uploadproducts.save(function(err, products){      
+     uploadproducts.save(function(err, products){
       if(err){
         res.send(err.message)
         console.log(err);
@@ -35,7 +37,7 @@ let BusinessController =
         console.log(products);
         res.render('businesshomepage');
       }
-    }) 
+    })
    },
 
    ymsubscription: function(req, res){
@@ -106,7 +108,57 @@ let BusinessController =
     res.render ('BusinessView', {business: result});
   }
 })
-}
+},
+
+ //Taking info from user to update
+    updateProfile:function(req,res){
+        // creating an new user object if any of the attributes arent in the body
+             // it wont update in the updateController
+
+            let incomingReq = new Business({
+                Email:req.decoded._doc.email,
+                GymName_location:req.body.GymName_location,
+                Address:req.body.Address,
+              //  BusinessUsername:req.body.BusinessUsername,
+                Password:req.body.Password,
+                Description:req.body.Description,
+                PhoneNumber:req.body.PhoneNumber,
+                BankName:req.body.BankName,
+                AccountNumber:req.body.AccountNumber,
+                Description:req.body.Description
+
+            });
+            //For schedule only
+            var targetPath = "";
+            if(!req.file)
+            {
+                targetPath = "views/uploads/default.jpg";
+            }else{
+                targetPath = 'views/uploads/' + req.file.originalname;
+                var file = fileStream.createReadStream(req.file.path);
+                var final = fileStream.createWriteStream(targetPath);
+                file.pipe(final);
+                fileStream.unlink(req.file.path);
+            }
+            if(targetPath != "views/uploads/default.jpg")
+            {
+                incomingReq.Schedules = targetPath;
+            }
+            //Updating the business
+            updateController.updateProfile(incomingReq,res);
+
+            //redirecting to business view
+            Business.find({BusinessUsername :incomingReq.BusinessUsername}).toArray(function(err,result){
+             if(err){
+               throw err;
+             }
+             else
+             {
+               response.render('BusinessProfile/view'); // selected page
+          }
+          })
+
+    }
 }
 
 module.exports = BusinessController;
