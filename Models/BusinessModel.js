@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var mongoose= require ('mongoose');
 var Schema = mongoose.Schema;
 var gymSchema =  new Schema({
@@ -23,7 +24,19 @@ var gymSchema =  new Schema({
         {type:String,required:true},
     schedules:
         {type:Schema.Types.Mixed},
+        ProdList: Array,
+        GymReview: Array,
+        GymRating: [RatingSchema]
 
+});
+
+
+
+
+var Rating = BusinessSchema.find(BusinessUsername).populate('ratings._item').exec(function(err, user){
+  if(err || !user)
+  return next(new Error('User not found!'));
+  console.log(user.GymRating);
 });
 
 var gym =  mongoose.model("Gym", gymSchema);
