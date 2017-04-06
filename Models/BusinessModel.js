@@ -27,5 +27,5 @@ var gymSchema =  new Schema({
 
 });
 
-var gym=  mongoose.model("Gym", gymSchema);
+var gym =  mongoose.model("Gym", gymSchema);
 module.exports= gym;

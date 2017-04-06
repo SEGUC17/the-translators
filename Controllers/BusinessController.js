@@ -2,14 +2,14 @@
 let Gym = require ('/Users/benyamin/Desktop/code/Models/BusinessModel.js');
 let BusinessController={
 
-        gymSubscribtion: function(req, res){
+        gymsubscription: function(req, res){
             var gymSubscribe = new gym(req.body);
             gymSubscribe.save(function(err, gymsubscription){
                 if(err)
                     res.send(err.message);
                 else{
-                    res.send('Subscribtion successful');
-                    res.redirect('/'); //redirect to business owner home page
+                    res.send('Subscription successful');
+                    //res.redirect('/'); //redirect to business owner home page
                 }
             })
         },

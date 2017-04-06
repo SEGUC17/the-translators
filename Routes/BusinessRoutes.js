@@ -3,7 +3,10 @@ var router = express.Router();
 
 var BusinessController = require('../Controllers/BusinessController');
 
-router.post('/businessownersubscribtion', BusinessController.gymSubscribtion);
+ router.get('/', function(req,res){
+  return res.send('Welcome to our platform') });
+
+router.post('/businessownersubscription', BusinessController.gymsubscription);
 
 router.post('/updatedgymschedule', BusinessController.uploadGymSchedule);
 
