@@ -63,4 +63,7 @@ router.get('/logout', function(req, res){
 	res.redirect('/customerlogin');
 });
 
+ router.post("/BookingRequest", BookingController.createBooking);
+
+
 module.exports = router;
