@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var VisitorController = require('../Controllers/VisitorController.js');
 
 router.get('/visitor', function(req, res){
@@ -12,5 +13,10 @@ router.get('/register', function(req,res){
 })
 
 router.post('/register', VisitorController.createregister);
+
+router.get('/VisitorView', VisitorController.VisitorViewGymPage);
+
+
+
 
 module.exports = router;

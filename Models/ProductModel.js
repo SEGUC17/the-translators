@@ -23,10 +23,7 @@ var ProductSchema = mongoose.Schema({
     type:Number
   },
 
-  image:{
-  //  required:true
-
-  },
+   image:File,
 
   ProductDescription: {
     type: String
@@ -43,3 +40,8 @@ var ProductSchema = mongoose.Schema({
 var UploadProducts = mongoose.model("uploadproducts", ProductSchema);
 
 module.exports = UploadProducts;
+
+var PlaceOrder = mongoose.model("Product", ProductSchema);
+
+//export the model
+module.exports = PlaceOrder;
