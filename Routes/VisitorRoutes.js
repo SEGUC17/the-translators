@@ -16,7 +16,4 @@ router.post('/register', VisitorController.createregister);
 
 router.get('/VisitorView', VisitorController.VisitorViewGymPage);
 
-
-
-
 module.exports = router;

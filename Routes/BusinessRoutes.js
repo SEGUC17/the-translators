@@ -25,26 +25,26 @@ var localStrategy = require('passport-local').Strategy;
 // compares the username with available usernames and validates password
 passport.use(new localStrategy(
   function(username, password, done) {
-  	Business.getBusinessByUsername(username, function(err, business){
-  		if(err) throw err;
-			console.log(business)
-  		//if there is not a user
-  		if(!business){
-  			return done(null,false, {message: 'You are not registered'});
-  		}
+    Business.getBusinessByUsername(username, function(err, business){
+      if(err) throw err;
+      console.log(business)
+      //if there is not a user
+      if(!business){
+        return done(null,false, {message: 'You are not registered'});
+      }
 
-  		//if there is a match
-  		Business.comparePassword(password, business.password, function(err, isMatch){
-  		if(err) throw err;
+      //if there is a match
+      Business.comparePassword(password, business.password, function(err, isMatch){
+      if(err) throw err;
 
-  		//check for the match
-  		if(isMatch){
-  			return done(null, business);
-  		} else {
-  			return done(null,false, {message: 'Invalid Password'});
-  		}
-  		});
-  	});
+      //check for the match
+      if(isMatch){
+        return done(null, business);
+      } else {
+        return done(null,false, {message: 'Invalid Password'});
+      }
+      });
+    });
   }));
 
 passport.serializeUser(function(business, done) {
@@ -65,11 +65,11 @@ router.post('/businesslogin', passport.authenticate('local', {successRedirect: '
 
 //route to logout
 router.get('/logout', function(req, res){
-	req.logout();
+  req.logout();
 
-	req.flash('success_msg', 'You have logout');
+  req.flash('success_msg', 'You have logout');
 
-	res.redirect('/businesslogin');
+  res.redirect('/businesslogin');
 });
 
 router.get('/uploadproducts', BusinessController.createproduct);
