@@ -2,32 +2,31 @@ let Customer = require('../Models/CustomerModel.js');
 
 let CustomerController = {
 
-    getAllCustomers:function(req, res){
+    getCustomer:function(req, res){
 
-      var Firstname =  req.body.firstname;
-      var Lastname = req.body.lastname;
-      var username = req.body.username;
-      var gender = req.body.gender;
-      var age = req.body.age;
-      var email = req.body.email;
+      // retrieve username of the customer from session
+      var username = req.user.username;
 
-        Customer.find({username : username }).toArray (function(err,result)
-        {
-            if(err)
-              throw err;
-            else if (result.length)
-            {
-              res.render ('CustomerView');
-            }
-            else
-            {
-              res.status(404).send('Not found');
+      // fetch the logged in customer from the database using the username retrieved
+      Customer.findOne({username : username }, function(err,result)
+      {
+          // handle error
+          if(err){
+            throw err;
+          }
+          // show 404 status if no result returned
+          else if(!result){
+            res.status(404).send('Not found');
+          }
+          // redirect to the CustomerView page and send the customer object fetched
+          else
+          {
+            res.render ('CustomerView', {customer: result});
+          }
 
-            }
-
-        })
-      }
+      })
     }
+  }
     //view page profile
 
-      module.exports = CustomerController ;
+  module.exports = CustomerController ;
