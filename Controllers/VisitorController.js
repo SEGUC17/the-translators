@@ -2,7 +2,7 @@ let Gym = require ('../Models/BusinessModel.js');
 
 let VisitorController ={
 VisitorViewGymPage:function(request, response){
-	//response.send('hello World');
+	response.send('hello World');
 	var GymName = request.body.GymName_location;
   var username = request.body.BusinessUsername ;
 	Gym.find({userame : BusinessUsername}).toArray(function(err,result){
