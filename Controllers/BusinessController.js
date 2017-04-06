@@ -2,37 +2,30 @@ let Business = require('../Models/BusinessModel');
 
 let BusinessController = {
 
-    getAllBusinesses:function(req, res){
+    getBusiness:function(req, res){
 
-    var gymname = req.body.GymName_location ;
-    var address = req.body.Address;
-    var email = req.body.Email;
-    var username = req.body.BusinessUsername;
-    var description =  req.body.Description;
-    var phonenumber = req.body.PhoneNumber ;
-    var schedule = req.body.Schedules;
-    var product = req.body.ProdList;
-    var review = req.body.GymReview ;
-    var rate = req.body.GymRating;
+      // retrieve the username of the business from the session
+      var username = req.user.username;
 
-              Business.find({username : username }).toArray (function(err,result)
-              {
-                  if(err)
-                    throw err;
-                  else if (result.length)
-                  {
-                    res.render ('CustomerView');
-                  }
-                  else
-                  {
-
-                    res.status(404).send('Not found');
-
-                  }
-
-              })
+      // fetch the logged in business from the database using the username rerieved
+      Business.findOne({username : username },function(err,result)
+      {
+          // handle error
+          if(err){
+            throw err;
           }
-        }
-          //view page profile
+          // show 404 status if no result returned
+          else if(!result){
+            res.status(404).send('Not found');
+          }
+          // redirect to the BusinessView page and send the business object fetched
+          else
+          {
+            res.render ('BusinessView', {business: result});
+          }
 
-          module.exports = BusinessController ;
+      })
+    }
+  }
+
+  module.exports = BusinessController ;
