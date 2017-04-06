@@ -1,6 +1,6 @@
-let Book = require('../Models/BookingModel');
+var Book = require('../Models/BookingModel');
 
-let BookingController =
+var BookingController =
 {
     //This method creates and saves Customers' booking request for Gym classes
     createBooking : function(req,res){
@@ -18,11 +18,13 @@ let BookingController =
     },
      // This method is for customers to view their bookings 
     ViewMyBookings : function(req,res){
-        Booking.find({ username:req.user.username},function(err){
+        Booking.find({ username:req.user.username},function(err, bookings){
             if (err){
                 res.send(err.message);
             }
-          
+            else{
+                res.render('/MyBookings', {bookings})
+            }
         }
 
         )
