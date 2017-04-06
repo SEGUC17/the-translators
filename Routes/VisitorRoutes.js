@@ -11,4 +11,6 @@ router.get('/register', function(req,res){
   res.send('register');
 })
 
+//router.post('/register', VisitorController);
+
 module.exports = router;
