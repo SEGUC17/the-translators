@@ -1,14 +1,10 @@
-// let product = require('/home/norhan/Desktop/the-translators/Models/ProductModel.js');
+/*requiring an instance from the product and the customer tables in the model folder*/
 let product = require('../Models/ProductModel.js');
 let cust = require('../Models/CustomerModel.js');
-// let b = require("uploadproducts.productSchema");
+
 let CustomerController = {
 
-  // var orderedProduct = uploadproducts.find({prodID: req.params.prodID});
-  // require (product.productSchema);
-  // var orderedProduct = require('../Models/ProductModel.js');
-  // var currCustomer = customer.find({username: req.params.username});
-  // var qty = 0;
+/*viewing the shopping cart*/
   viewCart: function(req, res){
     cust.find({shoppingcart: req.params.shoppingcart}, function(err, shoppingcart){
       if (err){
@@ -17,11 +13,13 @@ let CustomerController = {
         res.json(shoppingcart);}
     });
   },
+  /*adding an item to the shopping cart*/
   addToCart:function(req, res){
       cust.find({shoppingcart:req.params.shoppingcart}).unshift(product);
       qty++;
       res.json(qty);
   },
+  /*removing an item from the shopping cart*/
   removeFromCart:function(req, res){
       cust.find({shoppingcart:req.params.shoppingcart}).splice(product);
       qty--;
@@ -29,4 +27,5 @@ let CustomerController = {
   }
 }
 
+/*exporting the controller*/
 module.exports = CustomerController;
