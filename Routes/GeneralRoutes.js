@@ -20,7 +20,7 @@ router.get('/', function(req, res){
 				{
 					var noMatch = 'No match for this query';
 				}
-				res.jason('the route to the business product and service')//, {Business: businessController});
+				res.json('the route to the business product and service')//, {Business: businessController});
 			}
 		})
 	}else{ //show all gym options if there is no search enteries
@@ -30,7 +30,7 @@ router.get('/', function(req, res){
 				 console.log(err);
 			}else{
 				//res.send('print me');
-				res.jason('the route to the business product and service', {Business: businessController});
+				res.json('the route to the business product and service', {Business: businessController});
 			}
 		})
 	}
