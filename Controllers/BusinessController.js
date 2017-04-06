@@ -1,49 +1,35 @@
-let Gym = require ('../Model/BusinessModel');
+//this method is for business owners to subscribe on the platform.
+let Gym = require ('/Users/benyamin/Desktop/code/Models/BusinessModel.js');
 let BusinessController={
-//     getsubscribebygym_name: function (gym_name,callback){
-//         var query= {'gym_name',gym_name};
-//         subscribe.find(query,callback);
-//     }
-//     getsubscribebylocation_of_the_gym: function (location_of_the_gym,callback){
-//         var query={'location_of_the_gym',location_of_the_gym};
-//         subscribe.find(query,callback);
-//
-//     }
-//     getsubscribebyEmail: function (Email,callback){
-//         var query={'Email',}
-//     }
-// }
+
         gymSubscribtion: function(req, res){
             var gymSubscribe = new gym(req.body);
-            gymSubscribe.save(function(err)){
+            gymSubscribe.save(function(err, gymsubscription){
                 if(err)
                     res.send(err.message);
                 else{
                     res.send('Subscribtion successful');
                     res.redirect('/'); //redirect to business owner home page
                 }
-            }
-        }
-
+            })
+        },
+//this method is for business owners to upload schedule on their profile.
         uploadGymSchedule: function(req, res){
             gym.findOne({username: req.user.username},
-                function (err){
-                    if(err)
-                    res.send(err.message);
-                    else{
-                        gym.save(req.file.schedules);
+                function (err, uploadschedule){
+                    if(err){
+                    res.json(err.message);
+                }
+                else{
+                    if(uploadschedule){
+                        if(req.body){
+                                console.log(uploadschedule)
+                        }
+                        gym.save(req.body.schedules);
                     }
                 }
             })
         }
-
-// m3rafsh dah sa7 wala habl
-
-let uploadschedule= require('../model/uploadschedule');
-let uploadschedulecontroller={
-    get Alluploadschedule: function(req,res){
-        uploadschedule.find(function(err,subscribe)){
-
-        }
-    }
 }
+
+module.exports = BusinessController;

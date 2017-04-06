@@ -1,6 +1,7 @@
 var mongoose= require ('mongoose');
-var gymSchema = mongoose.Schema({
-    gymname-location:
+var Schema = mongoose.Schema;
+var gymSchema =  new Schema({
+    GymName_location:
         {type: String, required: true, unique:true},
 //username: String,
     address:
@@ -11,37 +12,20 @@ var gymSchema = mongoose.Schema({
         {type:String,required:true,unique:true},
     password:
         {type: String, required:true},
-    // confirm_password: maynfa3shy tkooon maogooda
-    //     {type:String, required:true},
+
     description:
         {type:String},
-    phone number:
+    phoneNumber:
         {type:Number,required:true},
-    Bank name:
+    BankName:
         {type:String,required:true},
-    Account number:
+    AccountNumber:
         {type:String,required:true},
     schedules:
-        {type:File},//IMAGE
-    //price:
-    //    {type:String, required:true},
-    //product_name:
-    //    {type:String},
-    //product_description:
-    //    {type:String},
+        {type:Schema.Types.Mixed},//IMAGE
+
 
 });
 
 var gym=  mongoose.model("Gym", gymSchema);
 module.exports= gym;
-
-// var mongoose= require('mongoose');
-// var uploadscheduleSchema= mongoose.Schema({
-// //Business username and schedule of all timings
-// business_username:
-// {type: String, required: true, unique: true},
-// schedule:
-// {type: String, required:true, unique: true},
-// });
-// var uploadschedule= mongoose.model("upload schedule",uploadschedule);
-// module.exports= uploadschedule;
