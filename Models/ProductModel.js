@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-//creating schema for uploading products 
+//creating schema for uploading products
 var ProductSchema = mongoose.Schema({
 
   businessUserName:{
@@ -24,7 +24,8 @@ var ProductSchema = mongoose.Schema({
   },
 
   image:{
-    type: File
+  //  required:true
+
   },
 
   ProductDescription: {

@@ -4,7 +4,7 @@ let VisitorController =  {
 //function to make a visitor register to the website
 createregister:function(req, res){
   var username = visitor.username;
-  Student.findOne({studentusername:req.body.username},function(err,user){
+  visitor.findOne({username:req.body.username},function(err,user){
 if (err){
 return done(err);
 }
@@ -21,8 +21,8 @@ if (err){
   console.log(err);
 }
 else {
-  //console.log(visitor);
-// get a page not url
+  console.log(visitor);
+
   res.render('clientprofile');
 }
 })

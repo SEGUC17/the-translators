@@ -28,19 +28,13 @@ var visitorregistrationformSchema = mongoose.Schema({
     type: String,
     required:true,
     unique:true
-}
+},
 
   password:{
     type:String,
     required:true,
     minlength:8
 },
-//   confirmpassword:{
-//     type:String,
-//     required:true,
-//     unique:true,
-//     minlength:8
-// },
 
   mobilenumber:{
     type:Number,
