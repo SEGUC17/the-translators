@@ -17,7 +17,7 @@ var BookingController =
                 res.redirect('/');
                 }
         })
-    },
+    }
 }
 module.exports = BookingController;
 

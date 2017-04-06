@@ -12,6 +12,9 @@ router.get('/businesslogin', function(req, res){
   res.send('this is business login page');
 });
 
+// route to business profile page
+router.get('/profile', BusinessController.getBusiness);
+
 //initialize passport and passport-local
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;

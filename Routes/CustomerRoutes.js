@@ -12,6 +12,9 @@ router.get('/customerlogin', function(req, res){
   res.send('this is customer login page');
 });
 
+// route to customer profile page
+router.get('/profile', CustomerController.getCustomer);
+
 //initialize passport and passport-local
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
