@@ -1,8 +1,9 @@
 var express = require('express');
 
 var router = express.Router();
+ var CustomerController = require('../Controllers/CustomerController');
+ var BookingController = require('../Controllers/BookingController');
 
-var customerController = require('../Controllers/CustomerController');
 
 //initialize user
 var Customer = require('../Models/CustomerModel');
@@ -62,5 +63,8 @@ router.get('/logout', function(req, res){
 
 	res.redirect('/customerlogin');
 });
+
+ router.get("/MyBookings", BookingController.ViewMyBookings);
+ router.post("/BookingRequest", BookingController.createBooking);
 
 module.exports = router;
