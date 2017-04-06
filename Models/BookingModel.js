@@ -1,15 +1,20 @@
 var mongoose = require('mongoose');
 
-var BookingSchema = mongoose.Schema({
-  CustomerUsername:{type: String, required: true, unique: true},
-  GymName: {type: String, required: true, unique: true},
-  selectedClass: String,
-  selectedTime: ,
-  selectedDate: ,
-  CustomerEmail: {type: String, required: true, unique: true},
-  CustomerMobile: Number,
-  // Confirmation:{type: }
-})
-var Book = mongoose.model("Booking", BookingSchema);
+//Schema for client's booking
+var DB_URI = 'monogdb://localhost:27017/GymPlatform';
 
-module.exports = Book;
+var BookingSchema = mongoose.Schema({
+    CustomerUsername: {type: String, required: true},
+    GymNameLocation: {type: String, required: true},
+    selectedClass:{type:String, required: true},
+    selectedTime: {type:Number, required: true},
+    selectedDate: {type:Date, required:true},
+    CustomerEmail: {type: String, required: true},
+    CustomerMobile: {type: Number, required:true},
+    ConfirmationStatus: {type: String, enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'], default: "Not Yet Confirmed"}
+});
+
+var Booking = mongoose.model('Bookings', BookingSchema);
+
+module.exports = Booking;
+

@@ -1,3 +1,4 @@
+
 var mongoose = require('mongoose');
 
 var BusinessSchema = mongoose.Schema({
@@ -23,3 +24,4 @@ var Rating = BusinessSchema.find(BusinessUsername).populate('ratings._item').exe
 
 var Gym = mongoose.model("Business", BusinessSchema);
 module.exports = Gym;
+

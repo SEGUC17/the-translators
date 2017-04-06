@@ -1,15 +1,39 @@
 var mongoose = require('mongoose');
 
+
+//schema for purchasing
 var PurchasingSchema = mongoose.Schema({
-  CustomerUsername:{type: String, required: true, unique: true},
-  GymName: {type: String, required: true, unique: true},
+  CustomerUsername:{
+  	type: String, 
+  	required: true, 
+  	unique: true
+  },
+
+  GymName: {
+  	type: String, 
+  	required: true, 
+  	unique: true
+  },
+
   selectedClass: String,
+  
   selectedTime: ,
+  
   selectedDate: Date,
-  CustomerEmail: {type: String, required: true, unique: true},
+  
+  CustomerEmail: {
+  	type: String, 
+  	required: true, 
+  	unique: true
+  },
+  
   CustomerMobile: Number,
-  //Confirmation:{type: }
 })
+
+//create the model
 var Purchase = mongoose.model("PurchasesTable", PurchasingSchema);
+
+//export the model
+
 
 module.exports = Purchase;

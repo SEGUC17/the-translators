@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+
 var ProductSchema = mongoose.Schema({
   businessUserName: {type: String, required: true, unique: true},//take input from login session
   prodname: {type:String},
@@ -12,3 +13,4 @@ var ProductSchema = mongoose.Schema({
 var UploadProducts = mongoose.model("uploadproducts", ProductSchema);
 
 module.exports = UploadProducts;
+
