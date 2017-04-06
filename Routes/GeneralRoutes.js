@@ -2,6 +2,8 @@ var express = require('express');
 
 var router = express.Router();
 
+var GeneralController = require('/home/norhan/Desktop/the-translators/Controllers/GeneralController.js');
+
 var businessController = require('../Controllers/BusinessController');
 
 var Business = require('../Models/BusinessModel'); //take router that has the productname and schedule schema
@@ -36,6 +38,9 @@ router.get('/', function(req, res){
 		})
 	}
 });
+
+router.get('/Filter', GeneralController.Filter);
+router.post('/Filter', GeneralController.Filter);
 
 //passing our query (search) to replace it with a regular expression
 // matching anything globally that meets the search

@@ -2,6 +2,10 @@ var express = require('express');
 
 var router = express.Router();
 
+router.get('/checkout', function(req, res){
+  res.render('this page');
+});
+
 router.get('/', function(req, res){
   res.send('this home page');
 });
@@ -11,6 +15,8 @@ router.get('/', function(req, res){
 
 //initialize user
 var Customer = require('../Models/CustomerModel');
+
+router.get('/viewcart', CustomerController.viewCart);
 
 router.get('/customerlogin', function(req, res){
   res.send('this is customer login page');

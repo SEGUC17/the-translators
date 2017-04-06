@@ -55,5 +55,12 @@ var gymSchema =  new Schema({
     },
 });
 
+var Rating = BusinessSchema.find(BusinessUsername).populate('ratings._item').exec(function(err, user){
+  if(err || !user)
+  return next(new Error('User not found!'));
+  console.log(user.GymRating);
+});
+
+
 var gym =  mongoose.model("Gym", gymSchema);
 module.exports= gym;

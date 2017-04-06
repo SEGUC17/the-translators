@@ -5,6 +5,7 @@ var flash = require('connect-flash');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var session = require('express-session');
+var eventsCache = require('eventcache');
 var DB_URI = "mongodb://localhost:27017/GymPlatform";
 var app = express();
 

@@ -2,6 +2,7 @@ let Business = require('../Models/BusinessModels');
 let uploadproducts = require ('../Models/ProductModel.js');
 
 var bcrypt = require('bcryptjs');
+var mongoose = require('mongoose');
 
 //function to upload products
 let BusinessController = 
@@ -44,7 +45,8 @@ let BusinessController =
       res.send(err.message);
     }
     else{
-      res.send('Subscription successful');                  }
+      res.send('Subscription successful');                
+    }
     })
   },
 

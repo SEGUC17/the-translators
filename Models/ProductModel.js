@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
 //creating schema for uploading products
 var ProductSchema = mongoose.Schema({
 
