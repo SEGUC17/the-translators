@@ -1,9 +1,10 @@
+
 var mongoose= require ('mongoose');
 var Schema = mongoose.Schema;
 var gymSchema =  new Schema({
-    GymName_location:
+    GymNameLocation:
         {type: String, required: true, unique:true},
-//username: String,
+
     address:
         {type: String, required:true},
     Email:
@@ -22,7 +23,7 @@ var gymSchema =  new Schema({
     AccountNumber:
         {type:String,required:true},
     schedules:
-        {type:Schema.Types.Mixed},//IMAGE
+        {type:Schema.Types.Mixed},
 
 
 });
