@@ -5,7 +5,7 @@
 // var type = workData.single('upload');
 // var fileStream = require('fs');
 
-let Customer = require('../Models/CustomerModel');
+let Customer = require('/home/basel/Desktop/baselAkherHAGA/the-translators/Models/CustomerModel.js');
 
 
 var updateController2 = require("./updateController2");
