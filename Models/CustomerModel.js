@@ -28,7 +28,11 @@ var visitorregistrationformSchema = mongoose.Schema({
     type: String,
     required:true,
     unique:true
+<<<<<<< HEAD
 }
+=======
+},
+>>>>>>> ab2bb518bd208994b53945055edb2c046e73565a
 
   password:{
     type:String,
@@ -43,9 +47,17 @@ var visitorregistrationformSchema = mongoose.Schema({
   gender:{
     type:Boolean,
     required:true
+<<<<<<< HEAD
 }
 
 
+=======
+},
+shoppingcart:{
+  type:Array
+}
+
+>>>>>>> ab2bb518bd208994b53945055edb2c046e73565a
  })
 
 var Customer = mongoose.model("customer",visitorregistrationformSchema);

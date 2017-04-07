@@ -10,10 +10,28 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.6.3",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
+<<<<<<< HEAD
+    "eventcache": "^0.1.6",
+=======
+    "connect-flash": "^0.1.1",
+>>>>>>> 4f02fd8983bbcb036112c8796e660ce15320d4d8
     "express": "^4.15.2",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.2",
+    "locus": "^2.0.1",
+    "mongodb": "^2.2.25",
     "mongoose": "^4.9.2",
+<<<<<<< HEAD
     "multer": "^1.3.0",
     "nodemon": "^1.11.0"
+=======
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
+>>>>>>> ab2bb518bd208994b53945055edb2c046e73565a
   }
 }
