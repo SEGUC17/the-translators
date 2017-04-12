@@ -1,5 +1,4 @@
 var Booking = require('../Models/BookingModel');
-
 var customer = require('../Models/CustomerModel');
 
 var BookingController =
@@ -17,7 +16,7 @@ var BookingController =
                 res.redirect('/');
                 }
         })
-    },
+    }
 }
 module.exports = BookingController;
 

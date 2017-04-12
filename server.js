@@ -1,15 +1,17 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+
+var eventsCache = require('eventcache');
+
+
 var flash = require('connect-flash');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var session = require('express-session');
-var Grouter = require('./Routes/GeneralRoutes.js');
-var Brouter = require('./Routes/BusinessRoutes.js');
-var Crouter = require('./Routes/CustomerRoutes.js');
-var DB_URI = "mongodb://localhost:27017/GymPlatform";
 
+mongoose.Promise = global.Promise;
+var DB_URI = "mongodb://localhost:27017/GymPlatform";
 var app = express();
 
 app.use(bodyParser.json());
@@ -40,10 +42,12 @@ app.use(function(req, res, next){
 	next();
 });
 
+
 mongoose.connect(DB_URI);
-app.use(Grouter);
-app.use(Brouter);
-app.use(Crouter);
+
+app.use(require('./Routes/GeneralRoutes.js'));
+app.use(require('./Routes/BusinessRoutes.js'));
+app.use(require('./Routes/CustomerRoutes.js'));
 
 app.listen(8080, function(){
   console.log("server is listening on port 8080");
