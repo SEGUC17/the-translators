@@ -21,5 +21,5 @@ VisitorViewGymPage:function(request, response){
 }
 }
 
- // selected gym page
+ // selected gym pages
 module.exports = VisitorController;
