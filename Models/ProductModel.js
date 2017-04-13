@@ -1,7 +1,5 @@
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
-
 //creating schema for uploading products
 var ProductSchema = mongoose.Schema({
 
@@ -25,9 +23,10 @@ var ProductSchema = mongoose.Schema({
     type:Number
   },
 
-   image:{
-     type: Schema.Types.Mixed
-   },
+  image:{
+  //  required:true
+
+  },
 
   ProductDescription: {
     type: String
@@ -38,7 +37,9 @@ var ProductSchema = mongoose.Schema({
     required: true
   }
 
-});
+
+})
 
 var UploadProducts = mongoose.model("uploadproducts", ProductSchema);
+
 module.exports = UploadProducts;

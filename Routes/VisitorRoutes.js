@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-
 var VisitorController = require('../Controllers/VisitorController.js');
 
 router.get('/visitor', function(req, res){
@@ -8,12 +7,11 @@ router.get('/visitor', function(req, res){
 })
 
 //routes for register function
-router.get('/register', function(req,res){
-  res.send('register');
+router.get('/VisitorView', function(req,res){
+  res.render('VisitorView');
 })
 
-router.post('/register', VisitorController.createregister);
+router.post('/CustomerModel', VisitorController.createregister);
 
-router.get('/VisitorView', VisitorController.VisitorViewGymPage);
 
 module.exports = router;
