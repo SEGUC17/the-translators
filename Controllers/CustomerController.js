@@ -96,23 +96,6 @@ Customer.findOne({username: req.body.username}, function(err, cust){
 })
 },
 
-	CustomerViewGymPage: function(request, response){
-		response.send("hello visitor");
-		var GymName = request.body.GymName_location;
-	  	var username = request.body.BusinessUsername ;
-		Gym.find({userame : BusinessUsername}).toArray(function(err,result){
-			if(err){
-				throw err;
-			}
-			else if(result.length){
-			response.render('CustomerView'); // selected page
-			}else {
-				console.log("no document found");
-				response.render('GeneralView'); // homepage
-			}
-		})
-		}, // selected gym page
-
 	RetrieveUsername: function(request ,response){
 		//response.send('hello mariam');
 		Gym.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
@@ -136,17 +119,53 @@ shoppingPage: function(req,res){
         res.send("done");
   },
 
-	ReviewandRatePage: function(request, res) {
-		console.log(request.body.BusinessUsername);
-		var username = request.body.BusinessUsername;
-		var GymName = request.body.GymName_location;
-		var GymProduct = request.body.ProdList;
-	 	var GymReview = request.body.GymReview;
-	  var GymRating = request.body.GymRating;
-		var document = { gymReview : GymReview, gymRating: GymRating};
-		Gym.insert({review :GymReview , rate : GymRating });
-		res.render('CustomerView');
-	}, // review and rate page
+	CustomerViewGymPage:function(request, response){
+
+  Gym.find({}).exec(function(err, result) {
+if (!err) {
+ var query = Gym.find({'GymName_location': 'smart'});
+// query.select('GymName_location');
+ query.exec(function(err, result) {
+   if (!err) {
+     console.log(Gym.GymName_location);
+      console.log(Gym.Address);
+      console.log(Gym.Email);
+      console.log(Gym.PhoneNumber);
+      console.log(Gym.BusinessUsername);
+     console.log("did it");
+   } else {
+     console.log("Error in second query");
+   }
+ });
+} else {
+ console.log("Error in first query" );
+}
+ });
+},
+
+
+
+  ReviewandRatePage: function(request, res) {
+    //console.log(request.user.BusinessUsername); // retrieve name from databse
+    //var User = request.user.BusinessUsername;
+    var GymName = Gym.GymName_location;
+    var gymReview = Gym.GymReview;
+    var gymRating = Gym.GymRating;
+
+    Gym.findOne({GymName : request.body.GymName_location } , function (err , user)
+    {
+      if (err)
+      {
+        res.send(err.message);
+      }
+      else if (user)
+      {
+        user.GymReview.unshift(request.body.review);
+      }
+    })
+        //res.send("please leave a comment ");
+    },
+ // review and rate page
 
   //Taking info from user to update
     updateProfile:function(req,res){

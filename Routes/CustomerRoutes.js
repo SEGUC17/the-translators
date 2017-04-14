@@ -28,6 +28,27 @@ router.get('/customerprofile', function(req, res){
   res.send('this is get customer page');
 });
 
+router.get('/customerView',function (req,res){
+  res.render('pages/CustomerView');
+});
+
+
+router.post('/customerView', function(request, res) {
+
+  var review = request.body.ReviewComment;
+  Gym.update({ "$push": { 'GymReview': review } },function (err,result){
+  if(err)
+  {
+    throw err;
+  }
+  else {
+    console.log("review added successfully");
+    res.render('pages/CustomerView');
+
+  }
+});
+});
+
 //Customer Submits Booking Request
 router.post("/BookingRequest", BookingController.createBooking);
 router.post('/CustomerProfile/edit',CustomerController.updateProfile);

@@ -24,22 +24,25 @@ let VisitorController =  {
 	},
 
 	VisitorViewGymPage:function(request, response){
-		response.send('hello World');
-		var GymName = request.body.GymName_location;
-		var username = request.body.BusinessUsername ;
-		Gym.find({userame : BusinessUsername}).toArray(function(err,result){
-			if(err){
-				throw err;
-			}
-			else if(result.length)
-			{
-			response.render('VisitorView'); // selected page
-		}else {
-			console.log("no document found");
-			response.render('GeneralView'); // homepage
+
+		Gym.find({}).exec(function(err, result) {
+		 if (!err) {
+			 var query = Gym.find({'GymName_location': 'smart'});
+			// query.select('GymName_location');
+			 query.exec(function(err, result) {
+				 if (!err) {
+					 console.log(Gym.GymName_location);
+
+					 console.log("did it");
+				 } else {
+					 console.log("Error in second query");
+				 }
+			 });
+		 } else {
+			 console.log("Error in first query" );
+		 }
+			 });
 		}
-	})
-	}
 }
 
  // selected gym page
