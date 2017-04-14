@@ -1,25 +1,28 @@
 var express = require('express');
 var router = express.Router();
+
+//initialize passport and passport-local
+var passport = require('passport');
+var localStrategy = require('passport-local').Strategy;
+
 var CustomerController = require('../Controllers/CustomerController');
+var BookingController = require('../Controllers/BookingController');
 
-
-
-router.get('/checkout', CustomerController.CheckoutSum);
-
-router.post('/CustomerProfile/edit',CustomerController.updateProfile); //update profile and followed by a redirect
-
-router.get('/viewcart', CustomerController.viewCart);
-
- var CustomerController = require('../Controllers/CustomerController');
- var BookingController = require('../Controllers/BookingController');
-
-//initialize user
 var Customer = require('../Models/CustomerModel');
 
+router.get('/checkout', CustomerController.CheckoutSum);
 router.get('/viewcart', CustomerController.viewCart);
+router.get('/viewcart', CustomerController.viewCart);
+router.get("/CustomerView", CustomerController.CustomerViewGymPage);
+router.get("/CustomerView", CustomerController.ReviewandRatePage);
 
+router.get("/BookingRequest", function(req, res){
+  res.send('this booking page'); 
+});
+
+//route to customer login page
 router.get('/customerlogin', function(req, res){
-  res.send('this is customer login page');
+  res.render('pages/CustomerLoginView');
 });
 
 // route to customer profile page
@@ -27,48 +30,35 @@ router.get('/customerprofile', function(req, res){
   res.send('this is get customer page');
 });
 
+router.post("/BookingRequest", BookingController.createBooking);
+router.post('/CustomerProfile/edit',CustomerController.updateProfile);
 router.post('/customerprofile', CustomerController.getCustomer);
-
-//initialize passport and passport-local
-var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
+router.post("/BookingRequest", BookingController.createBooking);
 
 // compares the username with available usernames and validates password
-passport.use(new localStrategy(
+passport.use(new localStrategy({
+  usernameField : 'username',
+  passwordField : 'password'
+}, 
   function(username, password, done) {
-    Customer.getCustomerByUsername(username, function(err, customer){
-      if(err) throw err;
-      console.log(customer)
-      //if there is not a user
-      if(!customer){
-        return done(null,false, {message: 'You are not registered'});
-      }
-
-      //if there is a match
-      Customer.comparePassword(password, customer.password, function(err, isMatch){
-      if(err) throw err;
-
-      //check for the match
-      if(isMatch){
-        return done(null, customer);
-      } else {
-        return done(null,false, {message: 'Invalid Password'});
-      }
-      });
+    Customer.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
     });
-  }));
+  }
+));
 
 passport.serializeUser(function(customer, done) {
   done(null, customer.id);
 });
 
-
 passport.deserializeUser(function(id, done) {
-  Customer.getCustomerById(id, function(err, customer) {
+  CustomerController.getCustomerById(id, function(err, customer) {
     done(err, customer);
   });
 });
-//router.get('/viewcart', CustomerController.viewCart);
 
 //local cause we are using a local database. this helps to authorize users for login
 router.post('/customerlogin', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/customerlogin', failureFlash: true}), function(req, res) {
@@ -82,17 +72,5 @@ router.get('/logout', function(req, res){
 
   res.redirect('/customerlogin');
 });
-
- router.get("/BookingRequest", function(req, res){
-  res.send('this booking page'); 
-});
-
- router.post("/BookingRequest", BookingController.createBooking);
-
-router.get("/CustomerView", CustomerController.CustomerViewGymPage);
-
-router.get("/CustomerView", CustomerController.ReviewandRatePage);
-
- router.post("/BookingRequest", BookingController.createBooking);
 
 module.exports = router;

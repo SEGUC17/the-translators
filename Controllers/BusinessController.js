@@ -2,7 +2,9 @@ var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
 
 let uploadproducts = require ('../Models/ProductModel');
-let Business = require('../Models/BusinessModel');
+let Business = require ('../Models/ProductModel.js');
+let Business2 = require('../Models/BusinessModel');
+
 let updateController = require('../Controllers/updateController');
 
 //function to upload products
@@ -10,34 +12,28 @@ let BusinessController =
 {
 
   createproduct:function(req,res){
-    let prod = new uploadproducts();
-  },
-
-  postproducts:function(req,res){
-    let products = new Products(req.body);
-
-    //var products = new Array();
-    products.post(function(err, products){
-        if(err){
-          res.send(err.message);
-          console.log(err.message);
-       }
-       else{
-         console.log( document.getElementById().innerHTML = products );
-         res.render('businesshomepage');
-       }
-     });
-     uploadproducts.save(function(err, products){
+    let prod = new Business(req.body);
+    prod.save(function(err, prod){
       if(err){
         res.send(err.message)
         console.log(err);
-      }
-      else{
-        console.log(products);
-        res.render('businesshomepage');
+      }  else{
+        console.log(prod);
+        res.send('Products are uploaded');
       }
     })
-   },
+  },
+
+  //getting the username of business owner for login
+  getBusinessByUsername: function(username, password, callback){
+    var query = {'BusinessUsername' : username, 'Password' : password};
+    Business2.findOne(query, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) { return done(null, false); }
+      if (!user.verifyPassword(password)) { return done(null, false); }
+      return done(null, user);
+    });
+  },
 
    gymsubscription: function(req, res){
     var gymSubscribe = new gym(req.body);
@@ -68,23 +64,10 @@ let BusinessController =
       }
     })
   },
-  //getting the username of business owner for login
-  getBusinessByUsername: function(username, callback){
-    var query = {'username' : username};
-    Business.findOne(query, callback);
-  },
 
   //getting the id of business owner for login
   getBusinessById: function(id, callback){
     Business.findById(id, callback);
-  },
-
-  //comparing passwords of business owner for login
-  comparePassword: function(candidatePassword, hash, callback){
-    bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-      if(err) throw err;
-      callback(null, isMatch);
-    });
   },
 
   getBusiness:function(req, res){

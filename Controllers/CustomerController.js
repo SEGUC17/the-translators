@@ -1,6 +1,3 @@
-
-var bcrypt = require('bcryptjs');
-
 let product = require('../Models/ProductModel');
 let Customer = require('../Models/CustomerModel');
 let Gym = require ('../Models/BusinessModel');
@@ -10,11 +7,15 @@ let customerController = {
 	/*viewing the shopping cart*/
   /*viewing the shopping cart*/
     viewCart: function(req, res){
-      Customer.find({shoppingcart: req.params.shoppingcart}, function(err, shoppingcart){
+      Customer.findOne({username: req.body.username}, function(err, cust){
         if (err){
-          res.send(err.message);}
-        else{
-          res.json(shoppingcart);}
+          res.send(err.message);
+        }
+        else if(cust ==null){
+          res.send("empty");
+        }else if (cust) {
+          res.send(cust.shoppingcart);
+        }
       });
     },
 
@@ -43,25 +44,11 @@ let customerController = {
     res.json(sum);
   },
 
-	//getting the username of customers for login
-	getCustomerByUsername: function(username, callback){
-		var query = {'username' : username};
-		Customer.findOne(query, callback);
-	},
-
 	//getting the id of customers for login
 	getCustomerById: function(id, callback){
 		Customer.findById(id, callback);
 	},
-
-	//comparing passwords of customer for login
-	comparePassword: function(candidatePassword, hash, callback){
-		bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
-		    if(err) throw err;
-		    callback(null, isMatch);
-		});
-	},
-
+  
 	getCustomer:function(req, res){
 
   // retrieve username of the customer from session
@@ -115,7 +102,7 @@ let customerController = {
 		var GymName = request.body.GymName_location;
 		var GymProduct = request.body.ProdList;
 	 	var GymReview = request.body.GymReview;
-	  	var GymRating = request.body.GymRating;
+	  var GymRating = request.body.GymRating;
 		var document = { gymReview : GymReview, gymRating: GymRating};
 		Gym.insert({review :GymReview , rate : GymRating });
 		res.render('CustomerView');

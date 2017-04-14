@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
 //creating schema for visitor registration form
 var visitorregistrationformSchema = mongoose.Schema({
 
@@ -50,5 +52,5 @@ shoppingcart:{
 
  })
 
-var Customer = mongoose.model("customer",visitorregistrationformSchema);
+var Customer = mongoose.model('Customer',visitorregistrationformSchema);
 module.exports = Customer;

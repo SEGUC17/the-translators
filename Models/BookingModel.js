@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 //Schema for client's booking
-var DB_URI = 'monogdb://localhost:27017/GymPlatform';
+
+var Schema = mongoose.Schema;
 
 var BookingSchema = mongoose.Schema({
 

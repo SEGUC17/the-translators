@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gym</title>
+<!-- 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+ -->	 
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li>
+             <% if (user) { %>
+                <li role="presentation"><a href="/upload">Upload</a></li> 
+                <li role="presentation"><a href="/logout">Logout</a></li>
+              <% } else { %>
+                <li role="presentation"><a href="/businesslogin">BusinessLogin</a></li>
+                <li role="presentation"><a href="/customerlogin">CustomerLogin</a></li>
+                <li role="presentation"><a href="/VisitorView">Register</a></li> 
+              <% } %>
+          </ul>
+        </nav>
+        <h3 class="text-muted">GYM</h3>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+        <!--- start of flash mssg -->
+         <% if (success_msg) { %>
+            <div class="alert alert-success">
+              <%= success_msg %>
+            </div>
+          <% } %>
+          <% if (error_msg) { %>
+            <div class="alert alert-danger">
+              <%= error_msg %>
+            </div>
+          <% } %>
+          <% if (error) { %>
+            <div class="alert alert-danger">
+              <%= error %>
+            </div>
+          <% } %>
+        <!--- end of flash mssg -->
+          <%- body  %>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>My portfolio site. Copyright &copy; 2017</p>
+      </footer>
+    </div>
+</body>
+</html>
