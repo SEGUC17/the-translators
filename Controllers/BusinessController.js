@@ -114,7 +114,7 @@ viewproducts: function(req,res){
           }
 
       });
-        res.send("done");
+        //res.send("done");
   },
 // this function should allow the business owner to edit his already existing products
   editproducts: function (req,res){
@@ -158,7 +158,7 @@ viewproducts: function(req,res){
               console.log(document);
             }
     });
-      res.send("done");
+      //res.send("done");
   },
 
  //Taking info from user to update
