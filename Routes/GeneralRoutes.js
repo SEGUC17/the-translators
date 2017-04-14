@@ -29,11 +29,11 @@ router.get('/', function(req, res){
 			}else{
 				if(BusinessController.createproduct().length < 1)
 				{
-					var noMatch = 'No match for this query';
+					console.log('No match for this query');
 				}
 				else if(BusinessController.uploadGymSchedule().length < 1)
 				{
-					var noMatch = 'No match for this query';
+					console.log('No match for this query');
 				}
 				res.render('pages/HomePage', {businessController});
 			}

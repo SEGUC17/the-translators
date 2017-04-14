@@ -1,19 +1,24 @@
 var mongoose = require('mongoose');
-//Schema for client's booking
+var UUID = require("node-uuid");
 
-var Schema = mongoose.Schema;
+//Schema for client's booking
 
 var BookingSchema = mongoose.Schema({
 
+    User_ID: {type: String, default:function getUUID(){
+        return UUID.v4();
+    }},
 
     CustomerUsername: {
-      type: String,
-      required: true
+      type:String
+      // type: mongoose.Schema.Types.ObjectId,
+      // ref: 'Customer'
     },
 
     GymNameLocation: {
-      type: String,
-      required: true
+      type:String
+      // type: mongoose.Schema.Types.ObjectId,
+      // ref: 'Gym' //double check the name of the Model
     },
 
     selectedClass:{
@@ -33,7 +38,7 @@ var BookingSchema = mongoose.Schema({
 
     CustomerEmail: {
       type: String,
-      required: true
+      required: true,
     },
 
     CustomerMobile: {
@@ -41,13 +46,15 @@ var BookingSchema = mongoose.Schema({
       required:true
     },
 
-    ConfirmationStatus: {
-      type: String,
-      enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'],
-      default: "Not Yet Confirmed"
-    }
-});
+    ConfirmationStatus:String
+    //  {
+    //   type: String,
+    //   // enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'],
+    //   // default: "Not Yet Confirmed",
+    //   required:false
+    // }
+})
 
-var Booking = mongoose.model('Bookings', BookingSchema);
+var Bookings = mongoose.model('Bookings', BookingSchema);
 
-module.exports = Booking;
+module.exports = Bookings;
