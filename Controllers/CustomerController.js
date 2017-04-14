@@ -95,12 +95,6 @@ Customer.findOne({username: req.body.username}, function(err, cust){
   }
 })
 },
-
-	RetrieveUsername: function(request ,response){
-		//response.send('hello mariam');
-		Gym.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
-	    response.json(Gym)});
-	},
 	 //to retrieve name from database
 
 shoppingPage: function(req,res){
