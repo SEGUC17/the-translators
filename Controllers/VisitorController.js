@@ -17,7 +17,7 @@ let VisitorController =  {
 					console.log(err);
 				} else {
 					console.log(visitor);
-					res.redirect('/customerlogin');
+					res.redirect('registration done');
 				}
 			})
 		})

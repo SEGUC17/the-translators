@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 
 let uploadproducts = require ('../Models/ProductModel');
-let Business = require ('../Models/ProductModel.js');
-let Business2 = require('../Models/BusinessModel');
+let Product = require ('../Models/ProductModel.js');
+let Business = require ('../Models/BusinessModel.js');
 
 let updateController = require('../Controllers/updateController');
 
@@ -11,7 +11,7 @@ let BusinessController =
 {
 
   createproduct:function(req,res){
-    let prod = new Business(req.body);
+    let prod = new Product(req.body);
     prod.save(function(err, prod){
       if(err){
         res.send(err.message)
@@ -24,13 +24,23 @@ let BusinessController =
   },
 
   //getting the username of business owner for login
-  getBusinessByUsername: function(username, password, callback){
-    var query = {'BusinessUsername' : username, 'Password' : password};
-    Business2.findOne(query, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) { return done(null, false); }
-      if (!user.verifyPassword(password)) { return done(null, false); }
-      return done(null, user);
+  getBusinessByUsername: function(req, res){
+    var username = req.body.username;
+    var password = req.body.password;
+    Business.findOne({BusinessUsername: username, Password : password}, function (err, user) {
+      if (err) { 
+        console.log(err); 
+        return done(err); 
+      }
+      if (!user) { 
+        console.log(user);
+        return res.send('user not registered');
+      }
+      if (!user.verifyPassword(password)) { 
+        console.log(password);
+        return res.send('Invalid password');
+      }
+      return res.send('Successfully logged in');
     });
   },
 

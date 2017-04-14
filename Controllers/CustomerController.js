@@ -1,38 +1,63 @@
 let product = require('../Models/ProductModel');
 let Customer = require('../Models/CustomerModel');
 let Gym = require ('../Models/BusinessModel');
+
 let updateController2 = require('../Controllers/updateController2');
 
+var qty = 0;
+
 let customerController = {
-	/*viewing the shopping cart*/
-  /*viewing the shopping cart*/
-    viewCart: function(req, res){
-      Customer.findOne({username: req.body.username}, function(err, cust){
-        if (err){
-          res.send(err.message);
-        }
-        else if(cust ==null){
-          res.send("empty");
-        }else if (cust) {
-          res.send(cust.shoppingcart);
-        }
-      });
-    },
-
-    /*adding an item to the shopping cart*/
-    addToCart:function(req, res){
-        Customer.find({shoppingcart:req.params.shoppingcart}).unshift(product);
-        qty++;
-        res.json(qty);
-    },
-
-    /*removing an item from the shopping cart*/
-    removeFromCart:function(req, res){
-        Customer.find({shoppingcart:req.params.shoppingcart}).splice(product);
-        qty--;
-        res.json(qty);
-    },
-
+/*viewing the shopping cart*/
+  viewCart: function(req, res){
+  /*to find the logged in customer*/
+    Customer.findOne({username: req.body.username}, function(err, cust){
+    if (err){res.send(err.message);}
+    /*if there is no such customer or he/she is not logged in*/
+    else if(cust ==null){res.send("empty, try logging in correctly!!");}
+    /*to show me the shopping cart*/
+    else if (cust) {res.send(cust.shoppingcart);}
+    });
+  },
+  /*adding an item to the shopping cart*/
+  addToCart:function(req, res){
+    /*to find the logged in customer*/
+  Customer.findOne({username: req.body.username}, function(err, cust){
+    if (err){res.send(err.message);}
+    /*if there is no such customer or he/she is not logged in*/
+    else if(cust ==null){res.send("empty, try logging in correctly!!");}
+    /*to push the selected product in the shopping cart array by finding this product*/
+    else if (cust) {cust.shoppingcart.unshift(product.findOne({prodID: req.body.prodID}, function(err, prod){
+        if(err){res.send(err.message);}
+        /*if no such product found*/
+        else if(prod ==null){res.send("no such product!!");}
+        /*to show me that product*/
+        else if(prod){res.send(prod);}
+      }))};
+      /*to increment the quantity of items in the shopping cart*/
+      qty++;
+      res.send(cust.shoppingcart);
+  })},
+  /*removing an item from the shopping cart*/
+  removeFromCart:function(req, res){
+    /*to find the logged in customer*/
+  Customer.findOne({username: req.body.username}, function(err, cust){
+    if (err){res.send(err.message);}
+    /*if there is no such customer or he/she is not logged in*/
+    else if(cust ==null){res.send("empty, try logging in correctly!!");}
+    /*to show me the shopping cart*/
+    else if (cust) {res.send(cust.shoppingcart);}
+    /*to remove the selected product in the shopping cart array by finding this product*/
+  }).splice(product.findOne({prodID: req.body.prodID}, function(err, prod){
+        if(err){res.send(err.message);}
+        /*if no such product found*/
+        else if(prod ==null){res.send("no such product!!");}
+        /*to show me that product*/
+        else if(prod){res.send(prod);}
+      }));
+    /*to decrement the quantity of items in the shopping cart*/
+    qty--;
+    res.send(cust.shoppingcart);
+  },
     // this function should calculate the sum of all the items in the shopping cart
    CheckoutSum: function(req, res){
     var sum = 0.0;

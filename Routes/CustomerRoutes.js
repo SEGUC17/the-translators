@@ -12,19 +12,15 @@ var Customer = require('../Models/CustomerModel');
 
 router.get('/checkout', CustomerController.CheckoutSum);
 router.get('/viewcart', CustomerController.viewCart);
-router.get('/viewcart', CustomerController.viewCart);
 router.get("/CustomerView", CustomerController.CustomerViewGymPage);
 router.get("/CustomerView", CustomerController.ReviewandRatePage);
 router.get('/viewcart', CustomerController.viewCart);
 router.get('/shoppingpage', CustomerController.shoppingPage);
+router.get('/addToCart', CustomerController.addToCart);
+router.get('/removeFromCart', CustomerController.removeFromCart);
 
 router.get("/BookingRequest", function(req, res){
   res.render('pages/BookingPage'); 
-});
-
-//route to customer login page
-router.get('/customerlogin', function(req, res){
-  res.render('pages/CustomerLoginView');
 });
 
 // route to customer profile page
@@ -50,20 +46,25 @@ router.post("/BookingRequest", BookingController.createBooking);
 //   }
 // ));
 
-router.post('/customerlogin', function(req, res) {
+//route to customer login page
+router.get('/customerlogin', function(req, res){
+  res.render('pages/CustomerLoginView');
+});
+
+router.post('/CustomerModel', function(req, res) {
   var username = Customer.username;
   var password = Customer.password;
 
   Customer.findOne({ username: req.body.username, password: req.body.password }, function (err, user) {
       if (err) { 
         console.log(err);
-        return res.redirect('/customerlogin'); 
+        return res.send('err'); 
       }
       if (!user) { 
         console.log('not registered');
-        return res.redirect('/customerlogin'); 
+        return res.send('not registered'); 
       }
-      return res.redirect('/');
+      return res.send('logged in');
     });
   });
 
@@ -75,19 +76,6 @@ passport.deserializeUser(function(id, done) {
   CustomerController.getCustomerById(id, function(err, customer) {
     done(err, customer);
   });
-});
-
-// //local cause we are using a local database. this helps to authorize users for login
-// router.post('/customerlogin', passport.authenticate('local', {successRedirect: '/', failureRedirect: '/customerlogin', failureFlash: true}), function(req, res) {
-//   });
-
-//route to logout
-router.get('/logout', function(req, res){
-  req.logout();
-
-  req.flash('success_msg', 'You have logout');
-
-  res.redirect('/customerlogin');
 });
 
 module.exports = router;
