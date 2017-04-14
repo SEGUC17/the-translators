@@ -24,6 +24,23 @@ router.get('/businessownersubscription', function(req, res){
   res.send('this is subscription page page');
 });
 
+router.post('/editproducts', BusinessController.editproducts);
+router.get('/editproduct', function(req, res){
+  res.render('pages/editproduct');
+});
+
+
+router.post('/removeproducts', BusinessController.removeproducts);
+router.get('/removeproducts', function(req, res){
+ res.render('pages/removeproducts');
+});
+
+
+router.post('/viewproducts', BusinessController.viewproducts);
+router.get('/viewproducts', function(req, res){
+ res.render('pages/viewproducts');
+});
+
 router.get('/updatedgymschedule', function(req, res){
   res.send('this is updatedgymschedule page page');
 });

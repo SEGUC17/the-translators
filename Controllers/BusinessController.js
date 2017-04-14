@@ -1,4 +1,3 @@
-var bcrypt = require('bcryptjs');
 var mongoose = require('mongoose');
 
 let uploadproducts = require ('../Models/ProductModel');
@@ -91,6 +90,66 @@ let BusinessController =
   }
 })
 },
+
+viewproducts: function(req,res){
+
+      uploadproducts.find({username:req.params.id},
+      function(err, result){
+        if(err)
+          { console.log('error in view products');
+              res.json(err.message);
+          }
+          else if(result){
+            res.render("viewproducts",{result});
+          }
+
+      });
+        res.send("done");
+  },
+// this function should allow the business owner to edit his already existing products
+  editproducts: function (req,res){
+
+      uploadproducts.find({'prodID': req.body.prodID},
+      function(error, document){
+        if(error)
+          { console.log('error in edit products');
+              document.json(error.message);
+          }
+          else if(document){
+            if(req.body.prodname == ""){
+              uploadproducts.update({prodname:req.body.prodname});
+            }
+            if(req.body.price ==null){
+              uploadproducts.update({price:req.body.price});
+            }
+            if(req.body.image==null){
+              uploadproducts.update({image:req.body.image});
+            }
+            if(req.body.ProductDescription==""){
+              uploadproducts.update({ProductDescription:req.body.ProductDescription});
+            }
+            // res.redirect('editproduct');
+
+    }
+
+
+});
+  res.send("done");
+},
+    removeproducts:function(req,res){
+      uploadproducts.findOne({'prodID': req.body.prodID},
+      function(error, document){
+        if(error)
+          { console.log('error in remove product');
+              res.json(error.message);
+          }
+          else if(document){
+              uploadproducts.deleteOne(document);
+              console.log(document);
+            }
+    });
+      res.send("done");
+  },
 
  //Taking info from user to update
     updateProfile:function(req,res){

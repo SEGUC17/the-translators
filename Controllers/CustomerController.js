@@ -96,6 +96,22 @@ let customerController = {
 	},
 	 //to retrieve name from database
 
+shoppingPage: function(req,res){
+
+      uploadproducts.find(
+      function(err, shop){
+        if(err)
+          { console.log('error in shoppingPage');
+              res.json(err.message);
+          }
+          else if(shop){
+            res.render("shoppingpage",{shop});
+          }
+
+      });
+        res.send("done");
+  },
+
 	ReviewandRatePage: function(request, res) {
 		console.log(request.body.BusinessUsername);
 		var username = request.body.BusinessUsername;

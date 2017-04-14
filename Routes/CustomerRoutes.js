@@ -15,6 +15,8 @@ router.get('/viewcart', CustomerController.viewCart);
 router.get('/viewcart', CustomerController.viewCart);
 router.get("/CustomerView", CustomerController.CustomerViewGymPage);
 router.get("/CustomerView", CustomerController.ReviewandRatePage);
+router.get('/viewcart', CustomerController.viewCart);
+router.get('/shoppingpage', CustomerController.shoppingPage);
 
 router.get("/BookingRequest", function(req, res){
   res.render('pages/BookingPage'); 
