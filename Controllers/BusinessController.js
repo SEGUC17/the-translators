@@ -34,18 +34,14 @@ let BusinessController =
       }
       if (!user) { 
         console.log(user);
-        return res.send('user not registered');
-      }
-      if (!user.verifyPassword(password)) { 
-        console.log(password);
-        return res.send('Invalid password');
+        return res.send('user not registered or invalid password');
       }
       return res.send('Successfully logged in');
     });
   },
 
    gymsubscription: function(req, res){
-    var gymSubscribe = new gym(req.body);
+    var gymSubscribe = new Business(req.body);
     gymSubscribe.save(function(err, gymsubscription){
     if(err){
       res.send(err.message);

@@ -8,6 +8,7 @@ var qty = 0;
 
 let customerController = {
 /*viewing the shopping cart*/
+/*viewing the shopping cart*/
 viewCart: function(req, res){
   /*to find the logged in customer*/
 Customer.findOne({username: req.body.username}, function(err, cust){
@@ -115,38 +116,24 @@ shoppingPage: function(req,res){
 
 	CustomerViewGymPage:function(request, response){
 
-  Gym.find({}).exec(function(err, result) {
-if (!err) {
- var query = Gym.find({'GymName_location': 'smart'});
-// query.select('GymName_location');
- query.exec(function(err, result) {
-   if (!err) {
-     console.log(Gym.GymName_location);
-      console.log(Gym.Address);
-      console.log(Gym.Email);
-      console.log(Gym.PhoneNumber);
-      console.log(Gym.BusinessUsername);
-     console.log("did it");
-   } else {
-     console.log("Error in second query");
-   }
- });
-} else {
- console.log("Error in first query" );
-}
+ 
+ Gym.find(function (err, query) {
+  if (err){
+    console.log( err.message);
+  }
+  else if(query){
+    console.log(query);
+    console.log('did it');
+  } else {
+    console.log("Error in second query");
+  }
  });
 },
-
-
 
   ReviewandRatePage: function(request, res) {
     //console.log(request.user.BusinessUsername); // retrieve name from databse
     //var User = request.user.BusinessUsername;
-    var GymName = Gym.GymName_location;
-    var gymReview = Gym.GymReview;
-    var gymRating = Gym.GymRating;
-
-    Gym.findOne({GymName : request.body.GymName_location } , function (err , user)
+    Gym.findOne({GymName_location : request.body.GymName_location } , function (err , user)
     {
       if (err)
       {

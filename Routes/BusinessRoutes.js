@@ -29,12 +29,15 @@ passport.deserializeUser(function(id, done) {
 });
 
 // route to business profile page
-router.get('/profile', function(req, res){
-  res.send('this get profile page'); });
+router.get('/businessprofile', function(req, res){
+  res.render('pages/updateprofilebusiness'); });
 
-router.get('/businessownersubscription', function(req, res){
-  res.send('this is subscription page page');
+router.get('/subscripe', function(req,res){
+       res.render('pages/subscripe');
 });
+router.post('/subscripe', BusinessController.gymsubscription);
+
+router.post('/updatedgymschedule', BusinessController.uploadGymSchedule);
 
 router.post('/editproducts', BusinessController.editproducts);
 router.get('/editproduct', function(req, res){
@@ -63,7 +66,5 @@ router.get('/UploadProducts', function(req, res){
 
 router.post('/profile', BusinessController.getBusiness);
 router.post('/ProductModel', BusinessController.createproduct);
-router.post('/updatedgymschedule', BusinessController.uploadGymSchedule);
-router.post('/businessownersubscription', BusinessController.gymsubscription);
 
 module.exports = router;

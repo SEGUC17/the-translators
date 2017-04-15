@@ -25,24 +25,18 @@ let VisitorController =  {
 
 	VisitorViewGymPage:function(request, response){
 
-		Gym.find({}).exec(function(err, result) {
-		 if (!err) {
-			 var query = Gym.find({'GymName_location': 'smart'});
-			// query.select('GymName_location');
-			 query.exec(function(err, result) {
-				 if (!err) {
-					 console.log(Gym.GymName_location);
-
-					 console.log("did it");
-				 } else {
-					 console.log("Error in second query");
-				 }
-			 });
-		 } else {
-			 console.log("Error in first query" );
-		 }
-			 });
-		}
+		Gym.find(function (err, query) {
+  if (err){
+    console.log( err.message);
+  }
+  else if(query){
+    console.log(query);
+    console.log('did it');
+  } else {
+    console.log("Error in second query");
+  }
+ });
+}
 }
 
  // selected gym page

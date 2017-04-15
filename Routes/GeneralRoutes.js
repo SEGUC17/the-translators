@@ -6,11 +6,12 @@ var BusinessController = require('../Controllers/BusinessController');
 
 var Business = require('../Models/BusinessModel');
 
-router.get('/Filter', function(req, res){
-  res.send('this filter page'); 
+router.get('/', function(req, res){
+	res.render('pages/HomePage');
 });
 
-router.post('/Filter', GeneralController.Filter);
+router.get('/', GeneralController.FilterProd);
+router.get('/', GeneralController.Filtergym);
 
 //passing our query (search) to replace it with a regular expression
 // matching anything globally that meets the search
@@ -18,7 +19,7 @@ function escapeRegex(text){
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 };
 
-router.get('/', function(req, res){
+router.get('/S', function(req, res){
   // res.send('this home page');
 	if(req.query.search){
 		//gi is a flag (global ignor) to ignore upper or lower cases

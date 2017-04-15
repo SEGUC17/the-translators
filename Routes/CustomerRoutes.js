@@ -15,6 +15,19 @@ router.get('/viewcart', CustomerController.viewCart);
 router.get("/CustomerView", CustomerController.CustomerViewGymPage);
 router.get("/CustomerView", CustomerController.ReviewandRatePage);
 router.get('/viewcart', CustomerController.viewCart);
+
+router.get('/viewcart', function(req, res){
+  res.render('pages/shoppingcart');
+});
+
+router.get('/addToCart', function(req, res){
+  res.render('pages/shoppingcart');
+});
+router.get('/removeFromCart', function(req, res){
+  res.render('pages/shoppingcart');
+});
+
+
 router.get('/shoppingpage', CustomerController.shoppingPage);
 router.get('/addToCart', CustomerController.addToCart);
 router.get('/removeFromCart', CustomerController.removeFromCart);
@@ -23,10 +36,9 @@ router.get("/BookingRequest", function(req, res){
   res.render('pages/BookingPage'); 
 });
 
-// route to customer profile page
+// route to business profile page
 router.get('/customerprofile', function(req, res){
-  res.send('this is get customer page');
-});
+  res.render('pages/updateprofilecustomer'); });
 
 router.get('/customerView',function (req,res){
   res.render('pages/CustomerView');
@@ -73,19 +85,17 @@ router.get('/customerlogin', function(req, res){
 });
 
 router.post('/CustomerModel', function(req, res) {
-  var username = Customer.username;
-  var password = Customer.password;
-
-  Customer.findOne({ username: req.body.username, password: req.body.password }, function (err, user) {
+  Customer.findOne({ "username": req.body.username, "password": req.body.password }, function (err, user) {
       if (err) { 
         console.log(err);
-        return res.send('err'); 
+        return res.json('err'); 
       }
       if (!user) { 
-        console.log('not registered');
-        return res.send('not registered'); 
+        console.log('not registered or invalid password');
+        console.log(req.body.username);
+        return res.json('not registered or invalid password'); 
       }
-      return res.send('logged in');
+      return res.json('logged in');
     });
   });
 
