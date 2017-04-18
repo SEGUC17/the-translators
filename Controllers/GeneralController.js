@@ -10,12 +10,14 @@ let GeneralController = {
     pmod.find('inputString', view, params, function(err, body) {
       if (err) {
         console.log(err);
+        console.log("taken");
         callback(err, null);
       }
       /*to return a message saying that there is no match in the database for the input string provided by the user*/
         if (body.rows.length == 0) {
           var msg = 'No match for: ' + view + ', ' + params;
           console.log(msg);
+          console.log("taken");
           callback(msg, null);
         }
         else {
@@ -32,16 +34,19 @@ var inputString = {};
   bmod.find('inputString', view, params, function(err, body) {
     if (err) {
       console.log(err);
+      console.log("taken");
       callback(err, null);
     }
     /*to return a message saying that there is no match in the database for the input string provided by the user*/
       if (body.rows.length == 0) {
         var msg = 'No match for: ' + view + ', ' + params;
         console.log(msg);
+        console.log("taken");
         callback(msg, null);
       }
       else {
         inputString = body.rows[0].value;
+        console.log("taken");
         eventsCache[view+JSON.stringify(params)] = inputString;
         callback(null, inputString);
       }

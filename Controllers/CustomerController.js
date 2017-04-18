@@ -1,5 +1,8 @@
+var bcrypt = require('bcryptjs');
+var config = require('../config/database');
+
 let product = require('../Models/ProductModel');
-let Customer = require('../Models/CustomerModel');
+let Customer = require ('../Models/CustomerModel');
 let Gym = require ('../Models/BusinessModel');
 
 let updateController2 = require('../Controllers/updateController2');
@@ -7,27 +10,28 @@ let updateController2 = require('../Controllers/updateController2');
 var qty = 0;
 
 let customerController = {
-/*viewing the shopping cart*/
-/*viewing the shopping cart*/
-viewCart: function(req, res){
-  /*to find the logged in customer*/
-Customer.findOne({username: req.body.username}, function(err, cust){
-  if (err){res.send(err.message);}
-  /*if there is no such customer or he/she is not logged in*/
-  else if(cust ==null){res.send("empty, try logging in correctly!!");}
-  /*to show me the shopping cart*/
-  else if (cust) {res.send(cust.shoppingcart);}
-});
-},
+
+  viewCart: function(req, res){
+    /*to find the logged in customer*/
+    var user = req.user.id;
+    Customer.findOne(getElementById(user), function(err, cust){
+    if (err){res.send(err.message);}
+    /*if there is no such customer or he/she is not logged in*/
+    else if(cust ==null){res.send("empty, try logging in correctly!!");}
+    /*to show me the shopping cart*/
+    else if (cust) {res.send(cust.shoppingcart);}
+  });
+  },
   /*adding an item to the shopping cart*/
   addToCart:function(req, res){
     /*to find the logged in customer*/
-  Customer.findOne({username: req.body.username}, function(err, cust){
+    var user = req.user.id;
+    Customer.findOne(getElementById(user), function(err, cust){
     if (err){res.send(err.message);}
     /*if there is no such customer or he/she is not logged in*/
     else if(cust ==null){res.send("empty, try logging in correctly!!");}
     /*to push the selected product in the shopping cart array by finding this product*/
-    else if (cust) {cust.shoppingcart.unshift(product.findOne({prodID: req.body.prodID}, function(err, prod){
+    else if (cust) {cust.shoppingcart.unshift(uploadproducts.findOne({prodID: req.body.prodID}, function(err, prod){
         if(err){res.send(err.message);}
         /*if no such product found*/
         else {if(prod ==null){res.send("no such product!!");}
@@ -41,12 +45,13 @@ Customer.findOne({username: req.body.username}, function(err, cust){
   /*removing an item from the shopping cart*/
   removeFromCart:function(req, res){
     /*to find the logged in customer*/
-  Customer.findOne({username: req.body.username}, function(err, cust){
+    var user = req.user.id;
+    Customer.findOne(getElementById(user), function(err, cust){
     if (err){res.send(err.message);}
     /*if there is no such customer or he/she is not logged in*/
     else if(cust ==null){res.send("empty, try logging in correctly!!");}
     /*to remove the selected product in the shopping cart array by finding this product*/
-    else if (cust) {cust.shoppingcart.splice(product.findOne({prodID: req.body.prodID}, function(err, prod){
+    else if (cust) {cust.shoppingcart.splice(uploadproducts.findOne({prodID: req.body.prodID}, function(err, prod){
         if(err){res.send(err.message);}
         /*if no such product found*/
         else {if(prod ==null){res.send("no such product!!");}
@@ -68,36 +73,7 @@ Customer.findOne({username: req.body.username}, function(err, cust){
     }
     res.json(sum);
   },
-
-	//getting the id of customers for login
-	getCustomerById: function(id, callback){
-		Customer.findById(id, callback);
-	},
   
-	getCustomer:function(req, res){
-
-  // retrieve username of the customer from session
-  var username = req.user.username;
-
-  // fetch the logged in customer from the database using the username retrieved
-  Customer.findOne({username : username }, function(err,result){
-  // handle error
-  if(err){
-    throw err;
-  }
-  // show 404 status if no result returned
-  else if(!result){
-    res.status(404).send('Not found');
-  }
-  // redirect to the CustomerView page and send the customer object fetched
-  else
-  {
-    res.render ('CustomerView', {customer: result});
-  }
-})
-},
-	 //to retrieve name from database
-
 shoppingPage: function(req,res){
 
       uploadproducts.find(
@@ -114,21 +90,31 @@ shoppingPage: function(req,res){
         res.send("done");
   },
 
-	CustomerViewGymPage:function(request, response){
+  getCustomerById: function(id, callback){
+        Customer.findById(id,callback);
+    },
 
- 
- Gym.find(function (err, query) {
-  if (err){
-    console.log( err.message);
-  }
-  else if(query){
-    console.log(query);
-    console.log('did it');
-  } else {
-    console.log("Error in second query");
-  }
- });
-},
+    getCustomerByUsername: function(username, callback){
+        var query = {username: username}
+        Customer.findOne(query,callback);
+    },
+
+    addCustomer: function(newCustomer, callback){
+        bcrypt.genSalt(10, function(err, salt){
+            bcrypt.hash(newCustomer.password, salt, function(err, hash){
+                if(err) throw err;
+                newCustomer.password =hash;
+                newCustomer.save(callback);
+            })
+        });
+    },
+
+    comparePassword: function(candidatePassword, hash, callback){
+        bcrypt.compare(candidatePassword, hash, function(err, isMatch){
+            if(err) throw err;
+            callback(null, isMatch);
+        });
+    },
 
   ReviewandRatePage: function(request, res) {
     //console.log(request.user.BusinessUsername); // retrieve name from databse
@@ -154,7 +140,7 @@ shoppingPage: function(req,res){
              // it wont update in the updateController
 
             let incomingReq = new Customer({
-                email:req.decoded._doc.email,
+                email:req.body.email,
                 firstname:req.body.firstname,
                 lastname:req.body.lastname,
                 age:req.body.age,
@@ -166,7 +152,7 @@ shoppingPage: function(req,res){
             updateController2.updateProfile(incomingReq,res);
 
             //redirecting to customer view
-            customer.find({username :incomingReq.username}).toArray(function(err,result){ //hena 3ashan a3mel redirect hadawar 3ala username
+            Customer.find({username :incomingReq.username}).toArray(function(err,result){ //hena 3ashan a3mel redirect hadawar 3ala username
              if(err){
                throw err;
              }

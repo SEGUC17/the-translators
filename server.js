@@ -1,47 +1,55 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var expressLayouts = require('express-ejs-layouts');
 var eventsCache = require('eventcache');
-var flash = require('connect-flash');
 var passport = require('passport');
-var localStrategy = require('passport-local').Strategy;
-var session = require('express-session');
+var path = require('path');
+var cors = require('cors');
+var config = require('./config/database');
+
+//Connect To Database
+mongoose.connect(config.database);
+
+// On Connection
+mongoose.connection.on('connected', function() {
+  console.log('Connected to database '+config.database);
+});
+
+// On Error
+mongoose.connection.on('error', function(err){
+  console.log('Database error: '+err);
+});
 
 var app = express();
 
-mongoose.Promise = global.Promise;
-var DB_URI = "mongodb://localhost:27017/GymPlatform";
-mongoose.connect(DB_URI);
+var users = require('./Routes/users');
 
+// CORS Middleware request for our api from different place
+app.use(cors());
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-//for our flash messages
-app.use(flash());
-
-//middleware for express session
-app.use(session({
-  secret: 'secret',
-  saveUninitialized: true,
-  resave: true
-}));
-
-app.set('view engine', 'ejs');
-app.use(expressLayouts);
-app.use(express.static(__dirname+ '/public'));
-
-//initialization for passport
+//Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-//global variables for the flash messages
-app.use(function(req, res, next){
-	res.locals.success_msg = req.flash('success_msg');
-	res.locals.error_msg = req.flash('error_msg');
-	res.locals.error = req.flash('error');
-  res.locals.user = req.user || null;
-	next();
+require('./config/passport')(passport);
+
+app.use('/users', users);
+
+// Index Route
+app.get('/', function(req, res){
+  res.send('Invalid Endpoint');
+});
+
+//any route added goes to this
+app.get('*', function(req, res){
+    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.use(require('./Routes/GeneralRoutes.js'));
@@ -49,6 +57,7 @@ app.use(require('./Routes/BusinessRoutes.js'));
 app.use(require('./Routes/CustomerRoutes.js'));
 app.use(require('./Routes/VisitorRoutes.js'));
 
+//Start Server
 app.listen(8080, function(){
   console.log("server is listening on port 8080");
 })

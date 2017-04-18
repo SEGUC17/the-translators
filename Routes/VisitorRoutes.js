@@ -8,7 +8,7 @@ router.get('/VisitorView', function(req,res){
   res.render('pages/VisitorView');
 })
 
-router.post('/CustomerModel', VisitorController.createregister);
+router.post('/Customer', VisitorController.createregister);
 router.get('/VisitorView', VisitorController.VisitorViewGymPage);
 
 module.exports = router;

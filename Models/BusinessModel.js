@@ -1,28 +1,57 @@
 var mongoose = require('mongoose');
 
-var Schema = mongoose.Schema;
-
+//Business Schema
 var BusinessSchema = mongoose.Schema({
 
-  GymName_location: {type: String, required: true, unique: true},
+  GymName_location: {
+    type: String, 
+    required: true, 
+    unique: true
+  },
 
-  Address: {type: String, required: true},
+  Address: {
+    type: String, 
+    required: true
+  },
 
-  Email: {type: String, required: true, unique: true},
+  Email: {
+    type: String, 
+    required: true, 
+    unique: true
+  },
 
-  BusinessUsername: {type: String, required: true, unique: true},
+  BusinessUsername: {
+    type: String, 
+    required: true, 
+    unique: true
+  },
 
-  Password: {type: String, required: true},
+  Password: {
+    type: String, 
+    required: true
+  },
 
-  PhoneNumber: {type: Number, required: true},
+  PhoneNumber: {
+    type: Number, 
+    required: true
+  },
 
-  BankName: {type: String, required: true},
+  BankName: {
+    type: String, 
+    required: true
+  },
 
-  AccountNumber: {type: String, required: true},
+  AccountNumber: {
+    type: String, 
+    required: true
+  },
 
   Schedules: [String],
 
-  Description: {type: String, required: true},
+  Description: {
+    type: String, 
+    required: true
+  },
 
   ProdList: Array,
   

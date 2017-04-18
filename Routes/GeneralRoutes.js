@@ -23,29 +23,28 @@ router.get('/S', function(req, res){
   // res.send('this home page');
 	if(req.query.search){
 		//gi is a flag (global ignor) to ignore upper or lower cases
+		console.log("taken");
        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-		Business.find({productname:regex} || {schedule:regex} || {gymname:regex}, function(err, businessController){
+		Business.find({productname:regex}, function(err, businessController){
 			if(err){
+				// console.log("productname");
 				console.log(err);
 			}else{
 				if(BusinessController.createproduct().length < 1)
 				{
+					console.log("productname");
 					console.log('No match for this query');
 				}
-				else if(BusinessController.uploadGymSchedule().length < 1)
-				{
-					console.log('No match for this query');
-				}
-				res.render('pages/HomePage', {businessController});
-			}
-		})
-	}else{ //show all gym options if there is no search enteries
+		}
+	})}else{ //show all gym options if there is no search enteries
 		// return res.send('didnt enter a search variable');
 		 Business.find({}, function(err, businessController){
 			if(err){
+				console.log("taken");
 				 console.log(err);
 			}else{
 				//res.send('print me');
+				console.log("productname");
 				res.render('pages/HomePage', {businessController});
 			}
 		})

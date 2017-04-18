@@ -10,6 +10,7 @@ var BookingController ={
 
         customerBooking.save(function(err, customerBooking){
         if(err){
+            console.log(err.message);
             return res.send(err.message);
         }
         else{

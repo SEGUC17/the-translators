@@ -1,8 +1,9 @@
-var mongoose = require('mongoose');
+var bcrypt = require('bcryptjs');
+var config = require('../config/database');
 
 let uploadproducts = require ('../Models/ProductModel');
 let Product = require ('../Models/ProductModel.js');
-let Business = require ('../Models/BusinessModel.js');
+let Business = require ('../Models/BusinessModel');
 
 let updateController = require('../Controllers/updateController');
 
@@ -23,38 +24,11 @@ let BusinessController =
     })
   },
 
-  //getting the username of business owner for login
-  getBusinessByUsername: function(req, res){
-    var username = req.body.username;
-    var password = req.body.password;
-    Business.findOne({BusinessUsername: username, Password : password}, function (err, user) {
-      if (err) { 
-        console.log(err); 
-        return done(err); 
-      }
-      if (!user) { 
-        console.log(user);
-        return res.send('user not registered or invalid password');
-      }
-      return res.send('Successfully logged in');
-    });
-  },
-
-   gymsubscription: function(req, res){
-    var gymSubscribe = new Business(req.body);
-    gymSubscribe.save(function(err, gymsubscription){
-    if(err){
-      res.send(err.message);
-    }
-    else{
-      res.send('Subscription successful');                
-    }
-    })
-  },
+  
 
   //this method is for business owners to upload schedule on their profile.
   uploadGymSchedule: function(req, res){
-    gym.findOne({username: req.user.username},
+    Business.findOne({username: req.user.username},
     function (err, uploadschedule){
       if(err){
         res.json(err.message);
@@ -70,32 +44,31 @@ let BusinessController =
     })
   },
 
-  //getting the id of business owner for login
   getBusinessById: function(id, callback){
-    Business.findById(id, callback);
-  },
+        Business.findById(id,callback);
+    },
 
-  getBusiness:function(req, res){
+     getBusinessByUsername: function(username, callback){
+        var query = {BusinessUsername: username}
+        Business.findOne(query,callback);
+    },
 
-  // retrieve the username of the business from the session
-  var username = req.user.username;
-  // fetch the logged in business from the database using the username rerieved
-  Business.findOne({username : username },function(err,result)
-  {
-  // handle error
-  if(err){
-    throw err;
-  }
-  // show 404 status if no result returned
-  else if(!result){
-    res.status(404).send('Not found');
-  }
-  // redirect to the BusinessView page and send the business object fetched
-  else{
-    res.render ('BusinessView', {business: result});
-  }
-})
-},
+    addBusiness: function(newBusiness, callback){
+       bcrypt.genSalt(10, function(err, salt){
+            bcrypt.hash(newBusiness.Password, salt, function(err, hash){
+                if(err) throw err;
+                newBusiness.Password =hash;
+                newBusiness.save(callback);
+            })
+        });
+    },
+
+    comparePassword1: function(candidatePassword, hash, callback){
+        bcrypt.compare(candidatePassword, hash, function(err, isMatch){
+            if(err) throw err;
+            callback(null, isMatch);
+        });
+    },
 
 viewproducts: function(req,res){
 
