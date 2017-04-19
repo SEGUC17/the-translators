@@ -1,25 +1,20 @@
-let Gym = require ('../Models/BusinessModel.js');
+let Gym = require ('../Models/BusinessModel');
 
 let VisitorController ={
-VisitorViewGymPage:function(request, response){
-	response.send('hello World');
-	var GymName = request.body.GymName_location;
-  var username = request.body.BusinessUsername ;
-	Gym.find({userame : BusinessUsername}).toArray(function(err,result){
-	 if(err){
-		 throw err;
-	 }
-	 else if(result.length)
-	 {
-		 response.render('VisitorView'); // selected page
-}else {
-	console.log("no document found");
-	response.render('GeneralView'); // homepage
-}
+VisitorViewGymPage:function(req, res){
 
-})
-}
-}
+	Gym.findOne({_GymName_location : req.params.GymName_location },function(err, query){
 
- // selected gym pages
-module.exports = VisitorController;
+		 if(err){
+			 console.log("this Gym doesnot exist ");
+		 }else if (query) {
+
+			res.send({query});
+			 console.log("did it ");
+		 }
+	 });
+
+}}
+//view Gym Page
+
+  module.exports = VisitorController;

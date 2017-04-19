@@ -1,49 +1,45 @@
-let Gym = require ('../Models/BusinessModel.js');
+let Gym = require ('../Models/BusinessModel');
+
+let CustomerController ={
+CustomerViewGymPage:function(req, res){
 
 
-let CustomerController = {
-CustomerViewGymPage: function(request, response){
-response.send("hello visitor");
-	var GymName = request.body.GymName_location;
-  var username = request.body.BusinessUsername ;
-	Gym.find({userame : BusinessUsername}).toArray(function(err,result){
-	 if(err){
-		 throw err;
-	 }
-	 else if(result.length)
-	 {
-		 response.render('CustomerView'); // selected page
-}else {
-	console.log("no document found");
-	response.render('GeneralView'); // homepage
-}
-})
-}, // selected gym page
+Gym.findOne({_GymName_location : req.params.GymName_location },function(err, query){
+	//Gym.find(function (err, query) {
 
+		 if(err){
+			 console.log("this Gym doesnot exist ");
+		 }
+     else if (query) {
 
-RetrieveUsername: function(request ,response)
-{
-	//response.send('hello mariam');
-  Gym.findOne({BusinessUsername: request.params.BusinessUsername}, function(err, user){
-    response.json(Gym)});
+			res.send({query});
+			 console.log("did it ");
+		 }
+	 });
 },
- //to retrieve name from database
+//view Gym Page
+ 
+ ReviewandRatePage: function(request, res) {
+   var review = request.body;
+ 
+    Gym.findOne({GymName_location : request.params.GymName_location } , function (err , user)
+    {
+      if (err)
+      {
+        res.send("this Gym does not exist");
+      }
+      else if ( {BusinessUsername : request.params.BusinessUsername})
+      {
+        review.unshift({GymReview:request.params.GymReview});
+      }
 
+      else {
+        res.send("you have to logged in first ");
+      }
+    });
+    }
+ // review and rate page
 
-ReviewandRatePage: function(request, res) {
+  }
 
-	console.log(request.body.BusinessUsername);
-	var username = request.body.BusinessUsername;
-	var GymName = request.body.GymName_location;
-	var GymProduct = request.body.ProdList;
-  var GymReview = request.body.GymReview;
-  var GymRating = request.body.GymRating;
-	var document = { gymReview : GymReview, gymRating: GymRating};
-	Gym.insert({review :GymReview , rate : GymRating });
-	res.render('CustomerView');
-
-} // review and rate page
-
-};
-
-module.exports = CustomerController;
+  module.exports = CustomerController;

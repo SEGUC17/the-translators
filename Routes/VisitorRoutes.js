@@ -1,13 +1,13 @@
 var express = require('express');
 
 var router = express.Router();
-var VisitorController = require ('../Controllers/VisitorController.js');
+var VisitorController = require ('../Controllers/VisitorController');
 
-router.get('/', function(req, res){
-  res.console('this page');
+router.get('/tasks', function(req, res){
+  res.render('index.html');
 });
 
-router.get('/VisitorView', VisitorController.VisitorViewGymPage);
+router.get('/visitorView', VisitorController.VisitorViewGymPage);
 
 
 
