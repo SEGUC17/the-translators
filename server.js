@@ -42,6 +42,8 @@ app.use(Grouter);
 app.use(Brouter);
 app.use(Crouter);
 app.use(Vrouter);
+const cors = require ('cors');
+app.use(cors());
 
 app.listen(8080, function(){
   console.log("server is listening on port 8080");

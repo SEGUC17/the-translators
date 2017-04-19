@@ -32,8 +32,8 @@ constructor(private http:Http) {
 }
 
 click(){
-var header = new Headers;
-this.http.post('http://localhost:8080/review', this.review, header).subscribe(err => console.log(err));
+var body = new body;
+this.http.post('http://localhost:8080/review', body).subscribe(data => console.log(data));
 }
  
 

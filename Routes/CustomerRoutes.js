@@ -7,12 +7,12 @@ router.get('/', function(req, res){
   res.send('this page');
 });
 
-//router.get ('/customerView' , CustomerController.CustomerViewGymPage);
+router.get ('/customerView' , CustomerController.CustomerViewGymPage);
 
 router.get('/review',CustomerController.ReviewandRatePage);
 
 //updata data 
-router.put('/BusinessView', function(request, res) {
+router.put('/review', function(request, res) {
 
 	var review = request.body;
   var updreview = {};

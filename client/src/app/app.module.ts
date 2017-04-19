@@ -5,11 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {ReviewandRateComponent} from './reviewandrate.component';
-
+import {ViewGymPageComponent} from './viewgympage.component'; 
 @NgModule({
   declarations: [
     AppComponent,
    ReviewandRateComponent,
+   ViewGymPageComponent,
    
   ],
   imports: [
