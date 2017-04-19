@@ -1,26 +1,63 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var Grouter = require('./Routes/GeneralRoutes.js');
-var Brouter = require('./Routes/BusinessRoutes.js');
-var Crouter = require('./Routes/CustomerRoutes.js');
-var Vrouter = require('./Routes/VisitorRoutes.js');
-var DB_URI = "mongodb://localhost:27017/GymPlatform";
+var eventsCache = require('eventcache');
+var passport = require('passport');
+var path = require('path');
+var cors = require('cors');
+var config = require('./config/database');
+
+//Connect To Database
+mongoose.connect(config.database);
+
+// On Connection
+mongoose.connection.on('connected', function() {
+  console.log('Connected to database '+config.database);
+});
+
+// On Error
+mongoose.connection.on('error', function(err){
+  console.log('Database error: '+err);
+});
 
 var app = express();
 
+var users = require('./Routes/users');
+
+// CORS Middleware request for our api from different place
+app.use(cors());
+
+// Set Static Folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(express.static(__dirname+ '/public'));
 
-app.set('view engine','ejs');
+//Passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
-mongoose.connect(DB_URI);
- app.use(Grouter);
-app.use(Brouter);
-app.use(Crouter);
-app.use(Vrouter);
+require('./config/passport')(passport);
 
+app.use('/users', users);
+
+// Index Route
+app.get('/', function(req, res){
+  res.send('Invalid Endpoint');
+});
+
+//any route added goes to this
+app.get('*', function(req, res){
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
+app.use(require('./Routes/GeneralRoutes.js'));
+app.use(require('./Routes/BusinessRoutes.js'));
+app.use(require('./Routes/CustomerRoutes.js'));
+app.use(require('./Routes/VisitorRoutes.js'));
+
+//Start Server
 app.listen(8080, function(){
   console.log("server is listening on port 8080");
 })

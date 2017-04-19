@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
+var Schema = mongoose.Schema;
+
 //creating schema for uploading products
 var ProductSchema = mongoose.Schema({
 
   businessUserName:{
     type: String,
     required: true,
-    unique: true
   },//take input from login session
 
   prodname: {
@@ -23,10 +24,9 @@ var ProductSchema = mongoose.Schema({
     type:Number
   },
 
-  image:{
-  //  required:true
-
-  },
+   image:{
+     type: Schema.Types.Mixed
+   },
 
   ProductDescription: {
     type: String
@@ -35,11 +35,13 @@ var ProductSchema = mongoose.Schema({
   Category: {
     type: String,
     required: true
+  },
+  Quantity:{
+    type: Number,
+    required: true
   }
 
-
-})
+});
 
 var UploadProducts = mongoose.model("uploadproducts", ProductSchema);
-
 module.exports = UploadProducts;

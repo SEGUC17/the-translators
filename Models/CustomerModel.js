@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
-//creating schema for visitor registration form
-var visitorregistrationformSchema = mongoose.Schema({
+//Customer Schema
+var CustomerSchema = mongoose.Schema({
 
   firstname:{
     type:String,
@@ -28,12 +28,11 @@ var visitorregistrationformSchema = mongoose.Schema({
     type: String,
     required:true,
     unique:true
-},
 
+},
   password:{
     type:String,
-    required:true,
-    minlength:8
+    required:true
 },
 
   mobilenumber:{
@@ -50,5 +49,5 @@ shoppingcart:{
 
  })
 
-var Customer = mongoose.model("customer",visitorregistrationformSchema);
+var Customer = mongoose.model('Customer',CustomerSchema);
 module.exports = Customer;
