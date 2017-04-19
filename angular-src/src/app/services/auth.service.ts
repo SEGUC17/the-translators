@@ -12,6 +12,7 @@ export class AuthService {
   bauthToken:any;
   customer:any;
   business: any;
+  search: any;
 
   constructor(private http: Http) { }
 
@@ -78,6 +79,15 @@ export class AuthService {
     loadCToken(){
       var token = localStorage.getItem('id_token');
       this.cauthToken = token;
+    }
+
+    getSearch() {
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      if (this.search) {
+          return this.http.get('http://localhost:8080/', {headers: headers})
+        .map(res => res.json());
+      }
     }
 
     loadBToken(){

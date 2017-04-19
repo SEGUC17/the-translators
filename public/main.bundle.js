@@ -37,7 +37,7 @@ var BusinessvalidateService = (function () {
     ], BusinessvalidateService);
     return BusinessvalidateService;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/businessvalidate.service.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/businessvalidate.service.js.map
 
 /***/ }),
 
@@ -78,7 +78,7 @@ var CustomervalidateService = (function () {
     ], CustomervalidateService);
     return CustomervalidateService;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/customervalidate.service.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/customervalidate.service.js.map
 
 /***/ }),
 
@@ -113,7 +113,7 @@ if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["enableProdMode"])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/main.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/main.js.map
 
 /***/ }),
 
@@ -147,7 +147,7 @@ var AppComponent = (function () {
     ], AppComponent);
     return AppComponent;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/app.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/app.component.js.map
 
 /***/ }),
 
@@ -245,7 +245,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/app.module.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/app.module.js.map
 
 /***/ }),
 
@@ -283,8 +283,8 @@ var BusinessloginComponent = (function () {
     BusinessloginComponent.prototype.onBusinessLoginSubmit = function () {
         var _this = this;
         var business = {
-            username: this.username,
-            password: this.password
+            BusinessUsername: this.BusinessUsername,
+            Password: this.Password
         };
         this.authService.authenticateBusiness(business).subscribe(function (data) {
             if (data.success) {
@@ -309,7 +309,7 @@ var BusinessloginComponent = (function () {
     return BusinessloginComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/businesslogin.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/businesslogin.component.js.map
 
 /***/ }),
 
@@ -358,7 +358,7 @@ var BusinessprofileComponent = (function () {
     return BusinessprofileComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/businessprofile.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/businessprofile.component.js.map
 
 /***/ }),
 
@@ -422,7 +422,7 @@ var CustomerloginComponent = (function () {
     return CustomerloginComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/customerlogin.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/customerlogin.component.js.map
 
 /***/ }),
 
@@ -457,7 +457,7 @@ var DashboardComponent = (function () {
     ], DashboardComponent);
     return DashboardComponent;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/dashboard.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/dashboard.component.js.map
 
 /***/ }),
 
@@ -477,6 +477,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+// import { GithubUser } from '../model/IGithubUser'; gym model
+// import { GithubUser } from '../model/IGithubUser'; product model
+//import { GithubUser } from '../model/IGithubUser'; service model
 var HomeComponent = (function () {
     function HomeComponent() {
     }
@@ -492,7 +495,7 @@ var HomeComponent = (function () {
     ], HomeComponent);
     return HomeComponent;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/home.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/home.component.js.map
 
 /***/ }),
 
@@ -544,7 +547,7 @@ var NavbarComponent = (function () {
     return NavbarComponent;
     var _a, _b, _c;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/navbar.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/navbar.component.js.map
 
 /***/ }),
 
@@ -593,7 +596,7 @@ var ProfileComponent = (function () {
     return ProfileComponent;
     var _a, _b;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/profile.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/profile.component.js.map
 
 /***/ }),
 
@@ -674,7 +677,7 @@ var RegisterComponent = (function () {
     return RegisterComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/register.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/register.component.js.map
 
 /***/ }),
 
@@ -756,7 +759,7 @@ var SubscribeComponent = (function () {
     return SubscribeComponent;
     var _a, _b, _c, _d;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/subscribe.component.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/subscribe.component.js.map
 
 /***/ }),
 
@@ -772,7 +775,7 @@ var SubscribeComponent = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/environment.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/environment.js.map
 
 /***/ }),
 
@@ -860,6 +863,14 @@ var AuthService = (function () {
         var token = localStorage.getItem('id_token');
         this.cauthToken = token;
     };
+    AuthService.prototype.getSearch = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        if (this.search) {
+            return this.http.get('http://localhost:8080/', { headers: headers })
+                .map(function (res) { return res.json(); });
+        }
+    };
     AuthService.prototype.loadBToken = function () {
         var token = localStorage.getItem('id_token');
         this.bauthToken = token;
@@ -881,7 +892,7 @@ var AuthService = (function () {
     return AuthService;
     var _a;
 }());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/my code/angular-src/src/auth.service.js.map
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/auth.service.js.map
 
 /***/ }),
 
@@ -993,7 +1004,7 @@ module.exports = "\n<h2 class=\"page-header\">Dashboard<h2>\n<p>Welcome to your 
 /***/ 692:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1> GymPlatform </h1>\n  <p class=\"lead\"> Welcome to our Gyms page </p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-default\" [routerLink]=\"['/customerlogin']\">Customer Login</a>\n  </div>\n</div>"
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1> GymPlatform </h1>\n  <p class=\"lead\"> Welcome to our Gyms page </p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-default\" [routerLink]=\"['/customerlogin']\">Customer Login</a>\n  </div>\n</div>\n\n<!--search-->\n<nav class=\"navbar navbar-collapse\">\n    <div class=\"row pull-xs-right\">\n        <div class=\"col-md-3 hidden-md-down\">\n        </div>\n        <div class=\" col-md-6\">\n\n            <form id=\"searchForm\">\n                <!-- ngNoForm -->\n                <div class=\"form-group\">\n                    <div class=\"input-group\">\n                        <input type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Search for Gym, product or service\" [(ngModel)]=\"githubUser.userName\" (keyup)=\"searchUser()\">\n                        <div class=\"input-group-addon\"><i class=\"fa fa-keyboard-o\" aria-hidden=\"true\"></i></div>\n                    </div>\n                </div>\n\n\n            </form>\n\n        </div>\n    </div>\n</nav>"
 
 /***/ }),
 
