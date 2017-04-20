@@ -29,7 +29,7 @@ router.get('/updatedgymschedule', function(req, res){
   res.render('pages');
 });
 
-router.get('/UploadProducts', function(req, res){
+router.get('/UploadProducts', function(req, res){ //de ya yoki
   res.render('pages/BusinessView');
 });
 
