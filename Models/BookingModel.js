@@ -1,18 +1,51 @@
 var mongoose = require('mongoose');
+var UUID = require("node-uuid");
+
 //Schema for client's booking
-var DB_URI = 'monogdb://localhost:27017/GymPlatform';
 
 var BookingSchema = mongoose.Schema({
-    CustomerUsername: {type: String, required: true},
-    GymNameLocation: {type: String, required: true},
-    selectedClass:{type:String, required: true},
-    selectedTime: {type:Number, required: true},
-    selectedDate: {type:Date, required:true},
-    CustomerEmail: {type: String, required: true},
-    CustomerMobile: {type: Number, required:true},
-    ConfirmationStatus: {type: String, enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'], default: "Not Yet Confirmed"}
-});
 
-var Booking = mongoose.model('Bookings', BookingSchema);
+    User_ID: {type: String, default:function getUUID(){
+        return UUID.v4();
+    }},
 
-module.exports = Booking;
+    CustomerUsername: {
+      type:String
+      // type: mongoose.Schema.Types.ObjectId,
+      // ref: 'Customer'
+    },
+
+    GymNameLocation: {
+      type:String
+      // type: mongoose.Schema.Types.ObjectId,
+      // ref: 'Gym' //double check the name of the Model
+    },
+
+    selectedClass:{
+      type:String,
+      required: true
+    },
+
+    selectedTime: {
+      type:Number,
+      required: true
+    },
+
+    selectedDate: {
+      type:Date,
+      required:true
+    },
+
+
+    ConfirmationStatus:
+     {
+      type: String,
+      enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'],
+      default: "Not Yet Confirmed",
+      required:false
+    }
+})
+
+var Bookings = mongoose.model('Bookings', BookingSchema);
+
+module.exports = Bookings;
