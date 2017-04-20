@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {BusinessvalidateService} from '../../services/businessvalidate.service';
+import {UploadproductsvalidateService} from '../../services/uploadproductsvalidate.service';
 import {AuthService} from '../../services/auth.service';
 
 import {FlashMessagesService} from 'angular2-flash-messages';
@@ -12,7 +12,7 @@ import {Router} from '@angular/router';
   templateUrl: './uploadproducts.component.html',
   styleUrls: ['./uploadproducts.component.css']
 })
-export class uploadproductsComponent implements OnInit {
+export class UploadproductsComponent implements OnInit {
 
   prodname: String;
   prodID: String;
@@ -23,13 +23,13 @@ export class uploadproductsComponent implements OnInit {
   Quantity: Number;
   
 
-  constructor(private businessValidateService: BusinessvalidateService, private flashMessage: FlashMessagesService, private authService: AuthService, private router: Router) { }
+  constructor(private uploadproductsvalidateService: UploadproductsvalidateService, private flashMessage: FlashMessagesService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
-  ononUploadproducts(){
-    var business = {
+  onUploadproducts(){
+    var product = {
       prodname: this.prodname,
       prodID: this.prodID,
       price: this.price,
@@ -39,17 +39,17 @@ export class uploadproductsComponent implements OnInit {
       Quantity: this.Quantity
     }
 
-    if(!this.businessValidateService.validateProducts(business)){
+    if(!this.uploadproductsvalidateService.validateProducts(product)){
       this.flashMessage.show('please fill all fields', {cssClass: 'alert-danger', timeout: 3000});
       return false;
     }
 
 
     //upload products business
-   this.authService.uploadProducts(business).subscribe(data =>{
+   this.authService.uploadProducts(product).subscribe(data =>{
         if(data.success){
           this.flashMessage.show('Your products are uploaded', {cssClass: 'alert-success', timeout: 3000});
-          this.router.navigate(['/businesslogin']);
+          this.router.navigate(['/dashboard']);
         } else {
           this.flashMessage.show('Something went wrong re-upload your product', {cssClass: 'alert-danger', timeout: 3000});
           this.router.navigate(['/uploadproducts']);

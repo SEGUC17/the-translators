@@ -12,6 +12,8 @@ export class AuthService {
   bauthToken:any;
   customer:any;
   business: any;
+  booking: any;
+  product: any;
 
   constructor(private http: Http) { }
 
@@ -21,10 +23,18 @@ export class AuthService {
      return this.http.post('http://localhost:8080/users/register', customer, {headers: headers})
       .map(res => res.json());
     }
-    uploadProducts(business){
+
+     uploadProducts(product){
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/users/register', business, {headers: headers})
+     return this.http.post('http://localhost:8080/uploadproducts', product, {headers: headers})
+      .map(res => res.json());
+    }
+
+    bookingRequest(booking){
+     let headers = new Headers();
+     headers.append('Content-Type', 'application/json');
+     return this.http.post('http://localhost:8080/users/register', booking, {headers: headers}) //'http://localhost:8080/users/register' change it to the path of ur rout in the backend  (this is the linking)
       .map(res => res.json());
     }
 

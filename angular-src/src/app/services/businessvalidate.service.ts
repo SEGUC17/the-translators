@@ -12,13 +12,6 @@ export class BusinessvalidateService {
       return true;
     }
   }
-  validateProducts(user){
-    if(user.businessUserName == undefined || user.prodname == undefined || user.prodID == undefined || user.price == undefined || user.Category == undefined || user.Quantity == undefined){
-      return false;
-    } else {
-      return true;
-    }
-  }
 
     validateEmail(email){
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

@@ -12,8 +12,8 @@ import {FlashMessagesService} from 'angular2-flash-messages';
   styleUrls: ['./businesslogin.component.css']
 })
 export class BusinessloginComponent implements OnInit {
-  username: String;
-  password: String;
+  BusinessUsername: String;
+  Password: String;
 
   constructor(private authService: AuthService, private router: Router, private flashMessage: FlashMessagesService) { }
 
@@ -22,8 +22,8 @@ export class BusinessloginComponent implements OnInit {
 
   onBusinessLoginSubmit(){
     var business = {
-      username: this.username,
-      password: this.password
+      BusinessUsername: this.BusinessUsername,
+      Password: this.Password
     }
 
     this.authService.authenticateBusiness(business).subscribe(data => {

@@ -29,8 +29,8 @@ router.get('/updatedgymschedule', function(req, res){
   res.render('pages');
 });
 
-router.get('/UploadProducts', function(req, res){
-  res.render('pages/BusinessView');
+router.get('/uploadproducts', function(req, res){ //de ya yoki
+  res.render('/uploadproducts');
 });
 
 router.post('/ProductModel', BusinessController.createproduct);

@@ -46,7 +46,7 @@ router.post('/uploadproducts', function(req,res){
        
     });
 
-    BuisnessrController.addProducts(newBusiness, function(err, business){
+    BuisnessrController.addProducts(newBusiness, function(err, product){
         if(err){
             console.log(err);
             res.json({success: false, msg:'Failed to upload product'});
@@ -57,18 +57,18 @@ router.post('/uploadproducts', function(req,res){
 });
 
 
-//Subscribe Router
+//Subscribe Router 
 router.post('/subscribe', function(req,res){
     let newBusiness = new BusinessModel({
-        GymName_location: req.body.GymName_location,
-        Address: req.body.Address,
-        Email: req.body.Email,
-        BusinessUsername: req.body.BusinessUsername,
-        Password: req.body.Password,
-        PhoneNumber: req.body.PhoneNumber,
-        BankName: req.body.BankName,
-        AccountNumber: req.body.AccountNumber,
-        Description: req.body.Description
+            GymName_location: req.body.GymName_location,
+            Address: req.body.Address,
+            Email: req.body.Email,
+            BusinessUsername: req.body.BusinessUsername,
+            Password: req.body.Password,
+            PhoneNumber: req.body.PhoneNumber,
+            BankName: req.body.BankName,
+            AccountNumber: req.body.AccountNumber,
+            Description: req.body.Description
     });
 
     BusinessController.addBusiness(newBusiness, function(err, business){
