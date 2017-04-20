@@ -12,7 +12,7 @@ export class AuthService {
   bauthToken:any;
   customer:any;
   business: any;
-  search: any;
+  booking: any;
 
   constructor(private http: Http) { }
 
@@ -20,6 +20,13 @@ export class AuthService {
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
      return this.http.post('http://localhost:8080/users/register', customer, {headers: headers})
+      .map(res => res.json());
+    }
+
+    bookingRequest(booking){
+     let headers = new Headers();
+     headers.append('Content-Type', 'application/json');
+     return this.http.post('http://localhost:8080/users/register', booking, {headers: headers}) //'http://localhost:8080/users/register' change it to the path of ur rout in the backend  (this is the linking)
       .map(res => res.json());
     }
 
@@ -79,15 +86,6 @@ export class AuthService {
     loadCToken(){
       var token = localStorage.getItem('id_token');
       this.cauthToken = token;
-    }
-
-    getSearch() {
-      let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      if (this.search) {
-          return this.http.get('http://localhost:8080/', {headers: headers})
-        .map(res => res.json());
-      }
     }
 
     loadBToken(){

@@ -47,5 +47,15 @@ export class BookingrequestComponent implements OnInit {
       return false;
     }
 
-}
+     this.authService.bookingRequest(booking).subscribe(data =>{
+        if(data.success){
+          this.flashMessage.show('You have successfully booked', {cssClass: 'alert-success', timeout: 3000});
+          this.router.navigate(['/customerlogin']); //right the pathname(get it from app.module.ts) u want him to redirect to after booking is successful
+        } else {
+          this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000}); 
+          this.router.navigate(['/register']); //right the pathname(get it from app.module.ts) u want him to redirect to after booking is failed or empty
+        }
+    });
+
+  }
 }

@@ -5,6 +5,43 @@ webpackJsonp([1,4],{
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookingvalidationService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BookingvalidationService = (function () {
+    function BookingvalidationService() {
+    }
+    BookingvalidationService.prototype.validateBooking = function (booking) {
+        if (booking.User_ID == undefined || booking.CustomerUsername == undefined || booking.GymNameLocation == undefined || booking.selectedClass == undefined || booking.selectedTime == undefined || booking.CustomerEmail == undefined || booking.CustomerMobile == undefined || booking.ConfirmationStatus == undefined) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    BookingvalidationService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [])
+    ], BookingvalidationService);
+    return BookingvalidationService;
+}());
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/bookingvalidation.service.js.map
+
+/***/ }),
+
+/***/ 334:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BusinessvalidateService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +78,7 @@ var BusinessvalidateService = (function () {
 
 /***/ }),
 
-/***/ 334:
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -82,7 +119,7 @@ var CustomervalidateService = (function () {
 
 /***/ }),
 
-/***/ 389:
+/***/ 390:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -91,20 +128,20 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 389;
+webpackEmptyContext.id = 390;
 
 
 /***/ }),
 
-/***/ 390:
+/***/ 391:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(478);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(518);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(520);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__(509);
 
 
 
@@ -117,7 +154,122 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dyna
 
 /***/ }),
 
-/***/ 507:
+/***/ 42:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(706);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(525);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AuthService = (function () {
+    function AuthService(http) {
+        this.http = http;
+    }
+    AuthService.prototype.registerCustomer = function (customer) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:8080/users/register', customer, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.bookingRequest = function (booking) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:8080/users/register', booking, { headers: headers }) //'http://localhost:8080/users/register' change it to the path of ur rout in the backend  (this is the linking)
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.subscribeBusiness = function (business) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:8080/users/subscribe', business, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.authenticateCustomer = function (customer) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:8080/users/customerauthenticate', customer, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.getCustomerProfile = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadCToken();
+        headers.append('Authorization', this.cauthToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get('http://localhost:8080/users/customerprofile', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.authenticateBusiness = function (business) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:8080/users/businessauthenticate', business, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.getBusinessProfile = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadBToken();
+        headers.append('Authorization', this.bauthToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.get('http://localhost:8080/users/businessprofile', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.storeCustomerData = function (token, customer) {
+        localStorage.setItem('id_token', token);
+        localStorage.setItem('customer', JSON.stringify(customer));
+        this.cauthToken = token;
+        this.customer = customer;
+    };
+    AuthService.prototype.storeBusinessData = function (token, business) {
+        localStorage.setItem('id_token', token);
+        localStorage.setItem('business', JSON.stringify(business));
+        this.bauthToken = token;
+        this.business = business;
+    };
+    AuthService.prototype.loadCToken = function () {
+        var token = localStorage.getItem('id_token');
+        this.cauthToken = token;
+    };
+    AuthService.prototype.loadBToken = function () {
+        var token = localStorage.getItem('id_token');
+        this.bauthToken = token;
+    };
+    AuthService.prototype.loggedIn = function () {
+        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__["tokenNotExpired"])();
+    };
+    AuthService.prototype.logout = function () {
+        this.bauthToken = null;
+        this.cauthToken = null;
+        this.customer = null;
+        this.business = null;
+        localStorage.clear();
+    };
+    AuthService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === 'function' && _a) || Object])
+    ], AuthService);
+    return AuthService;
+    var _a;
+}());
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/auth.service.js.map
+
+/***/ }),
+
+/***/ 508:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -140,8 +292,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-root',
-            template: __webpack_require__(687),
-            styles: [__webpack_require__(677)]
+            template: __webpack_require__(690),
+            styles: [__webpack_require__(679)]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
@@ -151,30 +303,32 @@ var AppComponent = (function () {
 
 /***/ }),
 
-/***/ 508:
+/***/ 509:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(469);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(507);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__ = __webpack_require__(514);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_customerlogin_customerlogin_component__ = __webpack_require__(511);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_businesslogin_businesslogin_component__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_register_register_component__ = __webpack_require__(516);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_home_home_component__ = __webpack_require__(513);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dashboard_dashboard_component__ = __webpack_require__(512);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__ = __webpack_require__(515);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_businessprofile_businessprofile_component__ = __webpack_require__(510);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_subscribe_subscribe_component__ = __webpack_require__(517);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_customervalidate_service__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_businessvalidate_service__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(508);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_navbar_navbar_component__ = __webpack_require__(516);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_customerlogin_customerlogin_component__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_businesslogin_businesslogin_component__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_register_register_component__ = __webpack_require__(518);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_home_home_component__ = __webpack_require__(515);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_dashboard_dashboard_component__ = __webpack_require__(514);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__ = __webpack_require__(517);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_businessprofile_businessprofile_component__ = __webpack_require__(512);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_subscribe_subscribe_component__ = __webpack_require__(519);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_bookingrequest_bookingrequest_component__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_customervalidate_service__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_bookingvalidation_service__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_businessvalidate_service__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -204,6 +358,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_10__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_9__components_register_register_component__["a" /* RegisterComponent */] },
@@ -213,6 +369,7 @@ var appRoutes = [
     { path: 'customerprofile', component: __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__["a" /* ProfileComponent */] },
     { path: 'businessprofile', component: __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__["a" /* ProfileComponent */] },
     { path: 'subscribe', component: __WEBPACK_IMPORTED_MODULE_14__components_subscribe_subscribe_component__["a" /* SubscribeComponent */] },
+    { path: 'booking', component: __WEBPACK_IMPORTED_MODULE_15__components_bookingrequest_bookingrequest_component__["a" /* BookingrequestComponent */] },
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -229,16 +386,17 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_11__components_dashboard_dashboard_component__["a" /* DashboardComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__components_profile_profile_component__["a" /* ProfileComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__components_subscribe_subscribe_component__["a" /* SubscribeComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__components_businessprofile_businessprofile_component__["a" /* BusinessprofileComponent */]
+                __WEBPACK_IMPORTED_MODULE_13__components_businessprofile_businessprofile_component__["a" /* BusinessprofileComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_bookingrequest_bookingrequest_component__["a" /* BookingrequestComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_http__["HttpModule"],
                 __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
-                __WEBPACK_IMPORTED_MODULE_18_angular2_flash_messages__["FlashMessagesModule"]
+                __WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages__["FlashMessagesModule"]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_15__services_customervalidate_service__["a" /* CustomervalidateService */], __WEBPACK_IMPORTED_MODULE_16__services_businessvalidate_service__["a" /* BusinessvalidateService */], __WEBPACK_IMPORTED_MODULE_17__services_auth_service__["a" /* AuthService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_16__services_customervalidate_service__["a" /* CustomervalidateService */], __WEBPACK_IMPORTED_MODULE_18__services_businessvalidate_service__["a" /* BusinessvalidateService */], __WEBPACK_IMPORTED_MODULE_19__services_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_17__services_bookingvalidation_service__["a" /* BookingvalidationService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         }), 
         __metadata('design:paramtypes', [])
@@ -249,14 +407,91 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 509:
+/***/ 510:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_bookingvalidation_service__ = __webpack_require__(333);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(40);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BookingrequestComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var BookingrequestComponent = (function () {
+    function BookingrequestComponent(bookingValidateService, flashMessage, authService, router) {
+        this.bookingValidateService = bookingValidateService;
+        this.flashMessage = flashMessage;
+        this.authService = authService;
+        this.router = router;
+    }
+    BookingrequestComponent.prototype.ngOnInit = function () {
+    };
+    BookingrequestComponent.prototype.onBookingSubmit = function () {
+        var _this = this;
+        var booking = {
+            User_ID: this.User_ID,
+            CustomerUsername: this.CustomerUsername,
+            GymNameLocation: this.GymNameLocation,
+            selectedClass: this.selectedClass,
+            selectedTime: this.selectedTime,
+            //selectedDate: this.selectDate,
+            CustomerEmail: this.CustomerEmail,
+            CustomerMobile: this.CustomerMobile,
+            ConfirmationStatus: this.ConfirmationStatus,
+        };
+        if (!this.bookingValidateService.validateBooking(booking)) {
+            this.flashMessage.show('please fill all fields', { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
+        this.authService.bookingRequest(booking).subscribe(function (data) {
+            if (data.success) {
+                _this.flashMessage.show('You have successfully booked', { cssClass: 'alert-success', timeout: 3000 });
+                _this.router.navigate(['/customerlogin']); //right the pathname(get it from app.module.ts) u want him to redirect to after booking is successful
+            }
+            else {
+                _this.flashMessage.show('Something went wrong', { cssClass: 'alert-danger', timeout: 3000 });
+                _this.router.navigate(['/register']); //right the pathname(get it from app.module.ts) u want him to redirect to after booking is failed or empty
+            }
+        });
+    };
+    BookingrequestComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-bookingrequest',
+            template: __webpack_require__(691),
+            styles: [__webpack_require__(680)]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_bookingvalidation_service__["a" /* BookingvalidationService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_bookingvalidation_service__["a" /* BookingvalidationService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
+    ], BookingrequestComponent);
+    return BookingrequestComponent;
+    var _a, _b, _c, _d;
+}());
+//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/bookingrequest.component.js.map
+
+/***/ }),
+
+/***/ 511:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BusinessloginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -301,8 +536,8 @@ var BusinessloginComponent = (function () {
     BusinessloginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-businesslogin',
-            template: __webpack_require__(688),
-            styles: [__webpack_require__(678)]
+            template: __webpack_require__(692),
+            styles: [__webpack_require__(681)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], BusinessloginComponent);
@@ -313,13 +548,13 @@ var BusinessloginComponent = (function () {
 
 /***/ }),
 
-/***/ 510:
+/***/ 512:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BusinessprofileComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -350,8 +585,8 @@ var BusinessprofileComponent = (function () {
     BusinessprofileComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-businessprofile',
-            template: __webpack_require__(689),
-            styles: [__webpack_require__(679)]
+            template: __webpack_require__(693),
+            styles: [__webpack_require__(682)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
     ], BusinessprofileComponent);
@@ -362,14 +597,14 @@ var BusinessprofileComponent = (function () {
 
 /***/ }),
 
-/***/ 511:
+/***/ 513:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomerloginComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -414,8 +649,8 @@ var CustomerloginComponent = (function () {
     CustomerloginComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-customerlogin',
-            template: __webpack_require__(690),
-            styles: [__webpack_require__(680)]
+            template: __webpack_require__(694),
+            styles: [__webpack_require__(683)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], CustomerloginComponent);
@@ -426,7 +661,7 @@ var CustomerloginComponent = (function () {
 
 /***/ }),
 
-/***/ 512:
+/***/ 514:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -450,8 +685,8 @@ var DashboardComponent = (function () {
     DashboardComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-dashboard',
-            template: __webpack_require__(691),
-            styles: [__webpack_require__(681)]
+            template: __webpack_require__(695),
+            styles: [__webpack_require__(684)]
         }), 
         __metadata('design:paramtypes', [])
     ], DashboardComponent);
@@ -461,7 +696,7 @@ var DashboardComponent = (function () {
 
 /***/ }),
 
-/***/ 513:
+/***/ 515:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -488,8 +723,8 @@ var HomeComponent = (function () {
     HomeComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-home',
-            template: __webpack_require__(692),
-            styles: [__webpack_require__(682)]
+            template: __webpack_require__(696),
+            styles: [__webpack_require__(685)]
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);
@@ -499,14 +734,14 @@ var HomeComponent = (function () {
 
 /***/ }),
 
-/***/ 514:
+/***/ 516:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NavbarComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -539,8 +774,8 @@ var NavbarComponent = (function () {
     NavbarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-navbar',
-            template: __webpack_require__(693),
-            styles: [__webpack_require__(683)]
+            template: __webpack_require__(697),
+            styles: [__webpack_require__(686)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _c) || Object])
     ], NavbarComponent);
@@ -551,13 +786,13 @@ var NavbarComponent = (function () {
 
 /***/ }),
 
-/***/ 515:
+/***/ 517:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfileComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -588,8 +823,8 @@ var ProfileComponent = (function () {
     ProfileComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-profile',
-            template: __webpack_require__(694),
-            styles: [__webpack_require__(684)]
+            template: __webpack_require__(698),
+            styles: [__webpack_require__(687)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === 'function' && _b) || Object])
     ], ProfileComponent);
@@ -600,16 +835,16 @@ var ProfileComponent = (function () {
 
 /***/ }),
 
-/***/ 516:
+/***/ 518:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_customervalidate_service__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_customervalidate_service__ = __webpack_require__(335);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -669,8 +904,8 @@ var RegisterComponent = (function () {
     RegisterComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-register',
-            template: __webpack_require__(695),
-            styles: [__webpack_require__(685)]
+            template: __webpack_require__(699),
+            styles: [__webpack_require__(688)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_customervalidate_service__["a" /* CustomervalidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_customervalidate_service__["a" /* CustomervalidateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], RegisterComponent);
@@ -681,16 +916,16 @@ var RegisterComponent = (function () {
 
 /***/ }),
 
-/***/ 517:
+/***/ 519:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_businessvalidate_service__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_businessvalidate_service__ = __webpack_require__(334);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__ = __webpack_require__(67);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(55);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(40);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SubscribeComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -751,8 +986,8 @@ var SubscribeComponent = (function () {
     SubscribeComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-subscribe',
-            template: __webpack_require__(696),
-            styles: [__webpack_require__(686)]
+            template: __webpack_require__(700),
+            styles: [__webpack_require__(689)]
         }), 
         __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_businessvalidate_service__["a" /* BusinessvalidateService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__services_businessvalidate_service__["a" /* BusinessvalidateService */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3_angular2_flash_messages__["FlashMessagesService"]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === 'function' && _c) || Object, (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === 'function' && _d) || Object])
     ], SubscribeComponent);
@@ -763,7 +998,7 @@ var SubscribeComponent = (function () {
 
 /***/ }),
 
-/***/ 518:
+/***/ 520:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -776,137 +1011,6 @@ var environment = {
     production: false
 };
 //# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/environment.js.map
-
-/***/ }),
-
-/***/ 56:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(702);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt__ = __webpack_require__(523);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_jwt___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var AuthService = (function () {
-    function AuthService(http) {
-        this.http = http;
-    }
-    AuthService.prototype.registerCustomer = function (customer) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:8080/users/register', customer, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.subscribeBusiness = function (business) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:8080/users/subscribe', business, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.authenticateCustomer = function (customer) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:8080/users/customerauthenticate', customer, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.getCustomerProfile = function () {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        this.loadCToken();
-        headers.append('Authorization', this.cauthToken);
-        headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:8080/users/customerprofile', { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.authenticateBusiness = function (business) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:8080/users/businessauthenticate', business, { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.getBusinessProfile = function () {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        this.loadBToken();
-        headers.append('Authorization', this.bauthToken);
-        headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:8080/users/businessprofile', { headers: headers })
-            .map(function (res) { return res.json(); });
-    };
-    AuthService.prototype.storeCustomerData = function (token, customer) {
-        localStorage.setItem('id_token', token);
-        localStorage.setItem('customer', JSON.stringify(customer));
-        this.cauthToken = token;
-        this.customer = customer;
-    };
-    AuthService.prototype.storeBusinessData = function (token, business) {
-        localStorage.setItem('id_token', token);
-        localStorage.setItem('business', JSON.stringify(business));
-        this.bauthToken = token;
-        this.business = business;
-    };
-    AuthService.prototype.loadCToken = function () {
-        var token = localStorage.getItem('id_token');
-        this.cauthToken = token;
-    };
-    AuthService.prototype.getSearch = function () {
-        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
-        headers.append('Content-Type', 'application/json');
-        if (this.search) {
-            return this.http.get('http://localhost:8080/', { headers: headers })
-                .map(function (res) { return res.json(); });
-        }
-    };
-    AuthService.prototype.loadBToken = function () {
-        var token = localStorage.getItem('id_token');
-        this.bauthToken = token;
-    };
-    AuthService.prototype.loggedIn = function () {
-        return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3_angular2_jwt__["tokenNotExpired"])();
-    };
-    AuthService.prototype.logout = function () {
-        this.bauthToken = null;
-        this.cauthToken = null;
-        this.customer = null;
-        this.business = null;
-        localStorage.clear();
-    };
-    AuthService = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
-        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]) === 'function' && _a) || Object])
-    ], AuthService);
-    return AuthService;
-    var _a;
-}());
-//# sourceMappingURL=/Users/saraalawadim/Desktop/the-translators my code/angular-src/src/auth.service.js.map
-
-/***/ }),
-
-/***/ 677:
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
-/***/ 678:
-/***/ (function(module, exports) {
-
-module.exports = ""
 
 /***/ }),
 
@@ -969,80 +1073,108 @@ module.exports = ""
 /***/ 687:
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n\n<div class =\"container\">\n        <flash-messages></flash-messages>\n        <router-outlet></router-outlet>\n</div>"
+module.exports = ""
 
 /***/ }),
 
 /***/ 688:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Business Login </h2>\n<form (submit)=\"onBusinessLoginSubmit()\">\n  <div class=\"form-group\">\n    <label>Username:</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"BusinessUsername\" name=\"username\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password:</label>\n    <input type=\"password\" class=\"form-control\" [(ngModel)]=\"Password\" name=\"password\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>"
+module.exports = ""
 
 /***/ }),
 
 /***/ 689:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"business\">\n  <h2 class=\"page-header\">{{business.GymName_location}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Address:{{businessAddress}}</li>\n     <li class=\"list-group-item\">BusinessUsername:{{business.BusinessUsername}}</li> \n     <li class=\"list-group-item\">Email:{{business.Email}}</li> \n     <li class=\"list-group-item\">PhoneNumber:{{business.PhoneNumber}</li> \n     <li class=\"list-group-item\">BankName:{{business.BankName}}</li> \n     <li class=\"list-group-item\">AccountNumber:{{business.AccountNumber}}</li> \n     <li class=\"list-group-item\">Description:{{business.Description}}</li>\n  </ul>\n</div>"
+module.exports = ""
 
 /***/ }),
 
 /***/ 690:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Customer Login </h2>\n<form (submit)=\"onCustomerLoginSubmit()\">\n  <div class=\"form-group\">\n    <label>Username:</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password:</label>\n    <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>"
+module.exports = "<app-navbar></app-navbar>\n\n<div class =\"container\">\n        <flash-messages></flash-messages>\n        <router-outlet></router-outlet>\n</div>"
 
 /***/ }),
 
 /***/ 691:
 /***/ (function(module, exports) {
 
-module.exports = "\n<h2 class=\"page-header\">Dashboard<h2>\n<p>Welcome to your dashboard</p>\n"
+module.exports = "<h2 class=\"page-header\">Booking</h2>\n<form (submit)=\"onBookingSubmit()\">\n  <div class=\"form-group\">\n    <label>User_ID:</label>\n    <input type=\"text\" [(ngModel)]=\"User_ID\" name=\"User_ID\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>CustomerUsername:</label>\n    <input type=\"text\" [(ngModel)]=\"CustomerUsername\" name=\"CustomerUsername\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>GymNameLocation:</label>\n    <input type=\"text\" [(ngModel)]=\"GymNameLocation\" name=\"GymNameLocation\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>selectedClass:</label>\n    <input type=\"text\" [(ngModel)]=\"selectedClass\" name=\"selectedClass\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>selectedTime:</label>\n    <input type=\"text\" [(ngModel)]=\"selectedTime\" name=\"selectedTime\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>CustomerEmail:</label>\n    <input type=\"text\" [(ngModel)]=\"CustomerEmail\" name=\"CustomerEmail\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>CustomerMobile:</label>\n    <input type=\"number\" [(ngModel)]=\"CustomerMobile\" name=\"CustomerMobile\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>ConfirmationStatus:</label>\n    <input type=\"text\" [(ngModel)]=\"ConfirmationStatus\" name=\"ConfirmationStatus\" class=\"form-control\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>"
 
 /***/ }),
 
 /***/ 692:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"jumbotron text-center\">\n  <h1> GymPlatform </h1>\n  <p class=\"lead\"> Welcome to our Gyms page </p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-default\" [routerLink]=\"['/customerlogin']\">Customer Login</a>\n  </div>\n</div>\n\n<!--search-->\n<nav class=\"navbar navbar-collapse\">\n    <div class=\"row pull-xs-right\">\n        <div class=\"col-md-3 hidden-md-down\">\n        </div>\n        <div class=\" col-md-6\">\n\n            <form id=\"searchForm\">\n                <!-- ngNoForm -->\n                <div class=\"form-group\">\n                    <div class=\"input-group\">\n                        <input type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Search for Gym, product or service\" [(ngModel)]=\"githubUser.userName\" (keyup)=\"searchUser()\">\n                        <div class=\"input-group-addon\"><i class=\"fa fa-keyboard-o\" aria-hidden=\"true\"></i></div>\n                    </div>\n                </div>\n\n\n            </form>\n\n        </div>\n    </div>\n</nav>"
+module.exports = "<h2 class=\"page-header\">Business Login </h2>\n<form (submit)=\"onBusinessLoginSubmit()\">\n  <div class=\"form-group\">\n    <label>Username:</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"BusinessUsername\" name=\"username\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password:</label>\n    <input type=\"password\" class=\"form-control\" [(ngModel)]=\"Password\" name=\"password\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>"
 
 /***/ }),
 
 /***/ 693:
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">GymPlatform</a>\n    </div>\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n      <ul class=\"nav navbar-nav navbar-left\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\n      </ul>\n\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/customerprofile']\">Customer Profile</a></li>\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/businessprofile']\">Business Profile</a></li>\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/dashboard']\">dashboard</a></li>\n        \n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/customerlogin']\">Customer Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/businesslogin']\">Business Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/register']\">Register</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/subscribe']\">Subscribe</a></li>\n\n        <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogOutClick()\" href=\"#\">Logout</a></li>\n      </ul>\n    </div><!--/.nav-collapse -->\n  </div>\n</nav>"
+module.exports = "<div *ngIf=\"business\">\n  <h2 class=\"page-header\">{{business.GymName_location}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Address:{{businessAddress}}</li>\n     <li class=\"list-group-item\">BusinessUsername:{{business.BusinessUsername}}</li> \n     <li class=\"list-group-item\">Email:{{business.Email}}</li> \n     <li class=\"list-group-item\">PhoneNumber:{{business.PhoneNumber}</li> \n     <li class=\"list-group-item\">BankName:{{business.BankName}}</li> \n     <li class=\"list-group-item\">AccountNumber:{{business.AccountNumber}}</li> \n     <li class=\"list-group-item\">Description:{{business.Description}}</li>\n  </ul>\n</div>"
 
 /***/ }),
 
 /***/ 694:
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"customer\">\n  <h2 class=\"page-header\">{{customer.firstname}}{{customer.lastname}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Age:{{customer.age}}</li>\n     <li class=\"list-group-item\">Username:{{customer.username}}</li> \n     <li class=\"list-group-item\">Email:{{customer.email}}</li> \n     <li class=\"list-group-item\">Age:{{customer.age}}</li> \n     <li class=\"list-group-item\">MobileNumber:{{customer.mobilenumber}}</li> \n     <li class=\"list-group-item\">Gender:{{customer.gender}}</li>\n  </ul>\n</div>"
+module.exports = "<h2 class=\"page-header\">Customer Login </h2>\n<form (submit)=\"onCustomerLoginSubmit()\">\n  <div class=\"form-group\">\n    <label>Username:</label>\n    <input type=\"text\" class=\"form-control\" [(ngModel)]=\"username\" name=\"username\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password:</label>\n    <input type=\"password\" class=\"form-control\" [(ngModel)]=\"password\" name=\"password\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Login\">\n</form>"
 
 /***/ }),
 
 /***/ 695:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Register</h2>\n<form (submit)=\"onRegisterSubmit()\">\n  <div class=\"form-group\">\n    <label>FirstName:</label>\n    <input type=\"text\" [(ngModel)]=\"firstname\" name=\"firstname\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>LastName:</label>\n    <input type=\"text\" [(ngModel)]=\"lastname\" name=\"lastname\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Age:</label>\n    <input type=\"number\" [(ngModel)]=\"age\" name=\"age\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>UserName:</label>\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Email:</label>\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password:</label>\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>MobileNumber:</label>\n    <input type=\"number\" [(ngModel)]=\"mobilenumber\" name=\"mobilenumber\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Gender:</label>\n    <input type=\"text\" [(ngModel)]=\"gender\" name=\"gender\" class=\"form-control\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>"
+module.exports = "\n<h2 class=\"page-header\">Dashboard<h2>\n<p>Welcome to your dashboard</p>\n"
 
 /***/ }),
 
 /***/ 696:
 /***/ (function(module, exports) {
 
+module.exports = "<div class=\"jumbotron text-center\">\n  <h1> GymPlatform </h1>\n  <p class=\"lead\"> Welcome to our Gyms page </p>\n  <div>\n    <a class=\"btn btn-primary\" [routerLink]=\"['/register']\">Register</a>\n    <a class=\"btn btn-default\" [routerLink]=\"['/customerlogin']\">Customer Login</a>\n  </div>\n</div>\n\n<!--search-->\n<nav class=\"navbar navbar-collapse\">\n    <div class=\"row pull-xs-right\">\n        <div class=\"col-md-3 hidden-md-down\">\n        </div>\n        <div class=\" col-md-6\">\n\n            <form id=\"searchForm\">\n                <!-- ngNoForm -->\n                <!--<div class=\"form-group\">\n                    <div class=\"input-group\">\n                        <input type=\"text\" name=\"username\" class=\"form-control\" placeholder=\"Search for Gym, product or service\" [(ngModel)]=\"githubUser.userName\" (keyup)=\"searchUser()\">\n                        <div class=\"input-group-addon\"><i class=\"fa fa-keyboard-o\" aria-hidden=\"true\"></i></div>\n                    </div>\n                </div>-->\n\n\n            </form>\n\n        </div>\n    </div>\n</nav>"
+
+/***/ }),
+
+/***/ 697:
+/***/ (function(module, exports) {
+
+module.exports = "<nav class=\"navbar navbar-default\">\n  <div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\">GymPlatform</a>\n    </div>\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\n      <ul class=\"nav navbar-nav navbar-left\">\n        <li [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/']\">Home</a></li>\n      </ul>\n\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/customerprofile']\">Customer Profile</a></li>\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/businessprofile']\">Business Profile</a></li>\n        <li *ngIf=\"authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/dashboard']\">dashboard</a></li>\n        \n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/customerlogin']\">Customer Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/businesslogin']\">Business Login</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/register']\">Register</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/subscribe']\">Subscribe</a></li>\n        <li *ngIf=\"!authService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['/booking']\">Booking</a></li>\n        <li *ngIf=\"authService.loggedIn()\"><a (click)=\"onLogOutClick()\" href=\"#\">Logout</a></li>\n      </ul>\n    </div><!--/.nav-collapse -->\n  </div>\n</nav>"
+
+/***/ }),
+
+/***/ 698:
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"customer\">\n  <h2 class=\"page-header\">{{customer.firstname}}{{customer.lastname}}</h2>\n  <ul class=\"list-group\">\n    <li class=\"list-group-item\">Age:{{customer.age}}</li>\n     <li class=\"list-group-item\">Username:{{customer.username}}</li> \n     <li class=\"list-group-item\">Email:{{customer.email}}</li> \n     <li class=\"list-group-item\">Age:{{customer.age}}</li> \n     <li class=\"list-group-item\">MobileNumber:{{customer.mobilenumber}}</li> \n     <li class=\"list-group-item\">Gender:{{customer.gender}}</li>\n  </ul>\n</div>"
+
+/***/ }),
+
+/***/ 699:
+/***/ (function(module, exports) {
+
+module.exports = "<h2 class=\"page-header\">Register</h2>\n<form (submit)=\"onRegisterSubmit()\">\n  <div class=\"form-group\">\n    <label>FirstName:</label>\n    <input type=\"text\" [(ngModel)]=\"firstname\" name=\"firstname\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>LastName:</label>\n    <input type=\"text\" [(ngModel)]=\"lastname\" name=\"lastname\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Age:</label>\n    <input type=\"number\" [(ngModel)]=\"age\" name=\"age\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>UserName:</label>\n    <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Email:</label>\n    <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password:</label>\n    <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>MobileNumber:</label>\n    <input type=\"number\" [(ngModel)]=\"mobilenumber\" name=\"mobilenumber\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Gender:</label>\n    <input type=\"text\" [(ngModel)]=\"gender\" name=\"gender\" class=\"form-control\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>"
+
+/***/ }),
+
+/***/ 700:
+/***/ (function(module, exports) {
+
 module.exports = "<h2 class=\"page-header\">Subscribe</h2>\n<form (submit)=\"onSubscribeSubmit()\">\n  <div class=\"form-group\">\n    <label>GymName:</label>\n    <input type=\"text\" [(ngModel)]=\"GymName_location\" name=\"GymName_location\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Address:</label>\n    <input type=\"text\" [(ngModel)]=\"Address\" name=\"Address\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Email:</label>\n    <input type=\"text\" [(ngModel)]=\"Email\" name=\"Email\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>BusinessUsername:</label>\n    <input type=\"text\" [(ngModel)]=\"BusinessUsername\" name=\"BusinessUsername\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Password:</label>\n    <input type=\"password\" [(ngModel)]=\"Password\" name=\"Password\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>PhoneNumber:</label>\n    <input type=\"number\" [(ngModel)]=\"PhoneNumber\" name=\"PhoneNumber\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>BankName:</label>\n    <input type=\"text\" [(ngModel)]=\"BankName\" name=\"BankName\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>AccountNumber:</label>\n    <input type=\"number\" [(ngModel)]=\"AccountNumber\" name=\"AccountNumber\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Description:</label>\n    <input type=\"text\" [(ngModel)]=\"Description\" name=\"Description\" class=\"form-control\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>"
 
 /***/ }),
 
-/***/ 720:
+/***/ 724:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(390);
+module.exports = __webpack_require__(391);
 
 
 /***/ })
 
-},[720]);
+},[724]);
 //# sourceMappingURL=main.bundle.map

@@ -14,8 +14,10 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BusinessprofileComponent } from './components/businessprofile/businessprofile.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component'
 
 import { CustomervalidateService } from './services/customervalidate.service';
+import { BookingvalidationService } from './services/bookingvalidation.service';
 import { BusinessvalidateService } from './services/businessvalidate.service';
 import { AuthService } from './services/auth.service';
 
@@ -29,7 +31,8 @@ var appRoutes: Routes =[
   {path:'dashboard', component: DashboardComponent},
   {path:'customerprofile', component: ProfileComponent},
   {path:'businessprofile', component: ProfileComponent},
-  {path:'subscribe', component: SubscribeComponent},
+  {path:'subscribe', component: SubscribeComponent},  
+  {path:'booking', component: BookingrequestComponent},
 ]
 
 @NgModule({
@@ -43,7 +46,8 @@ var appRoutes: Routes =[
     DashboardComponent,
     ProfileComponent,
     SubscribeComponent,
-    BusinessprofileComponent
+    BusinessprofileComponent,
+    BookingrequestComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,7 @@ var appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [CustomervalidateService, BusinessvalidateService, AuthService],
+  providers: [CustomervalidateService, BusinessvalidateService, AuthService, BookingvalidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
