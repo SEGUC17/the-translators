@@ -13,6 +13,7 @@ export class AuthService {
   customer:any;
   business: any;
   booking: any;
+  product: any;
 
   constructor(private http: Http) { }
 
@@ -20,6 +21,13 @@ export class AuthService {
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
      return this.http.post('http://localhost:8080/users/register', customer, {headers: headers})
+      .map(res => res.json());
+    }
+
+     uploadProducts(product){
+     let headers = new Headers();
+     headers.append('Content-Type', 'application/json');
+     return this.http.post('http://localhost:8080/uploadproducts', product, {headers: headers})
       .map(res => res.json());
     }
 
