@@ -4,7 +4,7 @@ var router = express.Router();
 var VisitorController = require ('../Controllers/VisitorController');
 
 router.get('/tasks', function(req, res){
-  res.render('index.html');
+  res.json('index.html');
 });
 
 router.get('/visitorView', VisitorController.VisitorViewGymPage);

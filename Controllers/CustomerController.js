@@ -4,15 +4,14 @@ let CustomerController ={
 CustomerViewGymPage:function(req, res){
 
 
-Gym.findOne({_GymName_location : req.params.GymName_location },function(err, query){
-	//Gym.find(function (err, query) {
+Gym.findOne({ _GymName_location : req.params.GymName_location },function(err, query){
 
 		 if(err){
 			 console.log("this Gym doesnot exist ");
 		 }
      else if (query) {
 
-			res.send({query});
+			res.json({query});
 			 console.log("did it ");
 		 }
 	 });
@@ -20,26 +19,35 @@ Gym.findOne({_GymName_location : req.params.GymName_location },function(err, que
 //view Gym Page
  
  ReviewandRatePage: function(request, res) {
-   var review = request.body;
- 
-    Gym.findOne({GymName_location : request.params.GymName_location } , function (err , user)
+
+   var review = "this gym ya3"; // when making the link 
+
+   // if statement of log in 
+    Gym.findOne({ _GymName_location : request.params.GymName_location } , function (err , user)
     {
       if (err)
       {
-        res.send("this Gym does not exist");
+        console.log("error");
+        res.json("this Gym does not exist");
       }
-      else if ( {BusinessUsername : request.params.BusinessUsername})
+      else 
+      {   
+           //kalam el fe el text box 
+     Gym.update({ $addToSet:{ GymReview: review } },function (err , user)
+    {
+      if (err)
       {
-        review.unshift({GymReview:request.params.GymReview});
+        console.log("error can not add review ");
       }
+      else{
+        console.log(" review added successfully !!");}
 
-      else {
-        res.send("you have to logged in first ");
-      }
-    });
+      }); 
     }
- // review and rate page
+  // review and rate page
 
+   });
   }
+}
 
   module.exports = CustomerController;

@@ -7,14 +7,14 @@ router.get('/', function(req, res){
   res.send('this page');
 });
 
-router.get ('/customerView' , CustomerController.CustomerViewGymPage);
+//router.get ('/customerView' , CustomerController.CustomerViewGymPage);
 
-router.get('/review',CustomerController.ReviewandRatePage);
+router.get('/customerView',CustomerController.ReviewandRatePage);
 
 //updata data 
-router.put('/review', function(request, res) {
+//router.put('/review', function(request, res) {
 
-	var review = request.body;
+	/*var review = request.body;
   var updreview = {};
   if (review.GymReview)
   {
@@ -27,6 +27,7 @@ if (!updreview)
   res.json ({
     "error" : "Bad Data " 
  });
+
 }
   else {
 
@@ -37,13 +38,15 @@ Gym.update( { GymReview : request.params.GymReview },updreview, {} ,function (er
   }
   else {
      res.json (review); 
+     
     console.log("review added successfully");
    
   }
 });
   
 } 
-});
+ */
+//});
 
 
 module.exports = router;
