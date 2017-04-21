@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template:'<header></header>'
+  template:'<visitor></visitor><header></header>'
   
 })
 export class AppComponent {

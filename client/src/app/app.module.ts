@@ -5,16 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {ReviewandRateComponent} from './reviewandrate.component';
-import {ViewGymPageComponent} from './viewgympage.component'; 
+import {VisitorComponent} from './visitor.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
-   ReviewandRateComponent,
-   ViewGymPageComponent,
-   
+    ReviewandRateComponent,
+    VisitorComponent
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     FormsModule,
     HttpModule
   ],
