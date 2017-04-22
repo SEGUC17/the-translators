@@ -1,3 +1,4 @@
+//initializing dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
@@ -52,6 +53,7 @@ app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
+//initializing routes
 app.use(require('./Routes/GeneralRoutes.js'));
 app.use(require('./Routes/BusinessRoutes.js'));
 app.use(require('./Routes/CustomerRoutes.js'));

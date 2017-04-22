@@ -30,6 +30,7 @@ export class SubscribeComponent implements OnInit {
   }
 
   onSubscribeSubmit(){
+    //recording the info entered by the user
     var business = {
       GymName_location: this.GymName_location,
       Address: this.Address,
@@ -42,15 +43,11 @@ export class SubscribeComponent implements OnInit {
       Description: this.Description
     }
 
+    //check for the information validation
     if(!this.businessValidateService.validateSubscriber(business)){
       this.flashMessage.show('please fill all fields', {cssClass: 'alert-danger', timeout: 3000});
       return false;
     }
-
-    // if(!this.businessValidateService.validateEmail(business)){
-    //         this.flashMessage.show('please use a valid email', {cssClass: 'alert-danger', timeout: 3000});
-    //   return false;
-    // }
 
     //subscribe business
     this.authService.subscribeBusiness(business).subscribe(data =>{

@@ -44,15 +44,18 @@ let BusinessController =
     })
   },
 
+  //retreiving business account using ID
   getBusinessById: function(id, callback){
         Business.findById(id,callback);
     },
 
+        //checking if business exists by username
      getBusinessByUsername: function(username, callback){
         var query = {BusinessUsername: username}
         Business.findOne(query,callback);
     },
 
+    //to add a new business in the database
     addBusiness: function(newBusiness, callback){
        bcrypt.genSalt(10, function(err, salt){
             bcrypt.hash(newBusiness.Password, salt, function(err, hash){
@@ -63,13 +66,14 @@ let BusinessController =
         });
     },
 
+    //to verify password
     comparePassword1: function(candidatePassword, hash, callback){
         bcrypt.compare(candidatePassword, hash, function(err, isMatch){
             if(err) throw err;
             callback(null, isMatch);
         });
     },
-
+    
 viewproducts: function(req,res){
 
       uploadproducts.find({username:req.params.id},
