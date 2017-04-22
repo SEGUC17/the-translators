@@ -1,4 +1,8 @@
-import {Component}  from '@angular/core' ;
+import { Component }  from '@angular/core' ;
+import { Http, Response, Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 
 @Component(
     {
@@ -18,7 +22,12 @@ import {Component}  from '@angular/core' ;
 )
 
 export class VisitorComponent{
-
+    user : any ;
+    constructor (private http: Http){}
+    getGymPage(BusinessUsername)
+    {
+     return this.http.get('http://localhost:8080/visitorView' + BusinessUsername).map(res => res.json());
+    }
 
 }
 

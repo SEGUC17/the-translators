@@ -4,7 +4,7 @@ let CustomerController ={
 CustomerViewGymPage:function(req, res){
 
 
-Gym.findOne({ _GymName_location : req.params.GymName_location },function(err, query){
+Gym.findOne({  },function(err, query){
 
 		 if(err){
 			 console.log("this Gym doesnot exist ");
@@ -20,10 +20,10 @@ Gym.findOne({ _GymName_location : req.params.GymName_location },function(err, qu
  
  ReviewandRatePage: function(request, res) {
 
-   var review = "the service is good "; // when making the link 
-   var user = user.username; 
+   var review =request.body.GymReview; // when making the link 
+  //  var user = user.username; 
  
-    Gym.findOne({ _GymName_location : request.params.GymName_location } , function (err , user)
+    Gym.findOne({ } , function (err , user)
     {
       if (err)
       {
@@ -32,8 +32,6 @@ Gym.findOne({ _GymName_location : req.params.GymName_location },function(err, qu
       }
       else if (request.user)
       {
-   
-           //kalam el fe el text box 
            //update the comment in the Gymreview array and prevent the duplication of the comments in the database
      Gym.update({ $addToSet:{ GymReview: review } },function (err , user)
     {

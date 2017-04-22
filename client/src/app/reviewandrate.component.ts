@@ -1,4 +1,7 @@
-import {Component}  from '@angular/core' ;
+import {Component, Input}  from '@angular/core' ;
+ import { Http, Response, Headers, RequestOptions } from '@angular/http';
+//  import { FormModule } from '@NgModule()'
+// import { NG_VALUE_ACCESSOR } from '@angular/forms'
 
 @Component(
     {
@@ -9,15 +12,13 @@ import {Component}  from '@angular/core' ;
         
             <div class="row" id="post-review-box" style="display:none;">
                 <div class="col-md-12">
-                    <form accept-charset="UTF-8" action="" method="post">
-                        <input id="ratings-hidden" name="rating" type="hidden"> 
-                        <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
-        
+                    <form (submit) = "Click()">
+                        <input type="text" [(ngModel)]="review" name="review" >         
                         <div class="text-right">
                             <div class="stars starrr" data-rating="0"></div>
                             <a class="btn btn-danger btn-sm" href="#" id="close-review-box" style="display:none; margin-right: 10px;">
                             <span class="glyphicon glyphicon-remove"></span>Cancel</a>
-                            <button class="btn btn-success btn-lg" type="submit">Save</button>
+                            <button class="btn btn-success btn-lg" type="submit" value="submit">Save</button>
                         </div>
                     </form>
                 </div>
@@ -26,6 +27,20 @@ import {Component}  from '@angular/core' ;
 )
 
 export class ReviewandRateComponent{
+    review: string;
+    constructor(private http:Http){};
+    
+
+Click(){
+console.log(this.review);
+const ReviewandRate = {
+    body : this.review,
+};
+this.http.post('http://localhost:8080/customerView', ReviewandRate).subscribe(data => console.log(data));
+}
+
+
+
 
 
 }
