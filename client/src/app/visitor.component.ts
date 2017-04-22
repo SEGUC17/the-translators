@@ -13,7 +13,17 @@ import 'rxjs/add/operator/catch';
                     
                      <article><p>
                               Here we will show the gym data
+
                          </p>
+                         <div *ngIf="business">
+                <h2 class="page-header">{{business.GymName_location}}</h2>
+                        <ul class="list-group">
+                <li class="list-group-item">Address:{{business.Address}}</li>
+                <li class="list-group-item">Email:{{business.Email}}</li> 
+                <li class="list-group-item">PhoneNumber:{{business.PhoneNumber}</li> 
+               <li class="list-group-item">Description:{{business.Description}}</li>
+                      </ul>
+                     </div>
                     
                          
                      
