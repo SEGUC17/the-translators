@@ -36,6 +36,11 @@ var ProductSchema = mongoose.Schema({
   Category: {
     type: String,
     required: true
+  },
+  
+  Quantity:{
+    type:Number,
+    required: true
   }
 
 });

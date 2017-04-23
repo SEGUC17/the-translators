@@ -29,10 +29,10 @@ router.get('/updatedgymschedule', function(req, res){
   res.render('pages');
 });
 
-router.get('/uploadproducts', function(req, res){ //de ya yoki
-  res.render('/uploadproducts');
+router.get('/uploadproducts', function(req, res){
+  res.render('uploadproductspage');
 });
+router.post("/ProductModel", BusinessController.createproduct);
 
-router.post('/ProductModel', BusinessController.createproduct);
 
 module.exports = router;

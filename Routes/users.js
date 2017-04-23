@@ -35,7 +35,7 @@ router.post('/register', function(req,res){
 
 //Upload Products Router
 router.post('/uploadproducts', function(req,res){
-    let newBusiness = new BusinessModel({
+    let newProduct = new BusinessModel({
         prodname: req.body.prodname,
         prodID: req.body.prodID,
         price: req.body.price,
@@ -46,7 +46,7 @@ router.post('/uploadproducts', function(req,res){
        
     });
 
-    BuisnessrController.addProducts(newBusiness, function(err, product){
+    BuisnessrController.addProducts(newProduct, function(err, product){
         if(err){
             console.log(err);
             res.json({success: false, msg:'Failed to upload product'});
