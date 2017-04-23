@@ -12,8 +12,10 @@ import {Router} from '@angular/router';
   templateUrl: './uploadproducts.component.html',
   styleUrls: ['./uploadproducts.component.css']
 })
+
 export class UploadproductsComponent implements OnInit {
 
+  //businessUserName: String;
   prodname: String;
   prodID: String;
   price: Number;
@@ -30,6 +32,7 @@ export class UploadproductsComponent implements OnInit {
 
   onUploadproducts(){
     var product = {
+      //businessUserName: this.businessUserName,
       prodname: this.prodname,
       prodID: this.prodID,
       price: this.price,

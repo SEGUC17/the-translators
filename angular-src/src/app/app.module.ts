@@ -34,8 +34,9 @@ var appRoutes: Routes =[
   {path:'customerprofile', component: ProfileComponent},
   {path:'businessprofile', component: BusinessprofileComponent},
   {path:'subscribe', component: SubscribeComponent},  
-  {path:'booking', component: BookingrequestComponent},
-  {path:'uploadproducts', component: UploadproductsComponent}  
+  {path:'uploadproducts', component: UploadproductsComponent},
+  {path:'booking', component: BookingrequestComponent}
+   
 ]
 
 @NgModule({
@@ -50,8 +51,9 @@ var appRoutes: Routes =[
     ProfileComponent,
     SubscribeComponent,
     BusinessprofileComponent,
-    BookingrequestComponent,
-    UploadproductsComponent
+    UploadproductsComponent,
+    BookingrequestComponent
+    
   ],
   imports: [
     BrowserModule,
