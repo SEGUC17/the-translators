@@ -1,3 +1,4 @@
+
 //initializing dependencies
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -18,7 +19,6 @@ module.exports = function(passport){
             if(err){
                 return done(err, false);
             }
-
             if(business){
                 return done(null, business);
             } else{
@@ -30,7 +30,6 @@ module.exports = function(passport){
             if(err){
                 return done(err, false);
             }
-
             if(customer){
                 return done(null, customer);
             } else{

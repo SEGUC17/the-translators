@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css">
+<form (submit)="getProduct()">
+<form class="container" >
+      <div class="form-group">
+          
+      </div>  
+</form>
+
+<div class="products">
+    <div *ngFor="let product of products">
+        <div class="col-md-7">
+            {{products.prodname}}    {{products.prodID}}
+        </div> 
+        <div class="col-md-4">
+            <input type="button" (click)="updateProductStatus(Product)" value="Update" class="btn btn-info">    
+        </div>
+        <br><br>
+    </div>
+</div>
+</form>

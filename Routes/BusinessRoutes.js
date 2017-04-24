@@ -1,38 +1,26 @@
 //identifying dependencies
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-var BusinessController = require('../Controllers/BusinessController');
+var BookingController = require('../Controllers/BookingController');
 
+var BusinessController = require('../Controllers/BusinessController');
 var Business= require('../Models/BusinessModel');
 
-router.post('/updatedgymschedule', BusinessController.uploadGymSchedule);
-
-router.post('/editproducts', BusinessController.editproducts);
-router.get('/editproduct', function(req, res){
-  res.render('pages/editproduct');
-});
+router.post("/updatedgymschedule", BusinessController.uploadGymSchedule);
 
 
-router.post('/removeproducts', BusinessController.removeproducts);
-router.get('/removeproducts', function(req, res){
- res.render('pages/removeproducts');
-});
+router.get("/viewproducts", BusinessController.viewProducts);
+router.put("/updateproducts", BusinessController.updateProduct);
+router.delete("/removeproduct", BusinessController.removeProduct);
 
 
-router.post('/viewproducts', BusinessController.viewproducts);
-router.get('/viewproducts', function(req, res){
- res.render('pages/viewproducts');
-});
+router.post("/uploadproducts", BusinessController.createproduct);
 
-router.get('/updatedgymschedule', function(req, res){
-  res.render('pages');
-});
+//Business Owner views Customers' booking requests
+router.get('/BusinessBookings', BookingController.ViewBusinessBookingList); //double check if i can use the functionality in router.get or not!
+//Business Owner changed the booking status of a specific booking requests
+router.post('/ChangeBookingStatus', BookingController.ChangeCustomerBookingRequestStatus); //double check the path used if it is convenient since the business owner shouldn't be redirected to a new page when editing the booking status
 
-router.get('/uploadproducts', function(req, res){ //de ya yoki
-  res.render('pages/BusinessView');
-});
-
-router.post('/ProductModel', BusinessController.createproduct);
 
 module.exports = router;

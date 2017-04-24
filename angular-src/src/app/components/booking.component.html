@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css">
+<form (submit)="getBookings()">
+   
+<form class="container" >
+      <title>bookings</title>
+
+
+<div class="booking">
+    <div *ngFor="let booking of bookings">
+        <div class="col-md-7">
+            {{booking.UserID}}    
+        </div> 
+        <div class="col-md-4">
+            <input type="submit" class="btn btn-primary" value="submit">
+            <!--<input type="button" (click)="updateBookingStatus(booking)" value="Update" class="btn btn-info">    -->
+        </div>
+        <br><br>
+    </div>
+</div>
+</form>
+</form>

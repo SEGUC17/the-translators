@@ -73,7 +73,7 @@ let customerController = {
     }
     res.json(sum);
   },
-  
+
 shoppingPage: function(req,res){
 
       uploadproducts.find(
@@ -90,12 +90,15 @@ shoppingPage: function(req,res){
         res.send("done");
   },
 
+
+
    //retreiving customer account using ID
   getCustomerById: function(id, callback){
         Customer.findById(id,callback);
     },
 
     //checking if customer exists by username
+
     getCustomerByUsername: function(username, callback){
         var query = {username: username}
         Customer.findOne(query,callback);
@@ -111,6 +114,7 @@ shoppingPage: function(req,res){
             })
         });
     },
+
 
     //to verify password
     comparePassword: function(candidatePassword, hash, callback){
@@ -152,7 +156,7 @@ shoppingPage: function(req,res){
                 mobilenumber:req.body.mobilenumber,
                 gender:req.body.gender,
             });
-            
+
             updateController2.updateProfile(incomingReq,res);
 
             //redirecting to customer view
@@ -169,5 +173,6 @@ shoppingPage: function(req,res){
     }
     //This function takes in the desired user's email, an views all relevant information.
 };
+
 
 module.exports = customerController;

@@ -24,8 +24,6 @@ let BusinessController =
     })
   },
 
-  
-
   //this method is for business owners to upload schedule on their profile.
   uploadGymSchedule: function(req, res){
     Business.findOne({username: req.user.username},
@@ -45,18 +43,21 @@ let BusinessController =
   },
 
   //retreiving business account using ID
+
   getBusinessById: function(id, callback){
         Business.findById(id,callback);
     },
 
         //checking if business exists by username
+
      getBusinessByUsername: function(username, callback){
         var query = {BusinessUsername: username}
         Business.findOne(query,callback);
     },
 
     //to add a new business in the database
-    addBusiness: function(newBusiness, callback){
+
+       addBusiness: function(newBusiness, callback){
        bcrypt.genSalt(10, function(err, salt){
             bcrypt.hash(newBusiness.Password, salt, function(err, hash){
                 if(err) throw err;
@@ -73,77 +74,61 @@ let BusinessController =
             callback(null, isMatch);
         });
     },
-    
-viewproducts: function(req,res){
 
-      uploadproducts.find({username:req.params.id},
-      function(err, result){
-        if(err)
-          { console.log('error in view products');
-              res.json(err.message);
-          }
-          else if(result){
-            res.render("viewproducts",{result});
-          }
+  viewProducts: function(req, res) {
+        uploadproducts.find({user:req.user.username}, function(err, data) {
+              if (err) {
+              res.json("error");
+              return;
+              }
+              res.json({data});
+              });
+          },
+        updateProduct: function(req, res) {
+        var id = req.params.id;
+        uploadproducts.findOne({prodID:req.body.prodID}, function(err, productData) {
+              if (err) {
+              res.json("error");
+              return;
+              }
+              res.json(ProductData[0]);
+        });
 
-      });
-        //res.send("done");
-  },
-// this function should allow the business owner to edit his already existing products
-  editproducts: function (req,res){
-
-      uploadproducts.find({'prodID': req.body.prodID},
-      function(error, document){
-        if(error)
-          { console.log('error in edit products');
-              document.json(error.message);
-          }
-          else if(document){
-            if(req.body.prodname == ""){
-              uploadproducts.update({prodname:req.body.prodname});
+        //put("/:id", function(req, res) {
+        //  var id = req.params.id;
+        //  var document = req.body;
+        
+        uploadproducts.findByIdAndUpdate(id, { prodname: document.prodname, price: document.price,
+            ProductDescription: document.ProductDescription, Quantity: document.Quantity, image: document.image }, 
+                    function(err) {
+                    if (err) {
+                    res.json("error");
+                    return;
+                    }
+                    res.json("updated");
+                    });
+        },
+        
+        removeProduct: function(req,res){
+        var id = req.params.id;
+        uploadproducts.findByIdAndRemove(id, function(err) {
+            if (err) {
+            res.json("error");
+            return;
             }
-            if(req.body.price ==null){
-              uploadproducts.update({price:req.body.price});
-            }
-            if(req.body.image==null){
-              uploadproducts.update({image:req.body.image});
-            }
-            if(req.body.ProductDescription==""){
-              uploadproducts.update({ProductDescription:req.body.ProductDescription});
-            }
-            // res.redirect('editproduct');
-
-    }
-
-
-});
-  res.send("done");
-},
-    removeproducts:function(req,res){
-      uploadproducts.findOne({'prodID': req.body.prodID},
-      function(error, document){
-        if(error)
-          { console.log('error in remove product');
-              res.json(error.message);
-          }
-          else if(document){
-              uploadproducts.deleteOne(document);
-              console.log(document);
-            }
-    });
-      //res.send("done");
-  },
-
- //Taking info from user to update
+            res.json("deleted");
+            });
+        },
+       //Taking info from user to update
     updateProfile:function(req,res){
         // creating an new user object if any of the attributes arent in the body
-             // it wont update in the updateController
+             
 
             let incomingReq = new Business({
                 Email:req.decoded._doc.email,
                 GymName_location:req.body.GymName_location,
                 Address:req.body.Address,
-              //  BusinessUsername:req.body.BusinessUsername,
+
                 Password:req.body.Password,
                 Description:req.body.Description,
                 PhoneNumber:req.body.PhoneNumber,
@@ -178,7 +163,10 @@ viewproducts: function(req,res){
              }
              else
              {
-               response.render('BusinessProfile/view'); // selected page
+ 
+
+               response.render(result); // selected page
+
           }
           })
 

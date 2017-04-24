@@ -12,7 +12,7 @@ export class AuthService {
   bauthToken:any;
   customer:any;
   business: any;
-  booking: any;
+ bookingrequest: any;
   product: any;
 
   constructor(private http: Http) { }
@@ -20,35 +20,29 @@ export class AuthService {
    registerCustomer(customer){
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/users/register', customer, {headers: headers})
+     return this.http.post('users/register', customer, {headers: headers})
       .map(res => res.json());
     }
 
      uploadProducts(product){
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/uploadproducts', product, {headers: headers})
+     return this.http.post('uploadproducts', product, {headers: headers})
       .map(res => res.json());
     }
 
-    bookingRequest(booking){
-     let headers = new Headers();
-     headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/users/register', booking, {headers: headers}) //'http://localhost:8080/users/register' change it to the path of ur rout in the backend  (this is the linking)
-      .map(res => res.json());
-    }
-
+   
     subscribeBusiness(business){
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/users/subscribe', business, {headers: headers})
+     return this.http.post('users/subscribe', business, {headers: headers})
       .map(res => res.json());
     }
 
     authenticateCustomer(customer){
       let headers = new Headers();
      headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/users/customerauthenticate', customer, {headers: headers})
+     return this.http.post('users/customerauthenticate', customer, {headers: headers})
       .map(res => res.json());
     }
 
@@ -64,7 +58,14 @@ export class AuthService {
      authenticateBusiness(business){
       let headers = new Headers();
      headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/users/businessauthenticate', business, {headers: headers})
+     return this.http.post('users/businessauthenticate', business, {headers: headers})
+      .map(res => res.json());
+    }
+  
+    bookingRequest(bookingrequest){
+     let headers = new Headers();
+     headers.append('Content-Type', 'application/json');
+     return this.http.post('bookingrequest', bookingrequest, {headers: headers}) 
       .map(res => res.json());
     }
 
@@ -73,7 +74,7 @@ export class AuthService {
       this.loadBToken();
       headers.append('Authorization', this.bauthToken);
      headers.append('Content-Type', 'application/json');
-     return this.http.get('http://localhost:8080/users/businessprofile', {headers: headers})
+     return this.http.get('users/businessprofile', {headers: headers})
       .map(res => res.json());
     }
 
@@ -89,6 +90,13 @@ export class AuthService {
       localStorage.setItem('business', JSON.stringify(business));
       this.bauthToken = token;
       this.business = business;
+    }
+
+    storeProductData(token, product){
+      localStorage.setItem('id_token', token);
+      localStorage.setItem('product', JSON.stringify(product));
+      this.cauthToken = token;
+      this.product = product;
     }
 
     loadCToken(){

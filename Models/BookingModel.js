@@ -27,7 +27,7 @@ var BookingSchema = mongoose.Schema({
     },
 
     selectedTime: {
-      type:Number,
+      type:String, 
       required: true
     },
 
@@ -36,23 +36,15 @@ var BookingSchema = mongoose.Schema({
       required:true
     },
 
-    CustomerEmail: {
+
+    ConfirmationStatus:
+     {
       type: String,
-      required: true,
-    },
-
-    CustomerMobile: {
-      type: Number,
-      required:true
-    },
-
-    ConfirmationStatus:String
-    //  {
-    //   type: String,
-    //   // enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'],
-    //   // default: "Not Yet Confirmed",
-    //   required:false
-    // }
+      enum:['Confirmed', 'Not Yet Confirmed','Class Not Available'],
+      default: "Not Yet Confirmed",
+      required:false,
+      
+    }
 })
 
 var Bookings = mongoose.model('Bookings', BookingSchema);

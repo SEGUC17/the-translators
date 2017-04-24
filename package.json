@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,5 +20,10 @@
     "passport-jwt": "^2.2.1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  
+   "engines":{
+    "node": "7.5.0",
+    "npm": "4.1.2"
+  }
 }

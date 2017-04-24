@@ -1,4 +1,3 @@
-//initializing dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
@@ -8,9 +7,9 @@ var path = require('path');
 var cors = require('cors');
 var config = require('./config/database');
 
+mongoose.Promise=global.Promise;
 //Connect To Database
 mongoose.connect(config.database);
-mongoose.Promise = global.Promise;
 
 // On Connection
 mongoose.connection.on('connected', function() {
@@ -54,13 +53,12 @@ app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-//initializing routes
 app.use(require('./Routes/GeneralRoutes.js'));
 app.use(require('./Routes/BusinessRoutes.js'));
 app.use(require('./Routes/CustomerRoutes.js'));
 app.use(require('./Routes/VisitorRoutes.js'));
 
 //Start Server
-app.listen(8080, function(){
+app.listen(process.env.Port, function(){
   console.log("server is listening on port 8080");
 })
