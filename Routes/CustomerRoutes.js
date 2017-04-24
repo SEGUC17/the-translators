@@ -7,7 +7,7 @@ router.get('/', function(req, res){
   res.send('this page');
 });
 
-router.get ('/customerView' , CustomerController.CustomerViewGymPage);
+router.get ('/visitorView' , CustomerController.CustomerViewGymPage);
 
 router.post('/customerView',CustomerController.ReviewandRatePage);
 

@@ -1,8 +1,9 @@
 let Gym = require ('../Models/BusinessModel');
 
 let VisitorController ={
+	//view Gym Page
 VisitorViewGymPage:function(req, res){
-
+	// check if the gym is in the database or not
 	Gym.findOne({ _GymName_location : req.params.GymName_location },function(err, query){
 
 		 if(err){
@@ -15,6 +16,6 @@ VisitorViewGymPage:function(req, res){
 	 });
 
 }}
-//view Gym Page
+
 
   module.exports = VisitorController;

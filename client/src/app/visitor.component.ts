@@ -13,7 +13,6 @@ import 'rxjs/add/operator/catch';
                     
                      <article><p>
                               Here we will show the gym data
-
                          </p>
                          <div *ngIf="business">
                 <h2 class="page-header">{{business.GymName_location}}</h2>
@@ -24,8 +23,6 @@ import 'rxjs/add/operator/catch';
                <li class="list-group-item">Description:{{business.Description}}</li>
                       </ul>
                      </div>
-                    
-                         
                      
                      </article>`
     }

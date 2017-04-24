@@ -1,10 +1,11 @@
 let Gym = require ('../Models/BusinessModel');
 
 let CustomerController ={
+  //view Gym Page
 CustomerViewGymPage:function(req, res){
-
-
-Gym.findOne({  },function(err, query){
+ 
+// check if the gym is in the database or not
+Gym.findOne({ _GymName_location : req.params.GymName_location  },function(err, query){
 
 		 if(err){
 			 console.log("this Gym doesnot exist ");
@@ -16,14 +17,15 @@ Gym.findOne({  },function(err, query){
 		 }
 	 });
 },
-//view Gym Page
+
  
  ReviewandRatePage: function(request, res) {
+//review and rate page
 
-   var review =request.body.GymReview; // when making the link 
+   var review =request.body.GymReview; 
   //  var user = user.username; 
- 
-    Gym.findOne({ } , function (err , user)
+ // check if the gym is in the database or not
+    Gym.findOne({ _GymName_location : req.params.GymName_location } , function (err , user)
     {
       if (err)
       {

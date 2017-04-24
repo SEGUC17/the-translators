@@ -1,5 +1,6 @@
 import {Component, Input}  from '@angular/core' ;
  import { Http, Response, Headers, RequestOptions } from '@angular/http';
+ import {Router} from  '@angular/router';
 //  import { FormModule } from '@NgModule()'
 // import { NG_VALUE_ACCESSOR } from '@angular/forms'
 
@@ -28,13 +29,15 @@ import {Component, Input}  from '@angular/core' ;
 
 export class ReviewandRateComponent{
     review: string;
-    constructor(private http:Http){};
-    
+    constructor(private http:Http ){};
+    // private router : Router
 
 Click(){
 console.log(this.review);
+//this.router.navigate(['/customerView']);
 const ReviewandRate = {
-    body : this.review,
+    body : this.review
+    
 };
 this.http.post('http://localhost:8080/customerView', ReviewandRate).subscribe(data => console.log(data));
 }
