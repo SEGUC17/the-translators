@@ -14,12 +14,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BusinessprofileComponent } from './components/businessprofile/businessprofile.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
-import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component'
-import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component'
-
-
+import { BookingComponent } from './components/booking.component';
 import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component';
-import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component';
+import {UploadproductsComponent } from './components/uploadproducts.component';
 
 import { CustomervalidateService } from './services/customervalidate.service';
 import { BookingvalidationService } from './services/bookingvalidation.service';
@@ -38,13 +35,11 @@ var appRoutes: Routes =[
   {path:'customerprofile', component: ProfileComponent},
   {path:'businessprofile', component: BusinessprofileComponent},
   {path:'subscribe', component: SubscribeComponent},  
-    {path:'bookingrequest', component: BookingrequestComponent}, //make sure to change the file path in the component
-  {path:'MyBookings', component: BookingComponent},
-  {path:'viewproducts', component: ProductComponent},
+  {path:'bookingrequest', component: BookingrequestComponent},
+   {path:'MyBookings', component: BookingComponent},
   {path:'uploadproducts', component: UploadproductsComponent},  
 
-
-
+  {path:'subscribe', component: SubscribeComponent},
 
 
 
@@ -64,8 +59,7 @@ var appRoutes: Routes =[
     BusinessprofileComponent,
     BookingrequestComponent,
     UploadproductsComponent,
-    BookingComponent,
-    ProductComponent
+    BookingrComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,8 +68,7 @@ var appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [CustomervalidateService, BusinessvalidateService, AuthService, BookingvalidationService, BookingService, 
-   ProductValidateService , UploadproductsvalidateService],
+  providers: [CustomervalidateService, BusinessvalidateService, AuthService, BookingvalidationService, UploadproductsvalidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
