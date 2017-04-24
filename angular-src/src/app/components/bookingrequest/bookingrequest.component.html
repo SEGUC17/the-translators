@@ -1,0 +1,26 @@
+<h2 class="page-header">Booking</h2>
+<form (submit)="bookingRequest()">
+  <div class="form-group">
+
+    <label>Username: </label>
+    <input type="text" [(ngModel)]="CustomerUsername" name="CustomerUsername" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Gym Name-Location:</label>
+    <input type="text" [(ngModel)]="GymNameLocation" name="GymNameLocation" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Class: </label>
+    <input type="text" [(ngModel)]="selectedClass" name="selectedClass" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Date: </label>
+    <input type="date" [(ngModel)]="selectedDate" name="selectedDate" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Time: </label>
+    <input type="text" [(ngModel)]="selectedTime" name="selectedTime" class="form-control">
+  </div>
+
+  <input type="submit" class="btn btn-primary" value="Submit">
+</form>
