@@ -12,50 +12,43 @@ import {Router} from '@angular/router';
   templateUrl: './bookingrequest.component.html',
   styleUrls: ['./bookingrequest.component.css']
 })
-export class BookingrequestComponent implements OnInit {
+export class BookingrequestComponent {
 
-    User_ID: String;
-    CustomerUsername: String;
-    GymNameLocation: String;
-    selectedClass: String;
-    selectedTime: Number;
-    //selectedDate: Data;
-    CustomerEmail: String;
-    CustomerMobile: Number;
-    ConfirmationStatus:String
+    CustomerUsername: string;
+    GymNameLocation: string;
+    selectedClass: string;
+    selectedTime: number;
+    selectedDate: Date;
 
-  constructor(private bookingValidateService: BookingvalidationService, private flashMessage: FlashMessagesService, private authService: AuthService, private router: Router) { }
+  constructor(private bookingValidateService: BookingvalidationService,
+   private flashMessage: FlashMessagesService, private authService: AuthService, private router: Router) { }
 
-  ngOnInit() {
-  }
 
-  onBookingSubmit(){
+  bookingRequest(){
     var booking = {
-    User_ID: this.User_ID,
     CustomerUsername: this.CustomerUsername,
     GymNameLocation: this.GymNameLocation,
     selectedClass: this.selectedClass,
     selectedTime: this.selectedTime,
-    //selectedDate: this.selectDate,
-    CustomerEmail: this.CustomerEmail,
-    CustomerMobile: this.CustomerMobile,
-    ConfirmationStatus: this.ConfirmationStatus,
+    selectedDate: this.selectedDate,
   }
-  
+
   if(!this.bookingValidateService.validateBooking(booking)){
       this.flashMessage.show('please fill all fields', {cssClass: 'alert-danger', timeout: 3000});
       return false;
     }
+    else{
 
      this.authService.bookingRequest(booking).subscribe(data =>{
         if(data.success){
           this.flashMessage.show('You have successfully booked', {cssClass: 'alert-success', timeout: 3000});
-          this.router.navigate(['/customerlogin']); //right the pathname(get it from app.module.ts) u want him to redirect to after booking is successful
+          this.router.navigate(['/dashboard']); 
         } else {
-          this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000}); 
-          this.router.navigate(['/register']); //right the pathname(get it from app.module.ts) u want him to redirect to after booking is failed or empty
+          this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+          this.router.navigate(['/bookingrequest']);
         }
     });
 
   }
+}
 }
