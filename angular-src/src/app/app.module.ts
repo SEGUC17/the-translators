@@ -14,8 +14,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BusinessprofileComponent } from './components/businessprofile/businessprofile.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
-import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component'
-import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component'
+import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component';
+import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component';
 
 import { CustomervalidateService } from './services/customervalidate.service';
 import { BookingvalidationService } from './services/bookingvalidation.service';
