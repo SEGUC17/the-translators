@@ -6,9 +6,7 @@ var Schema = mongoose.Schema;
 var ProductSchema = mongoose.Schema({
 
   businessUserName:{
-    type: String,
-    required: true,
-    unique: true
+    type: String
   },//take input from login session
 
   prodname: {
