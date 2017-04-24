@@ -24,12 +24,6 @@ let BusinessController =
     })
   },
 
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> mariamyehia
-
   //this method is for business owners to upload schedule on their profile.
   uploadGymSchedule: function(req, res){
     Business.findOne({username: req.user.username},
@@ -49,32 +43,21 @@ let BusinessController =
   },
 
   //retreiving business account using ID
-<<<<<<< HEAD
-=======
 
->>>>>>> mariamyehia
   getBusinessById: function(id, callback){
         Business.findById(id,callback);
     },
 
         //checking if business exists by username
-<<<<<<< HEAD
-=======
 
->>>>>>> mariamyehia
      getBusinessByUsername: function(username, callback){
         var query = {BusinessUsername: username}
         Business.findOne(query,callback);
     },
 
-<<<<<<< HEAD
-    //to add a new business in the database
-=======
-
     //to add a new business in the database
 
->>>>>>> mariamyehia
-    addBusiness: function(newBusiness, callback){
+       addBusiness: function(newBusiness, callback){
        bcrypt.genSalt(10, function(err, salt){
             bcrypt.hash(newBusiness.Password, salt, function(err, hash){
                 if(err) throw err;
@@ -84,24 +67,14 @@ let BusinessController =
         });
     },
 
-<<<<<<< HEAD
     //to verify password
-=======
-
-    //to verify password
-
->>>>>>> mariamyehia
     comparePassword1: function(candidatePassword, hash, callback){
         bcrypt.compare(candidatePassword, hash, function(err, isMatch){
             if(err) throw err;
             callback(null, isMatch);
         });
     },
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> mariamyehia
 viewproducts: function(req,res){
 
       uploadproducts.find({username:req.params.id},
@@ -111,18 +84,14 @@ viewproducts: function(req,res){
               res.json(err.message);
           }
           else if(result){
-<<<<<<< HEAD
             res.render("viewproducts",{result});
           }
 
       });
-        //res.send("done");
-=======
             res.render({result});
           }
 
       })
->>>>>>> mariamyehia
   },
 // this function should allow the business owner to edit his already existing products
   editproducts: function (req,res){
@@ -145,22 +114,14 @@ viewproducts: function(req,res){
             }
             if(req.body.ProductDescription==""){
               uploadproducts.update({ProductDescription:req.body.ProductDescription});
-<<<<<<< HEAD
             }
-            // res.redirect('editproduct');
-=======
           };
->>>>>>> mariamyehia
 
     }
 
-
-<<<<<<< HEAD
 });
   res.send("done");
-=======
 })
->>>>>>> mariamyehia
 },
     removeproducts:function(req,res){
       uploadproducts.findOne({'prodID': req.body.prodID},
@@ -174,27 +135,19 @@ viewproducts: function(req,res){
               console.log(document);
             }
     });
-<<<<<<< HEAD
-      //res.send("done");
-=======
 
->>>>>>> mariamyehia
   },
 
  //Taking info from user to update
     updateProfile:function(req,res){
         // creating an new user object if any of the attributes arent in the body
-             // it wont update in the updateController
+             
 
             let incomingReq = new Business({
                 Email:req.decoded._doc.email,
                 GymName_location:req.body.GymName_location,
-<<<<<<< HEAD
                 Address:req.body.Address,
-              //  BusinessUsername:req.body.BusinessUsername,
-=======
-                //Address:req.body.Address,
->>>>>>> mariamyehia
+
                 Password:req.body.Password,
                 Description:req.body.Description,
                 PhoneNumber:req.body.PhoneNumber,
@@ -229,11 +182,10 @@ viewproducts: function(req,res){
              }
              else
              {
-<<<<<<< HEAD
-               response.render('BusinessProfile/view'); // selected page
-=======
+ 
+
                response.render(result); // selected page
->>>>>>> mariamyehia
+
           }
           })
 
