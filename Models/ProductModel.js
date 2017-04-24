@@ -7,7 +7,7 @@ var ProductSchema = mongoose.Schema({
 
   businessUserName:{
     type: String
-  },//take input from login session
+  },
 
   prodname: {
     type: String
@@ -35,11 +35,12 @@ var ProductSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  
+
   Quantity:{
     type:Number,
     required: true
   }
+
 
 });
 

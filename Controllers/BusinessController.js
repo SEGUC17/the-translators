@@ -24,7 +24,7 @@ let BusinessController =
     })
   },
 
-  
+
 
   //this method is for business owners to upload schedule on their profile.
   uploadGymSchedule: function(req, res){
@@ -44,14 +44,21 @@ let BusinessController =
     })
   },
 
+  //retreiving business account using ID
+
   getBusinessById: function(id, callback){
         Business.findById(id,callback);
     },
+
+        //checking if business exists by username
 
      getBusinessByUsername: function(username, callback){
         var query = {BusinessUsername: username}
         Business.findOne(query,callback);
     },
+
+
+    //to add a new business in the database
 
     addBusiness: function(newBusiness, callback){
        bcrypt.genSalt(10, function(err, salt){
@@ -62,6 +69,9 @@ let BusinessController =
             })
         });
     },
+
+
+    //to verify password
 
     comparePassword1: function(candidatePassword, hash, callback){
         bcrypt.compare(candidatePassword, hash, function(err, isMatch){
@@ -79,11 +89,10 @@ viewproducts: function(req,res){
               res.json(err.message);
           }
           else if(result){
-            res.render("viewproducts",{result});
+            res.render({result});
           }
 
-      });
-        //res.send("done");
+      })
   },
 // this function should allow the business owner to edit his already existing products
   editproducts: function (req,res){
@@ -106,14 +115,12 @@ viewproducts: function(req,res){
             }
             if(req.body.ProductDescription==""){
               uploadproducts.update({ProductDescription:req.body.ProductDescription});
-            }
-            // res.redirect('editproduct');
+          };
 
     }
 
 
-});
-  res.send("done");
+})
 },
     removeproducts:function(req,res){
       uploadproducts.findOne({'prodID': req.body.prodID},
@@ -127,7 +134,7 @@ viewproducts: function(req,res){
               console.log(document);
             }
     });
-      //res.send("done");
+
   },
 
  //Taking info from user to update
@@ -138,8 +145,7 @@ viewproducts: function(req,res){
             let incomingReq = new Business({
                 Email:req.decoded._doc.email,
                 GymName_location:req.body.GymName_location,
-                Address:req.body.Address,
-              //  BusinessUsername:req.body.BusinessUsername,
+                //Address:req.body.Address,
                 Password:req.body.Password,
                 Description:req.body.Description,
                 PhoneNumber:req.body.PhoneNumber,
@@ -174,7 +180,7 @@ viewproducts: function(req,res){
              }
              else
              {
-               response.render('BusinessProfile/view'); // selected page
+               response.render(result); // selected page
           }
           })
 

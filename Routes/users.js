@@ -1,12 +1,16 @@
+
+//initializing dependencies
+
 var express =require('express');
 var router = express.Router();
 var passport = require('passport');
 var jwt = require('jsonwebtoken');
 var config = require('../config/database');
-
+//importing models
 var BusinessModel = require('../Models/BusinessModel');
 var CustomerModel = require('../Models/CustomerModel');
 
+//importing controllers
 var BusinessController = require('../Controllers/BusinessController');
 var CustomerController = require('../Controllers/CustomerController');
 
@@ -43,7 +47,7 @@ router.post('/uploadproducts', function(req,res){
         ProductDescription: req.body.ProductDescription,
         Category: req.body.Category,
         Quantity: req.body.Quantity,
-       
+
     });
 
     BuisnessrController.addProducts(newProduct, function(err, product){
@@ -53,11 +57,9 @@ router.post('/uploadproducts', function(req,res){
         } else {
             res.json({success: true, msg:'Product Uploaded'});
         }
-    });
-});
+    }
 
-
-//Subscribe Router 
+//Subscribe Router
 router.post('/subscribe', function(req,res){
     let newBusiness = new BusinessModel({
             GymName_location: req.body.GymName_location,
@@ -108,10 +110,10 @@ router.post('/customerauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   customer:{ 
-                       id: customer._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   customer:{
+                       id: customer._id,
                        username: customer.username
                     }
                 });
@@ -140,10 +142,10 @@ router.post('/businessauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   business:{ 
-                       id: business._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   business:{
+                       id: business._id,
                        username: business.BusinessUsername
                     }
                 });

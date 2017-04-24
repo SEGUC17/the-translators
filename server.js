@@ -1,3 +1,4 @@
+//initializing dependencies
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
@@ -9,6 +10,8 @@ var config = require('./config/database');
 
 //Connect To Database
 mongoose.connect(config.database);
+
+mongoose.Promise = global.Promise;
 
 
 // On Connection
@@ -52,6 +55,8 @@ app.get('/', function(req, res){
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
+
+//initializing routes
 
 app.use(require('./Routes/GeneralRoutes.js'));
 app.use(require('./Routes/BusinessRoutes.js'));

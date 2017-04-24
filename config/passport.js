@@ -1,9 +1,15 @@
+
+//initializing dependencies
+
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 var config = require('../config/database');
 
+//importing controllers
 var BusinessController = require('../Controllers/BusinessController');
 var CustomerController = require('../Controllers/CustomerController');
+
+//creating passport for login
 
 module.exports = function(passport){
     let opts = {};

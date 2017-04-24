@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BusinessprofileComponent } from './components/businessprofile/businessprofile.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
+
 import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component';
 import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component';
 
@@ -33,10 +34,12 @@ var appRoutes: Routes =[
   {path:'dashboard', component: DashboardComponent},
   {path:'customerprofile', component: ProfileComponent},
   {path:'businessprofile', component: BusinessprofileComponent},
-  {path:'subscribe', component: SubscribeComponent},  
+  {path:'subscribe', component: SubscribeComponent},
+
   {path:'uploadproducts', component: UploadproductsComponent},
   {path:'booking', component: BookingrequestComponent}
-   
+
+
 ]
 
 @NgModule({
@@ -52,8 +55,7 @@ var appRoutes: Routes =[
     SubscribeComponent,
     BusinessprofileComponent,
     UploadproductsComponent,
-    BookingrequestComponent
-    
+    BookingrequestComponent,
   ],
   imports: [
     BrowserModule,

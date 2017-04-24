@@ -73,7 +73,7 @@ let customerController = {
     }
     res.json(sum);
   },
-  
+
 shoppingPage: function(req,res){
 
       uploadproducts.find(
@@ -90,15 +90,21 @@ shoppingPage: function(req,res){
         res.send("done");
   },
 
+
+   //retreiving customer account using ID
+
   getCustomerById: function(id, callback){
         Customer.findById(id,callback);
     },
+
+    //checking if customer exists by username
 
     getCustomerByUsername: function(username, callback){
         var query = {username: username}
         Customer.findOne(query,callback);
     },
 
+        //to add a new customer in the database
     addCustomer: function(newCustomer, callback){
         bcrypt.genSalt(10, function(err, salt){
             bcrypt.hash(newCustomer.password, salt, function(err, hash){
@@ -109,6 +115,8 @@ shoppingPage: function(req,res){
         });
     },
 
+
+    //to verify password
     comparePassword: function(candidatePassword, hash, callback){
         bcrypt.compare(candidatePassword, hash, function(err, isMatch){
             if(err) throw err;
@@ -148,7 +156,7 @@ shoppingPage: function(req,res){
                 mobilenumber:req.body.mobilenumber,
                 gender:req.body.gender,
             });
-            
+
             updateController2.updateProfile(incomingReq,res);
 
             //redirecting to customer view

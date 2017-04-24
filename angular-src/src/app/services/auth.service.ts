@@ -27,7 +27,11 @@ export class AuthService {
      uploadProducts(product){
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
+<<<<<<< HEAD
      return this.http.post('http://localhost:8080/users/uploadproducts', product, {headers: headers})
+=======
+     return this.http.post('http://localhost:8080/uploadproducts', product, {headers: headers})
+>>>>>>> origin/sara
       .map(res => res.json());
     }
 
@@ -90,12 +94,15 @@ export class AuthService {
       this.bauthToken = token;
       this.business = business;
     }
+<<<<<<< HEAD
     storeProductData(token, product){
       localStorage.setItem('id_token', token);
       localStorage.setItem('product', JSON.stringify(product));
       this.cauthToken = token;
       this.product = product;
     }
+=======
+>>>>>>> origin/sara
 
     loadCToken(){
       var token = localStorage.getItem('id_token');

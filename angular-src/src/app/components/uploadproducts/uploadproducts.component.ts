@@ -13,7 +13,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./uploadproducts.component.css']
 })
 
+
 export class UploadproductsComponent implements OnInit {
+
   prodname: String;
   prodID: String;
   price: Number;
@@ -21,7 +23,7 @@ export class UploadproductsComponent implements OnInit {
   ProductDescription: String;
   Category: String;
   Quantity: Number;
-  
+
 
   constructor(private uploadproductsvalidateService: UploadproductsvalidateService, private flashMessage: FlashMessagesService, private authService: AuthService, private router: Router) { }
 
