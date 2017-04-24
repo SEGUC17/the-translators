@@ -14,14 +14,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BusinessprofileComponent } from './components/businessprofile/businessprofile.component';
 import { SubscribeComponent } from './components/subscribe/subscribe.component';
-<<<<<<< HEAD
 import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component'
 import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component'
-=======
+
 
 import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component';
 import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component';
->>>>>>> mariamyehia
 
 import { CustomervalidateService } from './services/customervalidate.service';
 import { BookingvalidationService } from './services/bookingvalidation.service';
@@ -39,19 +37,17 @@ var appRoutes: Routes =[
   {path:'dashboard', component: DashboardComponent},
   {path:'customerprofile', component: ProfileComponent},
   {path:'businessprofile', component: BusinessprofileComponent},
-<<<<<<< HEAD
   {path:'subscribe', component: SubscribeComponent},  
   {path:'booking', component: BookingrequestComponent},
-  {path:'uploadproducts', component: UploadproductsComponent}  
-=======
+  {path:'uploadproducts', component: UploadproductsComponent},  
+
   {path:'subscribe', component: SubscribeComponent},
 
   {path:'uploadproducts', component: UploadproductsComponent},
   {path:'booking', component: BookingrequestComponent}
 
 
->>>>>>> mariamyehia
-]
+],
 
 @NgModule({
   declarations: [
@@ -65,13 +61,10 @@ var appRoutes: Routes =[
     ProfileComponent,
     SubscribeComponent,
     BusinessprofileComponent,
-<<<<<<< HEAD
     BookingrequestComponent,
-    UploadproductsComponent
-=======
+    UploadproductsComponent,
     UploadproductsComponent,
     BookingrequestComponent,
->>>>>>> mariamyehia
   ],
   imports: [
     BrowserModule,
