@@ -44,19 +44,11 @@ export class SubscribeComponent implements OnInit {
     }
 
     //check for the information validation
-<<<<<<< HEAD
     if(!this.businessValidateService.validateSubscriber(business)){
       this.flashMessage.show('please fill all fields', {cssClass: 'alert-danger', timeout: 3000});
       return false;
     }
 
-=======
-
-    if(!this.businessValidateService.validateSubscriber(business)){
-      this.flashMessage.show('please fill all fields', {cssClass: 'alert-danger', timeout: 3000});
-      return false;
-  };
->>>>>>> mariamyehia
     //subscribe business
     this.authService.subscribeBusiness(business).subscribe(data =>{
         if(data.success){
