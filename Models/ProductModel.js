@@ -34,39 +34,8 @@ var ProductSchema = mongoose.Schema({
   Category: {
     type: String,
     required: true
-  }
-
-=======
-    type: String
   },
-
-  prodname: {
-    type: String
-  },
-
-  prodID:{
-    type: String,
-    required: true,
-    unique: true
-  },
-
-  price: {
-    type:Number
-  },
-
-   image:{
-     type: Schema.Types.Mixed
-   },
-
-  ProductDescription: {
-    type: String
-  },
-
-  Category: {
-    type: String,
-    required: true
-  },
-
+  
   Quantity:{
     type:Number,
     required: true
