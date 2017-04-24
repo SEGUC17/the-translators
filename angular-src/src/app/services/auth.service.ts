@@ -27,7 +27,7 @@ export class AuthService {
      uploadProducts(product){
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
-     return this.http.post('http://localhost:8080/uploadproducts', product, {headers: headers})
+     return this.http.post('http://localhost:8080/users/uploadproducts', product, {headers: headers})
       .map(res => res.json());
     }
 
@@ -89,6 +89,12 @@ export class AuthService {
       localStorage.setItem('business', JSON.stringify(business));
       this.bauthToken = token;
       this.business = business;
+    }
+    storeProductData(token, product){
+      localStorage.setItem('id_token', token);
+      localStorage.setItem('product', JSON.stringify(product));
+      this.cauthToken = token;
+      this.product = product;
     }
 
     loadCToken(){
