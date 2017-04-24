@@ -26,10 +26,10 @@ import { AuthService } from './services/auth.service';
 
 import {FlashMessagesModule} from 'angular2-flash-messages';
 
-import {CartComponent} from './components/ShoppingCart/Cart/cart.component';
-import {NavBarComponent} from './components/ShoppingCart/navbar.component'
-import {ProductDetailComponent} from './components/ShoppingCart/ProductDetail/product-detail.component';
-import {product} from './components/ShoppingCart/Product/product.component';
+import {CartComponent} from './components/cart.component';
+import {NavBarComponent} from './components/navbar.component'
+import {ProductDetailComponent} from './components/product-detail.component';
+import {product} from './components/product.component';
 
 var appRoutes: Routes =[
   {path:'', component: HomeComponent},
