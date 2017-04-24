@@ -26,6 +26,11 @@ import { AuthService } from './services/auth.service';
 
 import {FlashMessagesModule} from 'angular2-flash-messages';
 
+import {CartComponent} from './components/ShoppingCart/Cart/cart.component';
+import {NavBarComponent} from './components/ShoppingCart/navbar.component'
+import {ProductDetailComponent} from './components/ShoppingCart/ProductDetail/product-detail.component';
+import {product} from './components/ShoppingCart/Product/product.component';
+
 var appRoutes: Routes =[
   {path:'', component: HomeComponent},
   {path:'register', component: RegisterComponent},
@@ -41,7 +46,10 @@ var appRoutes: Routes =[
 
   {path:'subscribe', component: SubscribeComponent},
 
-
+ {path:'cart', component: CartComponent} ,
+  {path: 'navbar', component: NavBarComponent},
+  {path: 'product-detail', component: ProductDetailComponent},
+  {path: 'product', component: product }
 
 ],
 
@@ -60,6 +68,10 @@ var appRoutes: Routes =[
     BookingrequestComponent,
     UploadproductsComponent,
     BookingrComponent,
+    CartComponent,
+    NavBarComponent,
+    ProductDetailComponent,
+    product
   ],
   imports: [
     BrowserModule,
