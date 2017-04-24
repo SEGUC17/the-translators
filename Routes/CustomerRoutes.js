@@ -30,9 +30,13 @@ router.post("/customerView", function(request, res) {
   }
 });
 });
+//Customer views their booking requests
+router.get("/MyBookings", BookingController.ViewMyBookings);
 
 //Customer Submits Booking Request
-router.post("/BookingRequest", BookingController.createBooking);
-router.post("/CustomerProfile/edit",CustomerController.updateProfile);
+router.post("/bookingrequest", BookingController.createBooking);
+
+
+
 
 module.exports = router;
