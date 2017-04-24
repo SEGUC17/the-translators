@@ -10,8 +10,15 @@ var config = require('./config/database');
 
 //Connect To Database
 mongoose.connect(config.database);
+<<<<<<< HEAD
 mongoose.Promise = global.Promise;
 
+=======
+
+mongoose.Promise = global.Promise;
+
+
+>>>>>>> mariamyehia
 // On Connection
 mongoose.connection.on('connected', function() {
   console.log('Connected to database '+config.database);
@@ -55,6 +62,10 @@ app.get('*', function(req, res){
 });
 
 //initializing routes
+<<<<<<< HEAD
+=======
+
+>>>>>>> mariamyehia
 app.use(require('./Routes/GeneralRoutes.js'));
 app.use(require('./Routes/BusinessRoutes.js'));
 app.use(require('./Routes/CustomerRoutes.js'));

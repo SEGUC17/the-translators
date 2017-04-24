@@ -12,6 +12,11 @@ import {Router} from '@angular/router';
   templateUrl: './uploadproducts.component.html',
   styleUrls: ['./uploadproducts.component.css']
 })
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> mariamyehia
 export class UploadproductsComponent implements OnInit {
 
   prodname: String;
@@ -21,7 +26,11 @@ export class UploadproductsComponent implements OnInit {
   ProductDescription: String;
   Category: String;
   Quantity: Number;
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> mariamyehia
 
   constructor(private uploadproductsvalidateService: UploadproductsvalidateService, private flashMessage: FlashMessagesService, private authService: AuthService, private router: Router) { }
 

@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 var ProductSchema = mongoose.Schema({
 
   businessUserName:{
+<<<<<<< HEAD
     type: String,
     required: true,
     unique: true
@@ -38,6 +39,44 @@ var ProductSchema = mongoose.Schema({
     required: true
   }
 
+=======
+    type: String
+  },
+
+  prodname: {
+    type: String
+  },
+
+  prodID:{
+    type: String,
+    required: true,
+    unique: true
+  },
+
+  price: {
+    type:Number
+  },
+
+   image:{
+     type: Schema.Types.Mixed
+   },
+
+  ProductDescription: {
+    type: String
+  },
+
+  Category: {
+    type: String,
+    required: true
+  },
+
+  Quantity:{
+    type:Number,
+    required: true
+  }
+
+
+>>>>>>> mariamyehia
 });
 
 var UploadProducts = mongoose.model("uploadproducts", ProductSchema);

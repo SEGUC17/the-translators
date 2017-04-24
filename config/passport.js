@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 //initializing dependencies
+=======
+
+//initializing dependencies
+
+>>>>>>> mariamyehia
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 var config = require('../config/database');
@@ -8,6 +14,10 @@ var BusinessController = require('../Controllers/BusinessController');
 var CustomerController = require('../Controllers/CustomerController');
 
 //creating passport for login
+<<<<<<< HEAD
+=======
+
+>>>>>>> mariamyehia
 module.exports = function(passport){
     let opts = {};
 
@@ -38,4 +48,8 @@ module.exports = function(passport){
             }
         })
     }));
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> mariamyehia
