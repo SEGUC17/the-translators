@@ -1,47 +1,48 @@
-import { Component, OnInit } from '@angular/core';
-import { Products }  from '../../Products';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductValidateService } from '../../services/productvalidate.service';
- 
+import { Observable } from 'rxjs/Observable';
+
+import { Product } from './Product';
+import { ProductService } from './product.service';
+import { CartStore } from '../Cart/cart.store';
+
 @Component({
-  moduleId: module.id,
-  selector: 'app-product',
+  selector: 'product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit {
-  products: Products[];
-  businessUserName:string;
-  prodname: string;
-  prodID: string;
-  price: number;
-  Quantity:number;
-  image: string;
-  ProductDescription: string;
-  Category: string;
-  
 
-  constructor(private productValidateService: ProductValidateService,
-  private router: Router) {}
+export class product {
+  
+  products:Product[]; 
+  quantity: number;
+
+  // Angular will know to supply an instance of the ProductService & Router when it creates a new ProductComponent
+  // Because they are injected in the constructor
+  constructor (private productService:ProductService, private router:Router, private cartStore: CartStore) {
+
+  }
+
+  // Dynamic route for detail info when a product is clicked
+  clickedProduct(product) {
+    let link = ['/detail', product.id];
+    this.router.navigate(link);
+  }
+
+  // When add to cart button is clicked
+  addToCart(product) {
+    // this.productService.addToCart(product)
+    console.log(this.quantity)
+    this.cartStore.addToCart(product, this.quantity || 1)
+  }
+
+  getProductData() {     
+     this.productService.getProducts().then(products => this.products = products)
+  }
 
   ngOnInit() {
-    this.productValidateService.getProduct().subscribe(products => {
-      this.products=products;
-    })
+    // Get initial data from productService to display on the page
+    this.getProductData()
   }
-      updateProductStatus( products){
-        var Product = {
-            prodname: Product.prodname,
-            prodID: Product.prodID,
-            price: Product.price,
-            Quantity: Product.Quantity,
-            image: Product.image,
-            ProductDescription: Product.ProductDescription
-              };
-              this.productValidateService.updateProductStatus(Product).subscribe(data => {
-             Product.ProductDescription = Product.ProductDescription 
-         });
-              }
-    }
 
-
+}
