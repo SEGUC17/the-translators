@@ -6,10 +6,7 @@ var Schema = mongoose.Schema;
 var ProductSchema = mongoose.Schema({
 
   businessUserName:{
-<<<<<<< HEAD
     type: String,
-    required: true,
-    unique: true
   },//take input from login session
 
   prodname: {
@@ -74,9 +71,6 @@ var ProductSchema = mongoose.Schema({
     type:Number,
     required: true
   }
-
-
->>>>>>> mariamyehia
 });
 
 var UploadProducts = mongoose.model("uploadproducts", ProductSchema);
