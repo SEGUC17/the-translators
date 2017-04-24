@@ -5,8 +5,6 @@ var router = express.Router();
 var BusinessController = require("../Controllers/BusinessController");
 
 //var Business= require("../Models/BusinessModel");
-
-r
 router.post("/viewproducts", BusinessController.viewproducts);
 
 router.post("/updatedgymschedule", BusinessController.uploadGymSchedule);
