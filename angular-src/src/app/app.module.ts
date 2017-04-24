@@ -38,13 +38,14 @@ var appRoutes: Routes =[
   {path:'customerprofile', component: ProfileComponent},
   {path:'businessprofile', component: BusinessprofileComponent},
   {path:'subscribe', component: SubscribeComponent},  
-  {path:'booking', component: BookingrequestComponent},
+    {path:'bookingrequest', component: BookingrequestComponent}, //make sure to change the file path in the component
+  {path:'MyBookings', component: BookingComponent},
+  {path:'viewproducts', component: ProductComponent},
   {path:'uploadproducts', component: UploadproductsComponent},  
 
-  {path:'subscribe', component: SubscribeComponent},
 
-  {path:'uploadproducts', component: UploadproductsComponent},
-  {path:'booking', component: BookingrequestComponent}
+
+
 
 
 ],
@@ -63,8 +64,8 @@ var appRoutes: Routes =[
     BusinessprofileComponent,
     BookingrequestComponent,
     UploadproductsComponent,
-    UploadproductsComponent,
-    BookingrequestComponent,
+    BookingComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +74,8 @@ var appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [CustomervalidateService, BusinessvalidateService, AuthService, BookingvalidationService, UploadproductsvalidateService],
+  providers: [CustomervalidateService, BusinessvalidateService, AuthService, BookingvalidationService, BookingService, 
+   ProductValidateService , UploadproductsvalidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
