@@ -75,70 +75,51 @@ let BusinessController =
         });
     },
 
-viewproducts: function(req,res){
+  viewProducts: function(req, res) {
+        uploadproducts.find({user:req.user.username}, function(err, data) {
+              if (err) {
+              res.json("error");
+              return;
+              }
+              res.json({data});
+              });
+          },
+        updateProduct: function(req, res) {
+        var id = req.params.id;
+        uploadproducts.findOne({prodID:req.body.prodID}, function(err, productData) {
+              if (err) {
+              res.json("error");
+              return;
+              }
+              res.json(ProductData[0]);
+        });
 
-      uploadproducts.find({username:req.params.id},
-      function(err, result){
-        if(err)
-          { console.log('error in view products');
-              res.json(err.message);
-          }
-          else if(result){
-            res.render("viewproducts",{result});
-          }
-
-      });
-            res.render({result});
-          }
-
-      })
-  },
-// this function should allow the business owner to edit his already existing products
-  editproducts: function (req,res){
-
-      uploadproducts.find({'prodID': req.body.prodID},
-      function(error, document){
-        if(error)
-          { console.log('error in edit products');
-              document.json(error.message);
-          }
-          else if(document){
-            if(req.body.prodname == ""){
-              uploadproducts.update({prodname:req.body.prodname});
+        //put("/:id", function(req, res) {
+        //  var id = req.params.id;
+        //  var document = req.body;
+        
+        uploadproducts.findByIdAndUpdate(id, { prodname: document.prodname, price: document.price,
+            ProductDescription: document.ProductDescription, Quantity: document.Quantity, image: document.image }, 
+                    function(err) {
+                    if (err) {
+                    res.json("error");
+                    return;
+                    }
+                    res.json("updated");
+                    });
+        },
+        
+        removeProduct: function(req,res){
+        var id = req.params.id;
+        uploadproducts.findByIdAndRemove(id, function(err) {
+            if (err) {
+            res.json("error");
+            return;
             }
-            if(req.body.price ==null){
-              uploadproducts.update({price:req.body.price});
-            }
-            if(req.body.image==null){
-              uploadproducts.update({image:req.body.image});
-            }
-            if(req.body.ProductDescription==""){
-              uploadproducts.update({ProductDescription:req.body.ProductDescription});
-            }
-          };
-
-    }
-
-});
-  res.send("done");
-})
-},
-    removeproducts:function(req,res){
-      uploadproducts.findOne({'prodID': req.body.prodID},
-      function(error, document){
-        if(error)
-          { console.log('error in remove product');
-              res.json(error.message);
-          }
-          else if(document){
-              uploadproducts.deleteOne(document);
-              console.log(document);
-            }
-    });
-
-  },
-
- //Taking info from user to update
+            res.json("deleted");
+            });
+        },
+       //Taking info from user to update
     updateProfile:function(req,res){
         // creating an new user object if any of the attributes arent in the body
              
