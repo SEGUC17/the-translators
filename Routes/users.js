@@ -39,27 +39,6 @@ router.post('/register', function(req,res){
     });
 });
 
-//Upload Products Router
-router.post('/uploadproducts', function(req,res){
-    let newProduct = new ProductModel({
-        businessUserName: req.body.businessUserName, //has to be a gym logged in
-        prodname: req.body.prodname,
-        prodID: req.body.prodID,
-        price: req.body.price,
-        image: req.body.image,
-        ProductDescription: req.body.ProductDescription,
-        Category: req.body.Category,
-        Quantity: req.body.Quantity,
-    });
-    newProduct.save(function(err, resp) {
-        if(err){
-            res.json({success: false, msg:'Failed to upload product'});
-        } else {
-            res.json({success: true, msg:'uploaded product'});
-        }
-    });
-});
-
 //Subscribe Router
 router.post('/subscribe', function(req,res){
     let newBusiness = new BusinessModel({

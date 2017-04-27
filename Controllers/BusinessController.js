@@ -10,6 +10,19 @@ let updateController = require('../Controllers/updateController');
 //function to upload products
 let BusinessController =
 {
+    createproduct:function(req,res){
+    let prod = new Product(req.body);
+    prod.save(function(err, prod){
+      if(err){
+        res.send(err.message)
+        console.log(err);
+      }  else{
+        console.log(prod);
+        res.send('Products are uploaded');
+      }
+    })
+  },
+
   //this method is for business owners to upload schedule on their profile.
   uploadGymSchedule: function(req, res){
     Business.findOne({username: req.user.username},

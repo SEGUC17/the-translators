@@ -1149,7 +1149,7 @@ var UploadproductsComponent = (function () {
     UploadproductsComponent.prototype.onUploadproducts = function () {
         var _this = this;
         var product = {
-            businessUserName: this.businessUserName,
+            // businessUserName: this.businessUserName,
             prodname: this.prodname,
             prodID: this.prodID,
             price: this.price,
@@ -1166,7 +1166,7 @@ var UploadproductsComponent = (function () {
         this.authService.uploadProducts(product).subscribe(function (data) {
             if (data.success) {
                 _this.flashMessage.show('Your products are uploaded', { cssClass: 'alert-success', timeout: 3000 });
-                _this.router.navigate(['/dashboard']);
+                _this.router.navigate(['dashboard']);
             }
             else {
                 _this.flashMessage.show('Something went wrong re-upload your product', { cssClass: 'alert-danger', timeout: 3000 });
@@ -1423,7 +1423,7 @@ module.exports = "<h2 class=\"page-header\">Subscribe</h2>\n<form (submit)=\"onS
 /***/ 708:
 /***/ (function(module, exports) {
 
-module.exports = "<h2 class=\"page-header\">Add your products</h2>\n<form (submit)=\"onUploadproducts()\">\n  <div class=\"form-group\">\n    <label>Business Name:</label>\n    <input type=\"text\" [(ngModel)]=\"businessUserName\" name=\"businessUserName\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Name:</label>\n    <input type=\"text\" [(ngModel)]=\"prodname\" name=\"prodname\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>ID:</label>\n    <input type=\"text\" [(ngModel)]=\"prodID\" name=\"prodID\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Price:</label>\n    <input type=\"number\" [(ngModel)]=\"price\" name=\"price\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Image:</label>\n    <input type=\"file\" [(ngModel)]=\"image\" name=\"image\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Description:</label>\n    <input type=\"text\" [(ngModel)]=\"ProductDescription\" name=\"ProductDescription\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Category:</label>\n    <input type=\"text\" [(ngModel)]=\"Category\" name=\"Category\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Quantity:</label>\n    <input type=\"number\" [(ngModel)]=\"Quantity\" name=\"Quantity\" class=\"form-control\">\n  </div>\n  \n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>"
+module.exports = "<h2 class=\"page-header\">Add your products</h2>\n<form (submit)=\"onUploadproducts()\">\n  <div class=\"form-group\">\n    <label>Name:</label>\n    <input type=\"text\" [(ngModel)]=\"prodname\" name=\"prodname\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>ID:</label>\n    <input type=\"text\" [(ngModel)]=\"prodID\" name=\"prodID\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Price:</label>\n    <input type=\"number\" [(ngModel)]=\"price\" name=\"price\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Image:</label>\n    <input type=\"file\" [(ngModel)]=\"image\" name=\"image\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Description:</label>\n    <input type=\"text\" [(ngModel)]=\"ProductDescription\" name=\"ProductDescription\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Category:</label>\n    <input type=\"text\" [(ngModel)]=\"Category\" name=\"Category\" class=\"form-control\">\n  </div>\n  <div class=\"form-group\">\n    <label>Quantity:</label>\n    <input type=\"number\" [(ngModel)]=\"Quantity\" name=\"Quantity\" class=\"form-control\">\n  </div>\n  \n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>"
 
 /***/ }),
 

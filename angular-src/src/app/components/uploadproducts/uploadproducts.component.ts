@@ -15,7 +15,7 @@ import {Router} from '@angular/router';
 
 export class UploadproductsComponent implements OnInit {
 
-  businessUserName: String;
+  // businessUserName: String;
   prodname: String;
   prodID: String;
   price: Number;
@@ -31,7 +31,7 @@ export class UploadproductsComponent implements OnInit {
 
   onUploadproducts(){
     var product = {
-      businessUserName: this.businessUserName,
+      // businessUserName: this.businessUserName,
       prodname: this.prodname,
       prodID: this.prodID,
       price: this.price,
@@ -51,7 +51,7 @@ export class UploadproductsComponent implements OnInit {
    this.authService.uploadProducts(product).subscribe(data =>{
         if(data.success){
           this.flashMessage.show('Your products are uploaded', {cssClass: 'alert-success', timeout: 3000});
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['dashboard']);
         } else {
           this.flashMessage.show('Something went wrong re-upload your product', {cssClass: 'alert-danger', timeout: 3000});
           this.router.navigate(['/uploadproducts']);

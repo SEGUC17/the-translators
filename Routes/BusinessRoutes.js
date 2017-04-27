@@ -12,6 +12,7 @@ passport.authenticate('jwt' ,{session:false});
 
 router.post("/updatedgymschedule", BusinessController.uploadGymSchedule);
 
+router.post("/uploadproducts", BusinessController.createproduct);
 
 router.get("/viewproducts", BusinessController.viewProducts);
 router.put("/updateproducts", BusinessController.updateProduct);
