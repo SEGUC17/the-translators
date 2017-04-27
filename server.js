@@ -28,6 +28,7 @@ var users = require('./Routes/users');
 // CORS Middleware request for our api from different place
 app.use(cors());
 
+
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
