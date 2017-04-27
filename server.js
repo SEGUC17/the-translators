@@ -23,7 +23,6 @@ mongoose.connection.on('error', function(err){
 mongoose.Promise=global.Promise;
 
 var app = express();
-
 var users = require('./Routes/users');
 
 // CORS Middleware request for our api from different place
