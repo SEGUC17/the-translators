@@ -12,7 +12,7 @@ export class AuthService {
   bauthToken:any;
   customer:any;
   business: any;
- bookingrequest: any;
+  bookingrequest: any;
   product: any;
 
   constructor(private http: Http) { }

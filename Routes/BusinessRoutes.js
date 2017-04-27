@@ -17,9 +17,6 @@ router.get("/viewproducts", BusinessController.viewProducts);
 router.put("/updateproducts", BusinessController.updateProduct);
 router.delete("/removeproduct", BusinessController.removeProduct);
 
-
-router.post("/uploadproducts", BusinessController.createproduct);
-
 //Business Owner views Customers' booking requests
 router.get('/BusinessBookings', BookingController.ViewBusinessBookingList); //double check if i can use the functionality in router.get or not!
 //Business Owner changed the booking status of a specific booking requests

@@ -10,20 +10,6 @@ let updateController = require('../Controllers/updateController');
 //function to upload products
 let BusinessController =
 {
-
-  createproduct:function(req,res){
-    let prod = new Product(req.body);
-    prod.save(function(err, prod){
-      if(err){
-        res.send(err.message)
-        console.log(err);
-      }  else{
-        console.log(prod);
-        res.send('Products are uploaded');
-      }
-    })
-  },
-
   //this method is for business owners to upload schedule on their profile.
   uploadGymSchedule: function(req, res){
     Business.findOne({username: req.user.username},
@@ -56,15 +42,14 @@ let BusinessController =
     },
 
     //to add a new business in the database
-
-       addBusiness: function(newBusiness, callback){
-       bcrypt.genSalt(10, function(err, salt){
-            bcrypt.hash(newBusiness.Password, salt, function(err, hash){
-                if(err) throw err;
-                newBusiness.Password =hash;
-                newBusiness.save(callback);
-            })
-        });
+    addBusiness: function(newBusiness, callback){
+    bcrypt.genSalt(10, function(err, salt){
+        bcrypt.hash(newBusiness.Password, salt, function(err, hash){
+            if(err) throw err;
+            newBusiness.Password =hash;
+            newBusiness.save(callback);
+        })
+    });
     },
 
     //to verify password

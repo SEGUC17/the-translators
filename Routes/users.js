@@ -8,6 +8,7 @@ var config = require('../config/database');
 //importing models
 var BusinessModel = require('../Models/BusinessModel');
 var CustomerModel = require('../Models/CustomerModel');
+var ProductModel = require('../Models/ProductModel');
 
 //importing controllers
 var BusinessController = require('../Controllers/BusinessController');
@@ -40,7 +41,8 @@ router.post('/register', function(req,res){
 
 //Upload Products Router
 router.post('/uploadproducts', function(req,res){
-    let newProduct = new BusinessModel({
+    let newProduct = new ProductModel({
+        businessUserName: req.body.businessUserName, //has to be a gym logged in
         prodname: req.body.prodname,
         prodID: req.body.prodID,
         price: req.body.price,
@@ -49,15 +51,14 @@ router.post('/uploadproducts', function(req,res){
         Category: req.body.Category,
         Quantity: req.body.Quantity,
     });
-    BuisnessrController.addProducts(newProduct, function(err, product){
+    newProduct.save(function(err, resp) {
         if(err){
-            console.log(err);
             res.json({success: false, msg:'Failed to upload product'});
         } else {
-            res.json({success: true, msg:'Product Uploaded'});
+            res.json({success: true, msg:'uploaded product'});
         }
     });
-  });
+});
 
 //Subscribe Router
 router.post('/subscribe', function(req,res){
