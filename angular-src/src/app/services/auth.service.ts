@@ -51,7 +51,7 @@ export class AuthService {
       this.loadCToken();
       headers.append('Authorization', this.cauthToken);
      headers.append('Content-Type', 'application/json');
-     return this.http.get('http://localhost:8080/users/customerprofile', {headers: headers})
+     return this.http.get('users/customerprofile', {headers: headers})
       .map(res => res.json());
     }
 

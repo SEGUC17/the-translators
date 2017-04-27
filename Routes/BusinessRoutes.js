@@ -1,11 +1,14 @@
 //identifying dependencies
 var express = require("express");
 var router = express.Router();
+var passport = require('passport');
 
 var BookingController = require('../Controllers/BookingController');
 
 var BusinessController = require('../Controllers/BusinessController');
 var Business= require('../Models/BusinessModel');
+
+passport.authenticate('jwt' ,{session:false});
 
 router.post("/updatedgymschedule", BusinessController.uploadGymSchedule);
 

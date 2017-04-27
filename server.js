@@ -7,7 +7,6 @@ var path = require('path');
 var cors = require('cors');
 var config = require('./config/database');
 
-mongoose.Promise=global.Promise;
 //Connect To Database
 mongoose.connect(config.database);
 
@@ -20,6 +19,8 @@ mongoose.connection.on('connected', function() {
 mongoose.connection.on('error', function(err){
   console.log('Database error: '+err);
 });
+
+mongoose.Promise=global.Promise;
 
 var app = express();
 
@@ -59,6 +60,6 @@ app.use(require('./Routes/CustomerRoutes.js'));
 app.use(require('./Routes/VisitorRoutes.js'));
 
 //Start Server
-app.listen(process.env.Port, function(){
+app.listen(process.env.Port, function(){ 
   console.log("server is listening on port 8080");
 })

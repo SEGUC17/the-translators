@@ -1,10 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 
 var GeneralController = require('../Controllers/GeneralController');
 var BusinessController = require('../Controllers/BusinessController');
 
 var Business = require('../Models/BusinessModel');
+
+passport.authenticate('jwt' ,{session:false});
 
 router.get('/', function(req, res){
 	res.render('pages/HomePage');

@@ -13,6 +13,8 @@ var CustomerModel = require('../Models/CustomerModel');
 var BusinessController = require('../Controllers/BusinessController');
 var CustomerController = require('../Controllers/CustomerController');
 
+passport.authenticate('jwt' ,{session:false});
+
 //Register Router
 router.post('/register', function(req,res){
     let newCustomer = new CustomerModel({

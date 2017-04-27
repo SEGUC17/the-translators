@@ -1,10 +1,13 @@
 var express = require("express");
 var router = express.Router();
+var passport = require('passport');
 
 var CustomerController = require("../Controllers/CustomerController");
 var BookingController = require("../Controllers/BookingController");
 
 var Customer = require("../Models/CustomerModel");
+
+passport.authenticate('jwt' ,{session:false});
 
 router.get("/checkout", CustomerController.CheckoutSum);
 router.get("/viewcart", CustomerController.viewCart);

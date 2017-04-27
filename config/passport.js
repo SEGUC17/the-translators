@@ -15,7 +15,7 @@ module.exports = function(passport){
     opts.jwtFromRequest = ExtractJwt.fromAuthHeader();
     opts.secretOrKey = config.secret;
     passport.use(new JwtStrategy(opts, function(jwt_payload, done){
-        BusinessController.getBusinessById(jwt_payload.sub, function(err, business){
+        BusinessController.getBusinessById(jwt_payload._id, function(err, business){
             if(err){
                 return done(err, false);
             }
@@ -26,7 +26,7 @@ module.exports = function(passport){
             }
         })
 
-        CustomerController.getCustomerById(jwt_payload.sub, function(err, customer){
+        CustomerController.getCustomerById(jwt_payload._id, function(err, customer){
             if(err){
                 return done(err, false);
             }
