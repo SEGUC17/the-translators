@@ -24,7 +24,7 @@ let BusinessController =
     })
   },
 
-  
+
 
   //this method is for business owners to upload schedule on their profile.
   uploadGymSchedule: function(req, res){
@@ -58,6 +58,10 @@ let BusinessController =
     //to add a new business in the database
     addBusiness: function(newBusiness, callback){
        bcrypt.genSalt(10, function(err, salt){
+
+
+
+
             bcrypt.hash(newBusiness.Password, salt, function(err, hash){
                 if(err) throw err;
                 newBusiness.Password =hash;
@@ -73,7 +77,7 @@ let BusinessController =
             callback(null, isMatch);
         });
     },
-    
+
 viewproducts: function(req,res){
 
       uploadproducts.find({username:req.params.id},
@@ -143,7 +147,7 @@ viewproducts: function(req,res){
                 Email:req.decoded._doc.email,
                 GymName_location:req.body.GymName_location,
                 Address:req.body.Address,
-              //  BusinessUsername:req.body.BusinessUsername,
+               BusinessUsername:req.body.BusinessUsername,
                 Password:req.body.Password,
                 Description:req.body.Description,
                 PhoneNumber:req.body.PhoneNumber,
@@ -170,17 +174,6 @@ viewproducts: function(req,res){
             }
             //Updating the business
             updateController.updateProfile(incomingReq,res);
-
-            //redirecting to business view
-            Business.find({BusinessUsername :incomingReq.BusinessUsername}).toArray(function(err,result){
-             if(err){
-               throw err;
-             }
-             else
-             {
-               response.render('BusinessProfile/view'); // selected page
-          }
-          })
 
     }
 }

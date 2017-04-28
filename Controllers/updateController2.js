@@ -8,6 +8,7 @@
           //First, find this businessToUpdate in the database.
           if(!CustomerEmail){
             res.status(500).json("PLEASE ENTER AN EMAIL ")};
+
           CustomerDB.findOne({email:CustomerEmail},function(err,customerInDB){
 
               if(err)

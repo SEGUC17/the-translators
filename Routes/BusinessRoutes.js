@@ -5,6 +5,9 @@ var router = express.Router();
 var BusinessController = require('../Controllers/BusinessController');
 
 var Business= require('../Models/BusinessModel');
+//updating a business profile
+router.post('/gymDetailsUpdate',BusinessController.updateProfile);
+
 
 router.post('/updatedgymschedule', BusinessController.uploadGymSchedule);
 
