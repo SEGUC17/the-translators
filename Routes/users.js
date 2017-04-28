@@ -15,7 +15,9 @@ var CustomerController = require('../Controllers/CustomerController');
 
 //Register Router
 router.post('/register', function(req,res){
+  console.log("dakhal1");
     let newCustomer = new CustomerModel({
+
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         age: req.body.age,
@@ -29,14 +31,16 @@ router.post('/register', function(req,res){
     CustomerController.addCustomer(newCustomer, function(err, customer){
         if(err){
             console.log(err);
+            console.log("dakhal2");
             res.json({success: false, msg:'Failed to register user'});
         } else {
+          console.log("dakhal3");
             res.json({success: true, msg:'User Registered'});
         }
     });
 });
 
-//Subscribe Router 
+//Subscribe Router
 router.post('/subscribe', function(req,res){
     let newBusiness = new BusinessModel({
             GymName_location: req.body.GymName_location,
@@ -87,10 +91,10 @@ router.post('/customerauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   customer:{ 
-                       id: customer._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   customer:{
+                       id: customer._id,
                        username: customer.username
                     }
                 });
@@ -119,10 +123,10 @@ router.post('/businessauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   business:{ 
-                       id: business._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   business:{
+                       id: business._id,
                        username: business.BusinessUsername
                     }
                 });
@@ -171,7 +175,7 @@ router.post('/register', function(req,res){
     });
 });
 
-//Subscribe Router 
+//Subscribe Router
 router.post('/subscribe', function(req,res){
     let newBusiness = new BusinessModel({
             GymName_location: req.body.GymName_location,
@@ -222,10 +226,10 @@ router.post('/customerauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   customer:{ 
-                       id: customer._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   customer:{
+                       id: customer._id,
                        username: customer.username
                     }
                 });
@@ -254,10 +258,10 @@ router.post('/businessauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   business:{ 
-                       id: business._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   business:{
+                       id: business._id,
                        username: business.BusinessUsername
                     }
                 });
@@ -306,7 +310,7 @@ router.post('/register', function(req,res){
     });
 });
 
-//Subscribe Router 
+//Subscribe Router
 router.post('/subscribe', function(req,res){
     let newBusiness = new BusinessModel({
             GymName_location: req.body.GymName_location,
@@ -357,10 +361,10 @@ router.post('/customerauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   customer:{ 
-                       id: customer._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   customer:{
+                       id: customer._id,
                        username: customer.username
                     }
                 });
@@ -389,10 +393,10 @@ router.post('/businessauthenticate', function(req,res){
                });
 
                res.json({
-                   success: true, 
-                   token: 'JWT' + token, 
-                   business:{ 
-                       id: business._id, 
+                   success: true,
+                   token: 'JWT' + token,
+                   business:{
+                       id: business._id,
                        username: business.BusinessUsername
                     }
                 });

@@ -3,6 +3,15 @@ var mongoose = require('mongoose');
 //Customer Schema
 var CustomerSchema = mongoose.Schema({
 
+
+
+
+  username:{
+    type:String,
+    required:true,
+    unique:true
+},
+
   firstname:{
     type:String,
     required:true
@@ -18,11 +27,7 @@ var CustomerSchema = mongoose.Schema({
     required:true
   },
 
-  username:{
-    type:String,
-    required:true,
-    unique:true
-},
+
 
   email:{
     type: String,
@@ -40,7 +45,7 @@ var CustomerSchema = mongoose.Schema({
     required:true
 },
   gender:{
-    type:Boolean,
+    type:String,
     required:true
 },
 shoppingcart:{

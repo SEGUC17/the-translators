@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
-var UUID = require("node-uuid");
+//var UUID = require("node-uuid");
 
 //Schema for client's booking
 
 var BookingSchema = mongoose.Schema({
 
     User_ID: {type: String, default:function getUUID(){
-        return UUID.v4();
+      //  return UUID.v4();
     }},
 
     CustomerUsername: {

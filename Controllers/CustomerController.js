@@ -73,7 +73,7 @@ let customerController = {
     }
     res.json(sum);
   },
-  
+
 shoppingPage: function(req,res){
 
       uploadproducts.find(
@@ -144,6 +144,7 @@ shoppingPage: function(req,res){
              // it wont update in the updateController
 
             let incomingReq = new Customer({
+              username:req.body.username,
                 email:req.body.email,
                 firstname:req.body.firstname,
                 lastname:req.body.lastname,
@@ -152,19 +153,10 @@ shoppingPage: function(req,res){
                 mobilenumber:req.body.mobilenumber,
                 gender:req.body.gender,
             });
-            
+
             updateController2.updateProfile(incomingReq,res);
 
-            //redirecting to customer view
-            Customer.find({username :incomingReq.username}).toArray(function(err,result){ //hena 3ashan a3mel redirect hadawar 3ala username
-             if(err){
-               throw err;
-             }
-             else
-             {
-               response.render('CustomerProfile/view'); // selected page
-          }
-          })
+
 
     }
     //This function takes in the desired user's email, an views all relevant information.

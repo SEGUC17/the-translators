@@ -27,12 +27,12 @@ router.get('/shoppingpage', CustomerController.shoppingPage);
 router.get('/addToCart', CustomerController.addToCart);
 router.post('/removeFromCart', CustomerController.removeFromCart);
 router.get("/BookingRequest", function(req, res){
-  res.render('pages/BookingPage'); 
+  res.render('pages/BookingPage');
 });
 
-router.get('/CustomerProfile/edit',function (req,res){
-  res.render('pages/updatprofilecustomers');
-});
+//IF I WANT TO UPDATE A CUSTOMER'S DETAILS
+router.post('/editCustomerDetails',CustomerController.updateProfile);
+
 
 
 router.post('/customerView', function(request, res) {
