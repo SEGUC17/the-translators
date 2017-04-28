@@ -7,7 +7,7 @@ VisitorViewGymPage:function(req, res){
 	Gym.findOne({ _GymName_location : req.params.GymName_location },function(err, query){
 
 		 if(err){
-			 console.log("this Gym doesnot exist ");
+			 res.json("this Gym does not exist ");
 		 }else if (query) {
 
 			res.json({query});

@@ -21,11 +21,9 @@ Gym.findOne({ _GymName_location : req.params.GymName_location  },function(err, q
  
  ReviewandRatePage: function(request, res) {
 //review and rate page
-
-   var review =request.body.GymReview; 
-  //  var user = user.username; 
+   var review =request.body.GymReview;  
  // check if the gym is in the database or not
-    Gym.findOne({ _GymName_location : req.params.GymName_location } , function (err , user)
+    Gym.findOne({ _GymName_location : request.params.GymName_location } , function (err , user)
     {
       if (err)
       {
@@ -34,7 +32,7 @@ Gym.findOne({ _GymName_location : req.params.GymName_location  },function(err, q
       }
       else if (request.user)
       {
-           //update the comment in the Gymreview array and prevent the duplication of the comments in the database
+           //update the comment in the Gym review array and prevent the duplication of the comments in the database
      Gym.update({ $addToSet:{ GymReview: review } },function (err , user)
     {
       if (err)
