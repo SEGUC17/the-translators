@@ -141,7 +141,7 @@ var UploadproductsvalidateService = (function () {
     function UploadproductsvalidateService() {
     }
     UploadproductsvalidateService.prototype.validateProducts = function (user) {
-        if (user.prodname == undefined || user.prodID == undefined || user.price == undefined || user.Category == undefined || user.Quantity == undefined) {
+        if (user.businessUserName == undefined || user.prodname == undefined || user.prodID == undefined || user.price == undefined || user.Category == undefined || user.Quantity == undefined) {
             return false;
         }
         else {

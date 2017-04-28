@@ -7,6 +7,8 @@ var ProductSchema = mongoose.Schema({
 
   businessUserName:{
     type: String,
+    required: true, 
+    unique: true
   },
 
   prodname: {

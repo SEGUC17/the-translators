@@ -7,7 +7,7 @@ export class UploadproductsvalidateService {
 
   
   validateProducts(user){
-    if(user.prodname == undefined || user.prodID == undefined || user.price == undefined || user.Category == undefined || user.Quantity == undefined){
+    if(user.businessUserName == undefined || user.prodname == undefined || user.prodID == undefined || user.price == undefined || user.Category == undefined || user.Quantity == undefined){
       return false;
     } else {
       return true;
