@@ -95,7 +95,7 @@ export class AuthService {
     storeProductData(token, product){
       localStorage.setItem('id_token', token);
       localStorage.setItem('product', JSON.stringify(product));
-      this.cauthToken = token;
+      this.bauthToken = token;
       this.product = product;
     }
 

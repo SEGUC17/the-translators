@@ -74,12 +74,13 @@ let BusinessController =
     },
 
   viewProducts: function(req, res) {
-        uploadproducts.find({user:req.user.username}, function(err, data) {
+      console.log(req.Business.BusinessUsername);
+        uploadproducts.find({user:req.parms.BusinessUsername}, function(err, data) {
               if (err) {
               res.json("error");
               return;
               }
-              res.json({data});
+              res.json({Product});
               });
           },
         updateProduct: function(req, res) {
