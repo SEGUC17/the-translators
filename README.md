@@ -9,4 +9,4 @@
         $nodemon
 
 #deployed at 
-https://gymplatform.herokuapp.com/
+https://gymplatform.herokuapp.com/ 
