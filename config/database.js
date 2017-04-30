@@ -1,5 +1,5 @@
 //Mongoose database
 module.exports = {
-  database: 'mongodb://saraalawadim:gingersnaps22@ds051595.mlab.com:51595/gymplatformgit',
+  database: 'mongodb://hanna.maamoun:gymplatform2017@ds127341.mlab.com:27341/gymplatform',
   secret: 'secret'
 }
