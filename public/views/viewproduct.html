@@ -1,0 +1,38 @@
+<div>
+    <center>
+        <h1>Products</h1>
+        <br>
+        <table cellspacing="10" width="564" style="background-color:whitesmoke">
+            <div>
+                <center>
+                    <tr>
+                    <th>Product Name</th>
+                    <th>Product ID</th>
+                    <th>Price</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+
+
+                </tr>
+                </tr>
+                    </tr>
+                    <tr>
+                        <tr ng-repeat="product in Products">
+                           
+                            <td>{{product.prodname}}</td>
+                            <td>{{product.prodID}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.ProductDescription}}</td>                            
+                            <td>{{product.Category}}</td>
+                            <td>{{product.Quantity}}</td>
+                            <td><button  type="button"class="button" style="vertical-align:middle"><span> <p><b>Edit</b></p></span></span></button></td>
+                            <td><button  type="button"class="button" style="vertical-align:middle"><span> <p><b>Delete</b></p></span></span></button></td>
+                </center>
+        </table>
+        <div>
+    </center>
+    </div>

@@ -1,0 +1,29 @@
+<div>
+    <center>
+        <h1>Bookings</h1>
+        <br>
+        <table cellspacing="15" width="564" style="background-color:whitesmoke">
+            <div>
+                <center>
+                    <tr>
+                    <th>Customer username</th>
+                    <th>Gym Name Location</th>
+                    <th>Class </th> 
+                    <th>Time </th>
+                    <th>Date </th>
+                    <th>Confirmation Status </th>
+                </tr>
+                    <tr>
+                        <tr ng-repeat="booking in Bookings">
+                            <!--<td>{{booking.User_ID}}</td>-->
+                            <td>{{booking.CustomerUsername}}</td>
+                            <td>{{booking.GymNameLocation}}</td>
+                            <td>{{booking.selectedClass}}</td>
+                            <td>{{booking.selectedTime}}</td>
+                            <td>{{booking.selectedDate}}</td>
+                            <td>{{booking.ConfirmationStatus}}</td>                            
+                </center>
+        </table>
+        <div>
+    </center>
+    </div>
