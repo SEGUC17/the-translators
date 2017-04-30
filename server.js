@@ -23,7 +23,6 @@ mongoose.connection.on('error', function(err){
 mongoose.Promise=global.Promise;
 
 var app = express();
-var users = require('./Routes/users');
 
 // CORS Middleware request for our api from different place
 app.use(cors());
@@ -42,7 +41,6 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
-app.use('/users', users);
 
 // Index Route
 app.get('/', function(req, res){
