@@ -6,7 +6,7 @@ var passport = require('passport');
 var path = require('path');
 var cors = require('cors');
 
-//var config = require('./config/database');
+var config = require('./config/database');
 
 //Connect To Database
 mongoose.connect("mongodb://localhost:27017/GymPlatform");
