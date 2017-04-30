@@ -5,18 +5,17 @@ var eventsCache = require('eventcache');
 var passport = require('passport');
 var path = require('path');
 var cors = require('cors');
-
 var config = require('./config/database');
 
 //Connect To Database
-mongoose.connect("mongodb://localhost:27017/GymPlatform");
+mongoose.connect(config.database);
 
-//On Connection
+// On Connection
 mongoose.connection.on('connected', function() {
   console.log('Connected to database '+config.database);
 });
 
-//On Error
+// On Error
 mongoose.connection.on('error', function(err){
   console.log('Database error: '+err);
 });
@@ -24,7 +23,7 @@ mongoose.connection.on('error', function(err){
 mongoose.Promise=global.Promise;
 
 var app = express();
-//var users = require('./Routes/users');
+var users = require('./Routes/users');
 
 // CORS Middleware request for our api from different place
 app.use(cors());
@@ -43,7 +42,7 @@ app.use(passport.session());
 
 require('./config/passport')(passport);
 
-//app.use('/users', users);
+app.use('/users', users);
 
 // Index Route
 app.get('/', function(req, res){
