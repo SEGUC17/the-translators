@@ -53,7 +53,7 @@ router.post('/customerView', function(request, res) {
 
 //Customer Submits Booking Request
 router.post("/BookingRequest", BookingController.createBooking);
-router.post('/CustomerProfile/edit',CustomerController.updateProfile);
+
 router.post("/BookingRequest", BookingController.createBooking);
 
 module.exports = router;

@@ -42,6 +42,7 @@ router.post('/register', function(req,res){
 
 //Subscribe Router
 router.post('/subscribe', function(req,res){
+  console.log("dakhal subcribe");
     let newBusiness = new BusinessModel({
             GymName_location: req.body.GymName_location,
             Address: req.body.Address,

@@ -144,14 +144,14 @@ shoppingPage: function(req,res){
              // it wont update in the updateController
 
             let incomingReq = new Customer({
-              username:req.body.username,
-                email:req.body.email,
-                firstname:req.body.firstname,
-                lastname:req.body.lastname,
-                age:req.body.age,
-                password:req.body.password,
-                mobilenumber:req.body.mobilenumber,
-                gender:req.body.gender,
+              email:req.body.params.email,
+              username:req.body.params.username,
+               firstname:req.body.params.firstname,
+              lastname:req.body.params.lastname,
+                age:req.body.params.age,
+                password:req.body.params.password,
+               mobilenumber:req.body.params.mobilenumber,
+                gender:req.body.params.gender,
             });
 
             updateController2.updateProfile(incomingReq,res);

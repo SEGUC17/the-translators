@@ -144,16 +144,16 @@ viewproducts: function(req,res){
              // it wont update in the updateController
 
             let incomingReq = new Business({
-                Email:req.decoded._doc.email,
-                GymName_location:req.body.GymName_location,
-                Address:req.body.Address,
-               BusinessUsername:req.body.BusinessUsername,
-                Password:req.body.Password,
-                Description:req.body.Description,
-                PhoneNumber:req.body.PhoneNumber,
-                BankName:req.body.BankName,
-                AccountNumber:req.body.AccountNumber,
-                Description:req.body.Description
+                Email:req.body.params.Email,
+                 GymName_location:req.body.params.GymName_location,
+                 Address:req.body.params.Address,
+               BusinessUsername:req.body.params.BusinessUsername,
+               Password:req.body.params.Password,
+                Description:req.body.params.Description,
+                PhoneNumber:req.body.params.PhoneNumber,
+                BankName:req.body.params.BankName,
+                AccountNumber:req.body.params.AccountNumber,
+                Description:req.body.params.Description
 
             });
             //For schedule only

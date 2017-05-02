@@ -7,12 +7,15 @@
           var CustomerEmail = customerToUpdate.email;
           //First, find this businessToUpdate in the database.
           if(!CustomerEmail){
-            res.status(500).json("PLEASE ENTER AN EMAIL ")};
+        return    res.status(500).json({message:"PLEASE ENTER AN EMAIL "});
+
+      };
 
           CustomerDB.findOne({email:CustomerEmail},function(err,customerInDB){
 
               if(err)
               {//Didnt find a customer with a the given email to update
+                console.log("dakhel 3nd not correct email");
                   res.status(500).json("PLEASE ENTER A CORRECT EMAIL ");
               }else{//CustomerDB found. Check all given parameters, if given, change it.
                   if(customerInDB)
@@ -50,16 +53,19 @@
                       {
                           customerInDB.gender = customerToUpdate.gender;
                       }}else{
-                          res.status(500).json('CANNOT FIND A USER BY THAT EMAIL');
+                         res.status(500).json({ message: "CANNOT FIND A REGIESTERED ACCOUNT FOR THIS EMAIL" });
+                         return ;
                       }
 
                       customerInDB.save(function(err,updatedCustomer){  // SAVING FUNCTION
                           if(err)
                           {
-                              res.status(500).json('CANNOT SAVE UPDATED OBJECT IN CUSTOMER DB');
+
+                              res.status(500).json({ success: false, message: "CANNOT SAVE UPDATED OBJECT IN CUSTOMER DB" });
                           }else{
-                            console.log("dakhal final ");
-                              res.status(200).json(updatedCustomer); }
+                            //console.log("dakhal final ");
+                              res.status(200).json({ success: true, message: "UPDATED CUSTOMER SUCCESSFULLY",updatedCustomer });
+                            }
 
           })
       }

@@ -18,6 +18,8 @@
     "passport": "^0.3.2",
     "nodemon": "^1.11.0",
     "passport-jwt": "^2.2.1"
+
+  
   },
   "author": "",
   "license": "ISC"

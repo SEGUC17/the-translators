@@ -1,15 +1,28 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>GymPlatform</title>
-  <link rel="stylesheet" href="http://bootswatch.com/sandstone/bootstrap.min.css">
-  <base href="/">
+<!DOCTYPE html>
+<html ng-app="seProject">
+	<head>
+		<title>GymPlatform</title>
+		<link rel="stylesheet" type="text/css" href="css/materialize.css" media="screen,projection"/>
+	</head>
+	<body>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-</head>
-<body>
-  <app-root>Loading...</app-root>
-<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+		<div ng-view></div>
+		<!-- <h1 class="red-text">I'm working</h1> -->
+
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/angular-route.min.js"></script>
+		<script type="text/javascript" src="js/materialize.js"></script>
+		<!--<script type="text/javascript" src="js/materialize.min.js"></script>-->
+		<script type="text/javascript" src="core.js"></script>
+
+		<!-- Angular Controllers -->
+
+        <script type="text/javascript" src="controllers/updateUserProfileCtrl.js"></script>
+
+
+
+
+
+	</body>
 </html>

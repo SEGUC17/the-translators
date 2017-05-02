@@ -9,6 +9,10 @@ var Business= require('../Models/BusinessModel');
 router.post('/gymDetailsUpdate',BusinessController.updateProfile);
 
 
+
+//for testing purposes: adding a gym to check if the controlelr updates it successfully
+router.post('/addGym',BusinessController.addBusiness);
+
 router.post('/updatedgymschedule', BusinessController.uploadGymSchedule);
 
 router.post('/editproducts', BusinessController.editproducts);
