@@ -60,6 +60,6 @@ app.use(require('./Routes/CustomerRoutes.js'));
 app.use(require('./Routes/VisitorRoutes.js'));
 
 //Start Server
-app.listen(process.env.Port || 8080, function(){ 
-  console.log("server is listening on port 8080");
-})
+app.listen(process.env.PORT || 8080, function(){
+  console.log("server is listening on port 8080", this.address().port, app.settings.env);
+});
