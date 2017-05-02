@@ -1,0 +1,33 @@
+<html>
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    </head>
+
+        <body>
+    <form action="/charge" method="POST">
+     <div class="card" style="width: 40rem;">
+  <img class="card-img-top" src="../public/iphonered.jpg" alt="Card image cap">
+  <div class="card-block">
+    <h4 class="card-title">Iphone 7 </h4>
+    <p class="card-text">	Every purchase contributes to the Global Fund to support HIV/AIDS programs and help deliver an AIDS-free generation.</p>
+  <script 
+    src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button"
+    data-key = "pk_test_i6veODaVUVEsRWDggUEW8Lvt"
+    data-amount = "75000"
+    data-name = "Iphone 7"
+    data-description = "red edition"
+    data-locale = "auto"
+    data-currency = "usd"
+    >
+        
+    </script>
+  </div>
+</div>            
+    
+    <input type="hidden" name="chargeAmount" value="75000">
+    </form>
+
+    </body>
+</html>
