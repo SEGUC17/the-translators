@@ -23,21 +23,20 @@ let VisitorController =  {
 		})
 	},
 
-	VisitorViewGymPage:function(request, response){
 
-		Gym.find(function (err, query) {
+ // view gym page
+	VisitorViewGymPage:function(request, response){
+    // check if the gym  is in the database or not 
+		Gym.findOne({_GymName_location : request.params.GymName_location},function (err, query) {
   if (err){
-    console.log( err.message);
+   res.json("this Gym Does not exists ");
   }
   else if(query){
-    console.log(query);
+   res.json({query});
     console.log('did it');
-  } else {
-    console.log("Error in second query");
-  }
- });
+  } 
+});
 }
 }
 
- // selected gym page
 module.exports = VisitorController;

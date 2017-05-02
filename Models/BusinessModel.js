@@ -55,9 +55,9 @@ var BusinessSchema = mongoose.Schema({
 
   ProdList: Array,
   
-  GymReview: Array,
+  GymReview: String,
         
-  GymRating: Array
+  GymRating: Number
 
 })
 

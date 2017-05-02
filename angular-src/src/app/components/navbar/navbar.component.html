@@ -23,9 +23,20 @@
         <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/businesslogin']">Business Login</a></li>
         <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/register']">Register</a></li>
         <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/subscribe']">Subscribe</a></li>
-        <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/booking']">Booking</a></li>
-        <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/uploadproducts']">Upload Products</a></li>
-        <li *ngIf="authService.loggedIn()"><a (click)="onLogOutClick()" href="#">Logout</a></li>
+        <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/booking']">Booking</a></li>
+        <li *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/uploadproducts']">Upload Products</a></li>
+        <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]="['/reviewandrate']">Review and Rate</a></li>
+        <li *ngIf="!authService.loggedIn()"><a (click)="onLogOutClick()" href="#">Logout</a></li>
+      <li>
+          <a routerLink="/cart"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span></a>
+        </li>
+         <li>
+          <div *ngIf="totalPrice">
+            <div class="thumbnail price">
+              <strong>Total Items: </strong><span class="badge">{{ totalQuantity }}</span> <strong>Total Price: ${{ totalPrice }}</strong>
+            </div>
+          </div>
+        </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

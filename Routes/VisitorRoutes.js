@@ -12,6 +12,6 @@ router.get('/VisitorView', function(req,res){
 })
 
 router.post('/Customer', VisitorController.createregister);
-router.get('/VisitorView', VisitorController.VisitorViewGymPage);
+router.get('/visitorView', VisitorController.VisitorViewGymPage);
 
 module.exports = router;

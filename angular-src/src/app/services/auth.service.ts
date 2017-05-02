@@ -14,13 +14,57 @@ export class AuthService {
   business: any;
   bookingrequest: any;
   product: any;
+  reviewandrate: any;
 
   constructor(private http: Http) { }
+
+shoppingPage(){
+      let headers = new Headers();
+      this.loadBToken();
+      headers.append('Authorization', this.bauthToken);
+     headers.append('Content-Type', 'application/json');
+     return this.http.get('http://localhost:8080/shoppingpage', {headers: headers})
+      .map(res => res.json());
+    }
+
+  viewcart(){
+      let headers = new Headers();
+      this.loadBToken();
+      headers.append('Authorization', this.bauthToken);
+     headers.append('Content-Type', 'application/json');
+     return this.http.get('http://localhost:8080/viewcart', {headers: headers})
+      .map(res => res.json());
+    }
+
+    addToCart(product){
+      let headers = new Headers();
+      this.loadBToken();
+      headers.append('Authorization', this.bauthToken);
+     headers.append('Content-Type', 'application/json');
+       return this.http.post('http://localhost:8080/addToCart', product, {headers: headers})
+      .map(res => res.json());
+    }
+
+   removeFromCart(product){
+      let headers = new Headers();
+      this.loadBToken();
+      headers.append('Authorization', this.bauthToken);
+     headers.append('Content-Type', 'application/json');
+       return this.http.post('http://localhost:8080/removeFromCart', product, {headers: headers})
+      .map(res => res.json());
+    } 
 
    registerCustomer(customer){
      let headers = new Headers();
      headers.append('Content-Type', 'application/json');
      return this.http.post('users/register', customer, {headers: headers})
+      .map(res => res.json());
+    }
+
+    reviewandRate(reviewandrate){
+      let headers = new Headers();
+     headers.append('Content-Type', 'application/json');
+     return this.http.post('customerview', reviewandrate, {headers: headers})
       .map(res => res.json());
     }
 

@@ -12,27 +12,13 @@ passport.authenticate('jwt' ,{session:false});
 router.get("/checkout", CustomerController.CheckoutSum);
 router.get("/viewcart", CustomerController.viewCart);
 
-router.get("/CustomerView", CustomerController.ReviewandRatePage);
+router.post("/customerview", CustomerController.ReviewandRatePage);
 
 
 router.get("/shoppingpage", CustomerController.shoppingPage);
 router.get("/addToCart", CustomerController.addToCart);
 router.post("/removeFromCart", CustomerController.removeFromCart);
-router.post("/customerView", function(request, res) {
 
-  var review = request.body.ReviewComment;
-  Gym.update({ "$push": { "GymReview": review } },function (err,result){
-  if(err)
-  {
-    throw err;
-  }
-  else {
-    console.log("review added successfully");
-    res.render("pages/CustomerView");
-
-  }
-});
-});
 //Customer views their booking requests
 router.get("/MyBookings", BookingController.ViewMyBookings);
 

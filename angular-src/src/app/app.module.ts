@@ -17,14 +17,21 @@ import { SubscribeComponent } from './components/subscribe/subscribe.component';
 import { BookingComponent } from './components/booking.component';
 import {BookingrequestComponent} from './components/bookingrequest/bookingrequest.component';
 import {UploadproductsComponent } from './components/uploadproducts/uploadproducts.component';
+import { ReviewandrateComponent } from './components/reviewandrate/reviewandrate.component';
+import { VisitorComponent } from './components/visitor.component';
 
 import { CustomervalidateService } from './services/customervalidate.service';
 import { BookingvalidationService } from './services/bookingvalidation.service';
 import { BusinessvalidateService } from './services/businessvalidate.service';
 import { UploadproductsvalidateService  } from './services/uploadproductsvalidate.service';
 import { AuthService } from './services/auth.service';
+import { ReviewandrateService  } from './services/reviewandrate.service';
 
 import {FlashMessagesModule} from 'angular2-flash-messages';
+
+import {CartComponent} from './components/ShoppingCart/Cart/cart.component';
+import {ProductComponent} from './components/ShoppingCart/Product/product.component';
+import {ProductDetailComponent} from './components/ShoppingCart/ProductDetail/product-detail.component';
 
 var appRoutes: Routes =[
   {path:'', component: HomeComponent},
@@ -38,8 +45,14 @@ var appRoutes: Routes =[
   {path:'bookingrequest', component: BookingrequestComponent},
    {path:'MyBookings', component: BookingComponent},
   {path:'uploadproducts', component: UploadproductsComponent},  
-
+  {path: 'reviewandrate', component: ReviewandrateComponent},
   {path:'subscribe', component: SubscribeComponent},
+  {path:'app-root', component: AppComponent},
+  {path: 'app-navbar', component: NavbarComponent},
+    {path: 'cart', component: CartComponent},
+    {path: 'product', component: ProductComponent},
+    {path: 'product-detail', component: ProductDetailComponent},
+    {path: 'visitorView', component: VisitorComponent},
 ]
 
 @NgModule({
@@ -56,7 +69,12 @@ var appRoutes: Routes =[
     BusinessprofileComponent,
     BookingrequestComponent,
     UploadproductsComponent,
-    BookingComponent
+    BookingComponent,
+    ReviewandrateComponent,
+    CartComponent,
+    ProductComponent,
+    ProductDetailComponent,
+    VisitorComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +83,7 @@ var appRoutes: Routes =[
     RouterModule.forRoot(appRoutes),
     FlashMessagesModule
   ],
-  providers: [CustomervalidateService, BusinessvalidateService, AuthService, BookingvalidationService, UploadproductsvalidateService],
+  providers: [CustomervalidateService, BusinessvalidateService, AuthService, BookingvalidationService, UploadproductsvalidateService, ReviewandrateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -124,26 +124,39 @@ shoppingPage: function(req,res){
         });
     },
 
-  ReviewandRatePage: function(request, res) {
-    //console.log(request.user.BusinessUsername); // retrieve name from databse
-    //var User = request.user.BusinessUsername;
-    Gym.findOne({GymName_location : request.body.GymName_location } , function (err , user)
-    {
-      if (err)
-      {
-        res.send(err.message);
-      }
-      else if (user)
-      {
-        user.GymReview.unshift(request.body.review);
-      }
-    })
-        //res.send("please leave a comment ");
-    },
- // review and rate page
+    ReviewandRatePage: function(request, res) {
+    //review and rate page
+      var review =request.body.GymReview;  
+    // check if the gym is in the database or not
+        Gym.findOne({} , function (err , user)
+        {
+          if (err)
+          {
+            console.log("error");
+            res.json("this Gym does not exist");
+          }
+          else if (request.Customer.username)
+          {
+            //update the comment in the Gym review array and prevent the duplication of the comments in the database
+            Gym.update({ $addToSet:{ GymReview: review } },function (err , user)
+            {
+              if (err)
+              {
+                res.json(" error can not add the review ");
+              }
+              else{
+                res.json(" review added successfully !!");}
+
+              }); 
+            }
+            else {
+              res.json(" you have to loggin first before make a comment "); 
+            }
+      });
+      },
 
   //Taking info from user to update
-    updateProfile:function(req,res){
+    updateProfile: function(req,res){
         // creating an new user object if any of the attributes arent in the body
              // it wont update in the updateController
 
